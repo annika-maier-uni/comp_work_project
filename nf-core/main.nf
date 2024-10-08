@@ -45,9 +45,9 @@ workflow little_RNASEQ {
     Channel
         .fromPath("C:\Users\tabat\MasterBioinformatik\Semester3\ComputationalWorkflows\Project\comp_work_project\nf-core\assets\samplesheet.csv")
         .splitCsv(header: true)
-            .map {row -> [["sample": row.sample, "strandedness": row.strandedness], [file(row.fastq_1), file(row.fastq_2)]]}
-            .groupTuple()
-            .set{ ch_fastq }
+        .map {row -> [["sample": row.sample, "strandedness": row.strandedness], [file(row.fastq_1), file(row.fastq_2)]]}
+        .groupTuple()
+        .set{ ch_fastq }
 
     //
     // Run RNA-seq FASTQ preprocessing subworkflow
