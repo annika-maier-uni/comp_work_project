@@ -1,2 +1,2 @@
 sample,fastq_1,fastq_2,strandedness
-SRX19144486_SRR23195516,/home/tabea/ComputationalWorkflows/Tag2/SRA_files/fastq/SRX19144486_SRR23195516_1.fastq.gz,/home/tabea/ComputationalWorkflows/Tag2/SRA_files/fastq/SRX19144488_SRR23195511_1.fastq.gz,auto
+SRR6357070,nf-core\data\SRR6357070_1.fastq.gz,nf-core/data/SRR6357070_2.fastq.gz,auto
