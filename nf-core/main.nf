@@ -65,7 +65,7 @@ workflow little_RNASEQ {
     // samples, and if we haven't already made one elsewhere
     salmon_index_available = params.salmon_index || (!params.skip_pseudo_alignment && params.pseudo_aligner == 'salmon')
 
-    FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS (
+    FASTQ (
         ch_fastq,
         ch_fasta,
         ch_transcript_fasta,
@@ -100,6 +100,48 @@ workflow little_RNASEQ {
             meta, num_reads ->
                 return [ meta.id, num_reads > params.min_trimmed_reads.toFloat() ]
         }
+
+
+    TRIMMING (
+        ch_fastq,
+        ch_fasta,
+        ch_transcript_fasta,
+        ch_gtf,
+        ch_salmon_index,
+        ch_sortmerna_index,
+        ch_bbsplit_index,
+        ch_ribo_db,
+        params.skip_bbsplit,
+        params.skip_fastqc || params.skip_qc,
+        params.skip_trimming,
+        params.skip_umi_extract,
+        !salmon_index_available,
+        !params.sortmerna_index && params.remove_ribo_rna,
+        params.trimmer,
+        params.min_trimmed_reads,
+        params.save_trimmed,
+        params.remove_ribo_rna,
+        params.with_umi,
+        params.umi_discard_read,
+        params.stranded_threshold,
+        params.unstranded_threshold
+    )
+
+    ch_multiqc_files                  = ch_multiqc_files.mix(FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS.out.multiqc_files)
+    ch_versions                       = ch_versions.mix(FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS.out.versions)
+    ch_strand_inferred_filtered_fastq = FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS.out.reads
+    ch_trim_read_count                = FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS.out.trim_read_count
+
+    ch_trim_status = ch_trim_read_count
+        .map {
+            meta, num_reads ->
+                return [ meta.id, num_reads > params.min_trimmed_reads.toFloat() ]
+        }
+
+
+
+
+
 
     //
     // SUBWORKFLOW: Alignment with STAR and gene/transcript quantification with Salmon
