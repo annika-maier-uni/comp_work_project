@@ -14,7 +14,7 @@ include { ALIGN_STAR    } from './subworkflows/local/align_star'
 //
 include { FASTQ_ALIGN_HISAT2               } from './subworkflows/fastq_align_hisat2'
 include { FASTQ              } from '../../subworkflows/FASTQ/'
-include { TRIMMING              } from '../../subworkflows/TRIMMING/'
+include { TRIMMING              } from '../../modules/trimgalore/'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -144,7 +144,7 @@ workflow little_RNASEQ {
 
 
     //
-    // SUBWORKFLOW: Alignment with STAR and gene/transcript quantification with Salmon
+    // Alignment with STAR and gene/transcript quantification with Salmon
     //
     ch_genome_bam          = Channel.empty()
     ch_genome_bam_index    = Channel.empty()
@@ -186,7 +186,7 @@ workflow little_RNASEQ {
 
         
     //
-    // SUBWORKFLOW: Alignment with HISAT2
+    // Alignment with HISAT2
     //
     if (!params.skip_alignment && params.aligner == 'hisat2') {
         FASTQ_ALIGN_HISAT2 (
