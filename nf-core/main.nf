@@ -102,9 +102,64 @@ workflow little_RNASEQ {
         }
 
 
-    TRIMMING (
-        ch_fastq
-    )
+    TRIMMING (ch_fastq)
+
+    trim_unpaired = TRIMGALORE.out.unpaired
+    trim_html     = TRIMGALORE.out.html
+    trim_zip      = TRIMGALORE.out.zip
+    trim_log      = TRIMGALORE.out.log
+    ch_versions   = ch_versions.mix(TRIMGALORE.out.versions.first())
+
+
+     TRIMMING
+            .out
+            .reads
+            .join(trim_log, remainder: true)
+            .map {
+                meta, reads, trim_log ->
+                    if (trim_log) {
+                        num_reads = getTrimGaloreReadsAfterFiltering(meta.single_end ? trim_log : trim_log[-1])
+                        [ meta, reads, num_reads ]
+                    } else {
+                        [ meta, reads, min_trimmed_reads.toFloat() + 1 ]
+                    }
+            }
+            .set { ch_num_trimmed_reads }
+
+    ch_num_trimmed_reads
+            .filter { meta, reads, num_reads -> num_reads >= min_trimmed_reads.toFloat() }
+            .map { meta, reads, num_reads -> [ meta, reads ] }
+            .set { trim_reads }
+
+    ch_num_trimmed_reads
+            .map { meta, reads, num_reads -> [ meta, num_reads ] }
+            .set { trim_read_count }
+    }
+
+    ch_filtered_reads = trim_reads
+    ch_trim_read_count  =  trim_read_count
+    ch_multiqc_files = FASTQ_FASTQC_UMITOOLS_TRIMGALORE.out.fastqc_zip
+            .mix(trim_zip)
+            .mix(trim_log)
+            .mix(ch_multiqc_files)
+
+    emit:
+    reads = trim_reads // channel: [ val(meta), [ reads ] ]
+
+    fastqc_html        // channel: [ val(meta), [ html ] ]
+    fastqc_zip         // channel: [ val(meta), [ zip ] ]
+
+    umi_log            // channel: [ val(meta), [ log ] ]
+
+    trim_unpaired      // channel: [ val(meta), [ reads ] ]
+    trim_html          // channel: [ val(meta), [ html ] ]
+    trim_zip           // channel: [ val(meta), [ zip ] ]
+    trim_log           // channel: [ val(meta), [ txt ] ]
+    trim_read_count    // channel: [ val(meta), val(count) ]
+
+    versions = ch_versions.ifEmpty(null) // channel: [ versions.yml ]
+
+
 
     ch_multiqc_files                  = ch_multiqc_files.mix(FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS.out.multiqc_files)
     ch_versions                       = ch_versions.mix(FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS.out.versions)
