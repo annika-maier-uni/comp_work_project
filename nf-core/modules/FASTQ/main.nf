@@ -1,33 +1,35 @@
 #!/usr/bin/env nextflow
 
-process FASTQC{
+nextflow.enable.dsl=2
 
-    debug true
+params.reads = '/Users/weronikajaskowiak/Documents/GitHub/comp_work_project/nf-core/data/samplesheet.csv'
+params.output = '/Users/weronikajaskowiak/Desktop/results'
+
+process FASTQC {
+    container "quay.io/biocontainers/fastqc:0.12.1--hdfd78af_0"
+    publishDir "${params.output}", mode: 'copy'
 
     input:
-    val name
-    val full_example_reference_genome_path
+    tuple val(sampleID), path(read1), path(read2)
 
     output:
-    path "${name}.*.ht2"
+    path("*_fastqc.html")
+    path("*_fastqc.zip")
 
     script:
     """
-    # this creates name.1.ht - name.8.ht
-    hisat2-build ${full_example_reference_genome_path} ${name}
+    fastqc ${read1} ${read2}
     """
-
 }
 
+workflow {
 
-workflow{
+    // Define the fastqc input channel
+    reads_in = Channel.fromPath(params.reads)
+        .splitCsv(header: true)
+        .map { row -> [row.sample, file(row.fastq_1), file(row.fastq_2)] }
 
-     // hardcoded paths for testing
-    annikas_path = "/home/satan/Documents/computational_workflows/comp_work_project/nf-core/"
+    // Run the fastqc step with the reads_in channel
+    FASTQC(reads_in)
 
-    example_reference_genome_path = "data/genome.fa"
-
-    full_example_reference_genome_path = annikas_path + example_reference_genome_path
-
-    FASTQC("testName2", full_example_reference_genome_path)
 }
