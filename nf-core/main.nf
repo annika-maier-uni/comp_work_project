@@ -177,6 +177,9 @@ workflow little_RNASEQ {
 
 
 
+
+
+
     //
     // Alignment with STAR and gene/transcript quantification with Salmon
     //
