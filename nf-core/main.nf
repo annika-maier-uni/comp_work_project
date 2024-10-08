@@ -103,28 +103,7 @@ workflow little_RNASEQ {
 
 
     TRIMMING (
-        ch_fastq,
-        ch_fasta,
-        ch_transcript_fasta,
-        ch_gtf,
-        ch_salmon_index,
-        ch_sortmerna_index,
-        ch_bbsplit_index,
-        ch_ribo_db,
-        params.skip_bbsplit,
-        params.skip_fastqc || params.skip_qc,
-        params.skip_trimming,
-        params.skip_umi_extract,
-        !salmon_index_available,
-        !params.sortmerna_index && params.remove_ribo_rna,
-        params.trimmer,
-        params.min_trimmed_reads,
-        params.save_trimmed,
-        params.remove_ribo_rna,
-        params.with_umi,
-        params.umi_discard_read,
-        params.stranded_threshold,
-        params.unstranded_threshold
+        ch_fastq
     )
 
     ch_multiqc_files                  = ch_multiqc_files.mix(FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS.out.multiqc_files)
