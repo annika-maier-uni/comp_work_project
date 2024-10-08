@@ -46,7 +46,7 @@ workflow little_RNASEQ {
         .map {
             meta, fastq_1, fastq_2 ->
                 if (!fastq_2) {
-                    return [ meta.id, meta + [ single_end:true ], [ fastq_1 ] ]
+                    throw new IllegalArgumentException("Sample ${meta.id} is missing a paired-end file! Only paired-end files are allowed.")
                 } else {
                     return [ meta.id, meta + [ single_end:false ], [ fastq_1, fastq_2 ] ]
                 }
