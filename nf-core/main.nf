@@ -43,20 +43,11 @@ workflow little_RNASEQ {
     // Create channel from input file provided through params.input
     //
     Channel
-        .fromSamplesheet("input")
-        .map {
-            meta, fastq_1, fastq_2 ->
-                if (!fastq_2) {
-                    throw new IllegalArgumentException("Sample ${meta.id} is missing a paired-end file! Only paired-end files are allowed.")
-                } else {
-                    return [ meta.id, meta + [ single_end:false ], [ fastq_1, fastq_2 ] ]
-                }
-        }
-        .groupTuple()
-        //.map {
-        //    checkSamplesAfterGrouping(it)
-        //}
-        .set{ ch_fastq }
+        .fromPath("C:\Users\tabat\MasterBioinformatik\Semester3\ComputationalWorkflows\Project\comp_work_project\nf-core\assets\samplesheet.csv")
+        .splitCsv(header: true)
+            .map {row -> [["sample": row.sample, "strandedness": row.strandedness], [file(row.fastq_1), file(row.fastq_2)]]}
+            .groupTuple()
+            .set{ ch_fastq }
 
     //
     // Run RNA-seq FASTQ preprocessing subworkflow
