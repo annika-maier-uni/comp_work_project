@@ -37,6 +37,7 @@ workflow little_RNASEQ {
     ch_trim_status = Channel.empty()
     ch_map_status = Channel.empty()
     ch_strand_status = Channel.empty()
+    fastqc_zip  = Channel.empty()
 
     //
     // Create channel from input file provided through params.input
@@ -138,9 +139,10 @@ workflow little_RNASEQ {
 
     ch_filtered_reads = trim_reads
     ch_trim_read_count  =  trim_read_count
-    ch_multiqc_files = FASTQ_FASTQC_UMITOOLS_TRIMGALORE.out.fastqc_zip
-            .mix(trim_zip)
-            .mix(trim_log)
+    ch_versions = ch_versions
+        ch_multiqc_files = FASTQ_FASTQC_UMITOOLS_TRIMGALORE.out.fastqc_zip
+            .mix(FASTQ_FASTQC_UMITOOLS_TRIMGALORE.out.trim_zip)
+            .mix(FASTQ_FASTQC_UMITOOLS_TRIMGALORE.out.trim_log)
             .mix(ch_multiqc_files)
 
     emit:
