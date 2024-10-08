@@ -14,7 +14,7 @@ include { ALIGN_STAR    } from './subworkflows/local/align_star'
 //
 include { FASTQ_ALIGN_HISAT2               } from './subworkflows/fastq_align_hisat2'
 include { FASTQ              } from '../../subworkflows/FASTQ/'
-include { TRIMMING              } from '../../subworkflows/TRIMMING/'
+include { TRIMMING              } from '../../modules/trimgalore/'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
