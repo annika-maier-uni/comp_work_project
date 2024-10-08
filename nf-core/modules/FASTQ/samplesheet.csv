@@ -1,0 +1,2 @@
+sample,fastq_1,fastq_2,strandedness
+SRR6357070,C:\Users\tabat\MasterBioinformatik\Semester3\ComputationalWorkflows\Project\comp_work_project\nf-core\data\SRR6357070_1.fastq.gz,C:\Users\tabat\MasterBioinformatik\Semester3\ComputationalWorkflows\Project\comp_work_project\nf-core\data\SRR6357070_2.fastq.gz,auto
