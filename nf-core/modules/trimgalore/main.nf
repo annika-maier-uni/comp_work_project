@@ -8,7 +8,7 @@ process TRIMGALORE {
         'biocontainers/trim-galore:0.6.7--hdfd78af_0' }"
 
     input:
-    tuple val(meta), path(reads)
+    tuple val(meta), path(reads)           // channel: [ val(meta), [ reads ] ]
 
     output:
     tuple val(meta), path("*{3prime,5prime,trimmed,val}*.fq.gz"), emit: reads
