@@ -53,9 +53,9 @@ workflow little_RNASEQ {
                 }
         }
         .groupTuple()
-        .map {
-            checkSamplesAfterGrouping(it)
-        }
+        //.map {
+        //    checkSamplesAfterGrouping(it)
+        //}
         .set{ ch_fastq }
 
     //
