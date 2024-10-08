@@ -45,8 +45,18 @@ workflow little_RNASEQ {
     Channel
         .fromPath("C:\Users\tabat\MasterBioinformatik\Semester3\ComputationalWorkflows\Project\comp_work_project\nf-core\assets\samplesheet.csv")
         .splitCsv(header: true)
-        .map {row -> [["sample": row.sample, "strandedness": row.strandedness], [file(row.fastq_1), file(row.fastq_2)]]}
+        .map {
+            meta, fastq_1, fastq_2 ->
+                if (!fastq_2) {
+                    throw new IllegalArgumentException("Sample ${meta.id} is missing a paired-end file! Only paired-end files are allowed.")
+                } else {
+                    return [ meta.id, meta + [ single_end:false ], [ fastq_1, fastq_2 ] ]
+                }
+        }
         .groupTuple()
+        //.map {
+        //    checkSamplesAfterGrouping(it)
+        //}
         .set{ ch_fastq }
 
     //
