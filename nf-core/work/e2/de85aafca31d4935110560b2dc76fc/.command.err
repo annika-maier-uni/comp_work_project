@@ -1,6 +1,0 @@
-/bin/bash: line 1: export: `Workflow/comp_work_project/nf-core/bin': not a valid identifier
-
-EXITING because of FATAL ERROR: could not open genome file ./data/genome.fa//genomeParameters.txt
-SOLUTION: check that the path to genome files, specified in --genomeDir is correct and the files are present, and have user read permsissions
-
-Oct 09 09:22:38 ...... FATAL ERROR, exiting

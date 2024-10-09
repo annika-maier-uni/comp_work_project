@@ -1,3 +1,0 @@
-/bin/bash: line 0: export: `Workflow/comp_work_project/nf-core/bin': not a valid identifier
-Skipping 'SRR6357070_1.fastq.gz' which didn't exist, or couldn't be read
-Skipping 'SRR6357070_2.fastq.gz' which didn't exist, or couldn't be read

@@ -33,7 +33,7 @@ process HISAT2_ALIGN {
     publishDir "${params.output_align}", mode: 'copy'
 
     input:
-    path x
+    path files
     tuple val(meta), path(fasta1), path(fasta2)
 
 
@@ -42,7 +42,10 @@ process HISAT2_ALIGN {
 
     script:
 
-    name = "hisat_build"
+    //name = "hisat_build"
+    full_name = files[0].getName()
+    name = full_name.split("\\.")[0]
+
     """
     echo "running hisat2"
 
@@ -51,6 +54,4 @@ process HISAT2_ALIGN {
 
     hisat2 --fast -x ${name} -1 ${fasta1} -2 ${fasta2} -S output_hisat2_aligned_sam_file.sam
     """
-
-
 }
