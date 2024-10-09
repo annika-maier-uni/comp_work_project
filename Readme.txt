@@ -38,7 +38,8 @@ The strandedness refers to the library preparation and will be automatically inf
 
 ### Parameters
 -- samplesheet: The path to the samplesheet CSV file containing sample information. The default value is ./modules/trimgalore/samplesheet_new.csv.
--- reference: The path to the reference genome file (FASTA format). The default value is ./modules/hisat2/align/genome.fa.
+-- reference:   The path to the reference genome file (FASTA format). The default value is ./modules/hisat2/align/genome.fa. You can use the genome 
+                data from here: https://github.com/nf-core/test-datasets/tree/rnaseq/reference
 
 ### Now, you can run the pipeline using:
 
@@ -54,11 +55,11 @@ nextflow run main.nf --samplesheet <SAMPLESHEET>
 nextflow run main.nf --samplesheet <SAMPLESHEET> --reference <REFERENCE>
 ```
 
-
 ## Notes
 This pipeline uses Nextflow's view() function to print intermediate channel contents, which is helpful for debugging.
 Make sure the input files (samplesheet and reference genome) are correctly formatted and accessible before running the workflow.
 
 
-
-Use the genome data from here: https://github.com/nf-core/test-datasets/tree/rnaseq/reference
+## License
+This example shows a simplified version. Once the file is pushed to GitHub, the README will be automatically displayed when someone 
+visits the repository.
