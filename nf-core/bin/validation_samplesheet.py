@@ -8,7 +8,7 @@ def validate_samplesheet(samplesheet_file):
     with open(samplesheet_file, 'r') as file:
         reader = csv.DictReader(file)
 
-        # Check if header matches the expected format (including strandedness)
+        # Check if header matches the expected format
         expected_columns = ["sample", "fastq_1", "fastq_2", "strandedness"]
         if reader.fieldnames != expected_columns:
             print(f"ERROR: Header does not match expected format: {expected_columns}")
@@ -19,7 +19,7 @@ def validate_samplesheet(samplesheet_file):
             sample = row["sample"]
             fastq_1 = row["fastq_1"]
             fastq_2 = row["fastq_2"]
-            strandedness = row["strandedness"]  # Only included in case it's needed later, no validation
+            strandedness = row["strandedness"]
 
             # Check if both fastq_1 and fastq_2 files exist (paired-end check)
             if not fastq_1 or not fastq_2:
