@@ -2,7 +2,7 @@
 
 nextflow.enable.dsl=2
 
-params.output_build = './results/hisat2_build'
+//params.output_build = './results/hisat2_build'
 params.output_align = './results/hisat2_align'
 
 process HISAT2_BUILD{
@@ -33,11 +33,11 @@ process HISAT2_ALIGN {
     debug true
     input:
 
-    tuple val(meta), val(fasta1), val(fasta2)
+    tuple val(meta), path(fasta1), path(fasta2)
 
 
     output:
-    //path "output_hisat2_aligned_sam_file.sam"
+    path "output_hisat2_aligned_sam_file.sam"
 
     script:
 
@@ -48,7 +48,7 @@ process HISAT2_ALIGN {
     # We don't accept unpaired reads
     # --fast for testing
 
-    hisat2 --fast -x name -1 ${fasta1} -2 ${fasta2} -S output_hisat2_aligned_sam_file.sam
+    hisat2 --fast -x ${name} -1 ${fasta1} -2 ${fasta2} -S output_hisat2_aligned_sam_file.sam
     """
 
 
