@@ -7,7 +7,7 @@ params.output = '../../results'
 
 
 process TRIMMING {
-    container "community.wave.seqera.io/library/trim-galore:0.6.10--e1d78c153f940cdf"
+    container "biocontainers/trim-galore:0.6.7--hdfd78af_0"
     publishDir "${params.output}", mode: 'copy'
 
 
@@ -23,7 +23,7 @@ process TRIMMING {
     def prefix = "${meta.id}"
     """
     echo ${prefix}
-    trim_galore $args --cores 8 --paired --gzip ${prefix}_1.fastq.gz ${prefix}_2.fastq.gz
+    trim_galore --paired ${prefix}_1.fastq.gz ${prefix}_2.fastq.gz
     """
 
 
@@ -32,18 +32,11 @@ process TRIMMING {
 
 workflow {
     reads_in = Channel
-        .fromPath(params.reads)
+        .fromPath('../../assets/samplesheet.csv')
         .splitCsv(header: true)
-        .map {
-            meta, fastq_1, fastq_2 ->
-                if (!fastq_2) {
-                    throw new IllegalArgumentException("Sample ${meta.id} is missing a paired-end file! Only paired-end files are allowed.")
-                } else {
-                    return [ meta.id, meta + [ single_end:false ], [ fastq_1, fastq_2 ] ]
-                }
-        }
-        .groupTuple()
+        .map { row -> [["sample": row.sample, "strandedness": row.strandedness],[file(row.fastq_1), file(row.fastq_2)]]}
         .view()
-    //TRIMMING(reads_in)
+
+    TRIMMING(reads_in)
 
 }
