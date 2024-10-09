@@ -1,1 +1,27 @@
 2024-10-08 12:32:42	2s	insane_church	OK	99c0daf5cd30b8f63c5a3adcedbbb8a1	e9afeba9-046f-4615-a1b0-79e4169a0810	nextflow run main.nf
+2024-10-09 10:21:09	-	mighty_franklin	-	21aad8e96db17b79c576d90ad09b10c1	a2407140-128f-4f38-be1e-1be86d5aa7c4	nextflow main.nf
+2024-10-09 10:21:32	-	hopeful_celsius	-	e9e1e26d1bef3ddfa2e074991fc3c08c	008fb07e-5a05-4b45-8d16-9705684d8629	nextflow main.nf
+2024-10-09 10:22:39	-	trusting_sanger	-	d41d682c4af7727cbcff9f043e18dd7b	a74ec79b-1f7b-45fa-a59c-a3362590e55a	nextflow main.nf --sample
+2024-10-09 10:22:45	-	irreverent_feynman	-	d41d682c4af7727cbcff9f043e18dd7b	76d05a34-302f-4308-b877-b0119a4e2ccb	nextflow main.nf
+2024-10-09 10:23:36	-	elated_wilson	-	168ae9831b131b09370ca4a2abe3b7f7	69f8cbc8-2465-42a7-980a-87b07af5437c	nextflow main.nf
+2024-10-09 10:24:29	1.1s	nice_neumann	OK	2d5023b2283554a3b9a355c930d4cdff	3efab91e-300b-49f5-9caa-6a2929d7a6b1	nextflow main.nf
+2024-10-09 10:25:39	1.4s	angry_poincare	OK	82bf8c17171f93819266a3db6635bad8	aaff9655-81d5-4f99-8f6e-8a68e58437a9	nextflow main.nf --sample
+2024-10-09 10:26:13	1.2s	pensive_lumiere	OK	ca4b69ed623a3d41e1227dfbe1555d23	064d03b8-e94c-4c41-9cb1-34228f92e1af	nextflow main.nf
+2024-10-09 10:26:47	-	ridiculous_hodgkin	-	024d43323fd5dcb7bf9c5ce38d76e24e	0152dd11-0ee7-4163-946d-ebce23e66c23	nextflow main.nf
+2024-10-09 10:28:00	-	wise_kalman	-	2f8ac97b4a8b444b383a63b1b059e4e4	3c11a734-e311-4bcd-82c7-f81b5b776587	nextflow main.nf
+2024-10-09 10:28:16	1.2s	reverent_volta	OK	4ca0dd98a576f2aa241b7837f3f4b092	2dd5a75e-9420-4d6d-94c8-7e26f5187640	nextflow main.nf
+2024-10-09 10:30:24	1.2s	spontaneous_stone	OK	4ca0dd98a576f2aa241b7837f3f4b092	95872120-8447-4416-854f-15b4e9747f67	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 10:31:10	1.7s	thirsty_mcclintock	OK	e7566f3b07f04ad355890c1edb3b0500	339c4535-bce4-4e6e-aa93-bd14d7870e67	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 10:31:15	1.9s	fervent_kalman	OK	e7566f3b07f04ad355890c1edb3b0500	2abc5ee8-34b2-4731-bd87-aea6decc0ec4	nextflow main.nf
+2024-10-09 10:33:57	2s	exotic_kare	OK	e7566f3b07f04ad355890c1edb3b0500	87cd65f5-4d7d-4e51-9b9e-91cf95224f7a	nextflow main.nf
+2024-10-09 10:34:06	1.8s	deadly_celsius	OK	e7566f3b07f04ad355890c1edb3b0500	7161cfbd-af5a-422b-bd19-6a93be19819e	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 10:38:49	2.2s	scruffy_montalcini	ERR	bb29df3305cd9a7c7cd04e10162b0aa1	e2e6ecc1-3738-4fee-8bf6-5fbb40b925ce	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 10:38:59	2s	stoic_pesquet	ERR	bb29df3305cd9a7c7cd04e10162b0aa1	0d060e48-03d6-4774-800e-f46b2f7427e6	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 10:40:14	3.7s	furious_ramanujan	ERR	bb29df3305cd9a7c7cd04e10162b0aa1	4ae0d729-752c-4a48-b421-c7f2b294295e	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 10:40:59	2.8s	hungry_leibniz	ERR	bb29df3305cd9a7c7cd04e10162b0aa1	2293864e-1155-42c1-b7b8-281aa786e972	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 10:41:48	7.5s	confident_stallman	OK	bb29df3305cd9a7c7cd04e10162b0aa1	339293c1-59c3-4d87-a4c6-4ece0044b5cd	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 10:43:28	7.7s	tiny_ardinghelli	OK	bb29df3305cd9a7c7cd04e10162b0aa1	b9765067-5954-4354-8836-13a0f8dd1479	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 10:43:43	7.5s	festering_archimedes	OK	bb29df3305cd9a7c7cd04e10162b0aa1	27217e8c-98ed-4e30-b1a6-d01ea20a844e	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 10:45:52	3.5s	small_pasteur	ERR	b449129f79a1adf88835f16ef3e254d8	057c9145-5069-45a6-9666-29d15f76500e	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 10:46:55	9.6s	nostalgic_brazil	OK	b449129f79a1adf88835f16ef3e254d8	0e16558a-1300-4748-8899-948f38030f64	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 10:47:48	10.3s	sad_sanger	ERR	b449129f79a1adf88835f16ef3e254d8	433e0bdc-ba9d-4f13-a110-371f37225b37	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
