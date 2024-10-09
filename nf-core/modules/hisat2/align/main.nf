@@ -2,24 +2,27 @@
 
 nextflow.enable.dsl=2
 
-process HIASAT2_BUILD{
+params.output_build = './results/hisat2_build'
+params.output_align = './results/hisat2_align'
+
+process HISAT2_BUILD{
     container "quay.io/biocontainers/hisat2:2.2.1--h87f3376_5"
 
     input: 
-    val full_example_reference_genome_path
+    path(reference)
 
     output:
     path "${name}.*.ht2"
 
     script:
 
-    def name = "hisat_build"
+    name = "hisat_build"
 
     println "Running HISAT2_BUILD"
     """
     # this creates name.1.ht - name.8.ht
-    less ${full_example_reference_genome_path}
-    hisat2-build ${full_example_reference_genome_path} ${name}
+    ls -l ${reference}
+    hisat2-build ${reference} ${name}
     """
 }
 
@@ -27,7 +30,6 @@ process HIASAT2_BUILD{
 process HISAT2_ALIGN {
 
     debug true
-
     input:
 
     path all_fasta1
