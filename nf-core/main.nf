@@ -80,9 +80,9 @@ workflow {
 
     // 4. Aligning
     // Build the HISAT2 index for the reference genome
-    x = HISAT2_BUILD(reference_channel)
+    output = HISAT2_BUILD(reference_channel)
 
-    HISAT2_ALIGN(x,tuple_channel)
+    HISAT2_ALIGN(output,tuple_channel)
 
   // Access the first FASTQ files
 
