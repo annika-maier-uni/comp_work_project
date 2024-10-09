@@ -1,0 +1,29 @@
+STAR version=2.7.11b
+STAR compilation time,server,dir=2024-07-03T14:39:20+0000 :/opt/conda/conda-bld/star_1720017372352/work/source
+##### Command Line:
+/usr/local/bin/STAR-avx2 --genomeDir ./data/genome.fa --readFilesIn SRR6357070_1.fastq.gz SRR6357070_2.fastq.gz --runThreadN 4
+##### Initial USER parameters from Command Line:
+###### All USER parameters from Command Line:
+genomeDir                     ./data/genome.fa     ~RE-DEFINED
+readFilesIn                   SRR6357070_1.fastq.gz   SRR6357070_2.fastq.gz        ~RE-DEFINED
+runThreadN                    4     ~RE-DEFINED
+##### Finished reading parameters from all sources
+
+##### Final user re-defined parameters-----------------:
+runThreadN                        4
+genomeDir                         ./data/genome.fa
+readFilesIn                       SRR6357070_1.fastq.gz   SRR6357070_2.fastq.gz   
+
+-------------------------------
+##### Final effective command line:
+/usr/local/bin/STAR-avx2   --runThreadN 4   --genomeDir ./data/genome.fa   --readFilesIn SRR6357070_1.fastq.gz   SRR6357070_2.fastq.gz   
+----------------------------------------
+
+Number of fastq files for each mate = 1
+ParametersSolo: --soloCellFilterType CellRanger2.2 filtering parameters:  3000 0.99 10
+Finished loading and checking parameters
+
+EXITING because of FATAL ERROR: could not open genome file ./data/genome.fa//genomeParameters.txt
+SOLUTION: check that the path to genome files, specified in --genomeDir is correct and the files are present, and have user read permsissions
+
+Oct 09 09:22:38 ...... FATAL ERROR, exiting

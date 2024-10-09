@@ -1,0 +1,20 @@
+Unable to find image 'quay.io/biocontainers/star:2.7.11b--h43eeafb_2' locally
+2.7.11b--h43eeafb_2: Pulling from biocontainers/star
+0cacab098358: Pulling fs layer
+bd9ddc54bea9: Pulling fs layer
+a501833c6f03: Pulling fs layer
+bd9ddc54bea9: Verifying Checksum
+bd9ddc54bea9: Download complete
+0cacab098358: Verifying Checksum
+0cacab098358: Download complete
+0cacab098358: Pull complete
+bd9ddc54bea9: Pull complete
+a501833c6f03: Download complete
+a501833c6f03: Pull complete
+Digest: sha256:f5910f39a9f5bc171a51fe7400d33e7586cb353c47d759a7c190562322150067
+Status: Downloaded newer image for quay.io/biocontainers/star:2.7.11b--h43eeafb_2
+/bin/bash: line 1: export: `Workflow/comp_work_project/nf-core/bin': not a valid identifier
+
+EXITING: fatal input ERROR: runThreadN must be >0, user-defined runThreadN=0
+
+Oct 09 09:19:58 ...... FATAL ERROR, exiting

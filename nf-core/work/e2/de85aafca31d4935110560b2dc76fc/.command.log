@@ -1,0 +1,10 @@
+/bin/bash: line 1: export: `Workflow/comp_work_project/nf-core/bin': not a valid identifier
+	/usr/local/bin/STAR-avx2 --genomeDir ./data/genome.fa --readFilesIn SRR6357070_1.fastq.gz SRR6357070_2.fastq.gz --runThreadN 4
+	STAR version: 2.7.11b   compiled: 2024-07-03T14:39:20+0000 :/opt/conda/conda-bld/star_1720017372352/work/source
+Oct 09 09:22:38 ..... started STAR run
+Oct 09 09:22:38 ..... loading genome
+
+EXITING because of FATAL ERROR: could not open genome file ./data/genome.fa//genomeParameters.txt
+SOLUTION: check that the path to genome files, specified in --genomeDir is correct and the files are present, and have user read permsissions
+
+Oct 09 09:22:38 ...... FATAL ERROR, exiting

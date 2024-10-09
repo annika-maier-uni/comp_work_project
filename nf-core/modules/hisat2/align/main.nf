@@ -13,7 +13,7 @@ process HIASAT2_BUILD{
 
     script:
 
-    name = "hisat_build"
+    def name = "hisat_build"
 
     println "Running HISAT2_BUILD"
     """
