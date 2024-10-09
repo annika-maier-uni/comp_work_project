@@ -25,3 +25,8 @@
 2024-10-09 10:45:52	3.5s	small_pasteur	ERR	b449129f79a1adf88835f16ef3e254d8	057c9145-5069-45a6-9666-29d15f76500e	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
 2024-10-09 10:46:55	9.6s	nostalgic_brazil	OK	b449129f79a1adf88835f16ef3e254d8	0e16558a-1300-4748-8899-948f38030f64	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
 2024-10-09 10:47:48	10.3s	sad_sanger	ERR	b449129f79a1adf88835f16ef3e254d8	433e0bdc-ba9d-4f13-a110-371f37225b37	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 10:57:38	15.7s	tiny_brattain	OK	b449129f79a1adf88835f16ef3e254d8	285ed830-f8fc-4f6c-8585-f91ded218279	nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
+2024-10-09 11:19:14	-	drunk_austin	-	3de85c20a3a391b8bb6dd26d4325dbe7	36a7203f-d904-4a7d-a9d4-53f2e78aa5e9	nextflow main.nf
+2024-10-09 11:19:42	17.6s	astonishing_banach	ERR	31504e1e0c8736779d2250f3c9109a90	fc2bac6a-b04f-4969-8a74-4864d582a425	nextflow main.nf
+2024-10-09 11:22:36	3.3s	prickly_borg	ERR	31504e1e0c8736779d2250f3c9109a90	89d5244a-5712-473e-a741-42de5ca69c0f	nextflow main.nf
+2024-10-09 11:24:20	2s	naughty_magritte	ERR	31504e1e0c8736779d2250f3c9109a90	a5077b3e-d42e-4adc-bd8e-361ccd15dfcb	nextflow main.nf
