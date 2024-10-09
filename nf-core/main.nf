@@ -46,6 +46,7 @@ workflow {
             ]
         }
         .view()
+
         //.view()  // View the contents of the channel for debugging
 
     // Channel for reference genome files
@@ -69,6 +70,7 @@ workflow {
             ]
         }
         .view()
+
 
 
 

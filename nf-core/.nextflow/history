@@ -134,3 +134,12 @@
 2024-10-09 13:33:56	3.7s	goofy_agnesi	ERR	7006f1862c92792f2ceb20d216720d01	f6b2f245-087c-4030-93be-1479214d3948	nextflow main.nf
 2024-10-09 13:35:31	19.7s	infallible_hopper	OK	6b594d68ba8f7249bd3bdec030842381	f523ee41-ec03-49a7-b3af-78c956d21681	nextflow main.nf
 2024-10-09 13:37:02	4.5s	lethal_sanger	ERR	7006f1862c92792f2ceb20d216720d01	4963cce6-674b-40b6-b734-d7c1632652cb	nextflow main.nf
+2024-10-09 13:41:44	4.5s	serene_mahavira	ERR	7006f1862c92792f2ceb20d216720d01	fca9d992-1d28-4dbe-8c70-5954dbd71a8c	nextflow main.nf
+2024-10-09 13:43:57	2.1s	distracted_mcnulty	ERR	61f4b45838dbb09e91fabe4c8b7d1d19	e9358cc3-1473-4af6-9ba2-96f0a9a90ca3	nextflow main.nf
+2024-10-09 13:44:20	1.8s	nauseous_ardinghelli	ERR	61f4b45838dbb09e91fabe4c8b7d1d19	afe8efdd-2ff8-448b-a11b-7ea1a4b172b4	nextflow main.nf
+2024-10-09 13:49:12	2.1s	serene_pike	ERR	a4dbce417ae84994f4fc0493e6e92887	0a88870d-eb55-4d0c-a94c-7ee8dbde396a	nextflow main.nf
+2024-10-09 13:50:35	-	high_ptolemy	-	7d378d9afaab13724f311185c3238502	4879413c-50bd-4ba4-b460-d5e17314ba09	nextflow main.nf
+2024-10-09 13:51:55	-	lonely_elion	-	c93b7f9bb90b32244c3a70a9b5c8ba5b	7eee145e-76eb-4aa1-841f-c6a333bc96a8	nextflow main.nf
+2024-10-09 13:52:32	-	stoic_tuckerman	-	c93b7f9bb90b32244c3a70a9b5c8ba5b	70c506f0-c8ef-43db-8c29-7bf56f0eb5a0	nextflow main.nf
+2024-10-09 13:53:01	-	confident_pauling	-	c93b7f9bb90b32244c3a70a9b5c8ba5b	c76dfce5-1860-4551-934f-64aa8cd48837	nextflow main.nf
+2024-10-09 13:53:37	4.3s	clever_marconi	ERR	69dc324d0413836728ad07c068fed891	2ccbf1c6-937c-4810-9f9a-78e7409b24fd	nextflow main.nf

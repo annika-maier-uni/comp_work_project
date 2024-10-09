@@ -8,7 +8,7 @@ params.output_align = './results/hisat2_align'
 process HISAT2_BUILD{
     container "quay.io/biocontainers/hisat2:2.2.1--h87f3376_5"
 
-    input: 
+    input:
     path(reference)
 
     output:
@@ -30,9 +30,8 @@ process HISAT2_BUILD{
 process HISAT2_ALIGN {
     container "quay.io/biocontainers/hisat2:2.2.1--h87f3376_5"
 
-    debug true
-    input:
 
+    input:
     tuple val(meta), path(fasta1), path(fasta2)
 
 
