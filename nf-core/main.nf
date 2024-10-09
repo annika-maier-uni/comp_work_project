@@ -43,7 +43,8 @@ workflow little_RNASEQ {
     // Create channel from input file provided through params.input
     //
     Channel
-        .fromSamplesheet("input")
+        .fromPath("C:\Users\tabat\MasterBioinformatik\Semester3\ComputationalWorkflows\Project\comp_work_project\nf-core\assets\samplesheet.csv")
+        .splitCsv(header: true)
         .map {
             meta, fastq_1, fastq_2 ->
                 if (!fastq_2) {
