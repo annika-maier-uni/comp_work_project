@@ -24,7 +24,7 @@ process TRIMMING {
     script:
     def prefix = "${meta.sample}"
     """
-    trim_galore --paired ${prefix}_1.fastq.gz ${prefix}_2.fastq.gz
+    trim_galore --paired ${prefix}_1.fastq.gz ${prefix}_2.fastq.gz --fastqc
     """
 
 

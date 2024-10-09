@@ -1,141 +1,104 @@
-Oct-09 10:47:48.214 [main] DEBUG nextflow.cli.Launcher - $> nextflow main.nf --samplesheet ./modules/trimgalore/samplesheet_new.csv
-Oct-09 10:47:48.304 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.10.0
-Oct-09 10:47:48.322 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/maikenaegele/.nextflow/plugins; core-plugins: nf-amazon@2.1.4,nf-azure@1.3.2,nf-cloudcache@0.3.0,nf-codecommit@0.1.5,nf-console@1.0.6,nf-ga4gh@1.1.0,nf-google@1.8.3,nf-tower@1.6.3,nf-wave@1.0.0
-Oct-09 10:47:48.333 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Oct-09 10:47:48.334 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Oct-09 10:47:48.337 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
-Oct-09 10:47:48.345 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Oct-09 10:47:48.362 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/nextflow.config
-Oct-09 10:47:48.363 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/nextflow.config
-Oct-09 10:47:48.383 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Oct-09 10:47:48.856 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
-Oct-09 10:47:48.871 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [sad_sanger] DSL2 - revision: b449129f79
-Oct-09 10:47:48.871 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Oct-09 10:47:48.871 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Oct-09 10:47:48.879 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/maikenaegele/.nextflow/secrets/store.json
-Oct-09 10:47:48.882 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@2b0b7e5a] - activable => nextflow.secret.LocalSecretsProvider@2b0b7e5a
-Oct-09 10:47:48.938 [main] DEBUG nextflow.Session - Session UUID: 433e0bdc-ba9d-4f13-a110-371f37225b37
-Oct-09 10:47:48.938 [main] DEBUG nextflow.Session - Run name: sad_sanger
-Oct-09 10:47:48.939 [main] DEBUG nextflow.Session - Executor pool size: 8
-Oct-09 10:47:48.945 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Oct-09 10:47:48.948 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
-Oct-09 10:47:48.969 [main] DEBUG nextflow.cli.CmdRun - 
+Oct-09 11:24:19.999 [main] DEBUG nextflow.cli.Launcher - $> nextflow main.nf
+Oct-09 11:24:20.091 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.10.0
+Oct-09 11:24:20.108 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/maikenaegele/.nextflow/plugins; core-plugins: nf-amazon@2.1.4,nf-azure@1.3.2,nf-cloudcache@0.3.0,nf-codecommit@0.1.5,nf-console@1.0.6,nf-ga4gh@1.1.0,nf-google@1.8.3,nf-tower@1.6.3,nf-wave@1.0.0
+Oct-09 11:24:20.118 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-09 11:24:20.118 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-09 11:24:20.122 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Oct-09 11:24:20.131 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-09 11:24:20.148 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/nextflow.config
+Oct-09 11:24:20.149 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/nextflow.config
+Oct-09 11:24:20.167 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Oct-09 11:24:20.622 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Oct-09 11:24:20.638 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [naughty_magritte] DSL2 - revision: 31504e1e0c
+Oct-09 11:24:20.638 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-09 11:24:20.639 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-09 11:24:20.647 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/maikenaegele/.nextflow/secrets/store.json
+Oct-09 11:24:20.650 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@4462efe1] - activable => nextflow.secret.LocalSecretsProvider@4462efe1
+Oct-09 11:24:20.707 [main] DEBUG nextflow.Session - Session UUID: a5077b3e-d42e-4adc-bd8e-361ccd15dfcb
+Oct-09 11:24:20.707 [main] DEBUG nextflow.Session - Run name: naughty_magritte
+Oct-09 11:24:20.707 [main] DEBUG nextflow.Session - Executor pool size: 8
+Oct-09 11:24:20.713 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Oct-09 11:24:20.716 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Oct-09 11:24:20.737 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 23.10.0 build 5889
   Created: 15-10-2023 15:07 UTC (17:07 CEST)
   System: Linux 5.15.153.1-microsoft-standard-WSL2
   Runtime: Groovy 3.0.19 on OpenJDK 64-Bit Server VM 11.0.13+7-b1751.21
   Encoding: UTF-8 (UTF-8)
-  Process: 49161@MaikeLaptop [127.0.1.1]
-  CPUs: 8 - Mem: 7.7 GB (4.5 GB) - Swap: 2 GB (2 GB)
-Oct-09 10:47:48.984 [main] DEBUG nextflow.file.FileHelper - Can't check if specified path is NFS (1): /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/work
+  Process: 62196@MaikeLaptop [127.0.1.1]
+  CPUs: 8 - Mem: 7.7 GB (5.6 GB) - Swap: 2 GB (2 GB)
+Oct-09 11:24:20.754 [main] DEBUG nextflow.file.FileHelper - Can't check if specified path is NFS (1): /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/work
 
-Oct-09 10:47:48.985 [main] DEBUG nextflow.Session - Work-dir: /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/work [null]
-Oct-09 10:47:48.998 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Oct-09 10:47:49.007 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Oct-09 10:47:49.024 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Oct-09 10:47:49.033 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
-Oct-09 10:47:49.093 [main] DEBUG nextflow.Session - Session start
-Oct-09 10:47:49.305 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Oct-09 10:47:49.681 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Oct-09 10:47:49.681 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Oct-09 10:47:49.686 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Oct-09 10:47:49.690 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=7.7 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
-Oct-09 10:47:49.693 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Oct-09 10:47:49.788 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Oct-09 10:47:49.788 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Oct-09 10:47:49.796 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: FASTQC, TRIMMING
-Oct-09 10:47:49.797 [main] DEBUG nextflow.Session - Igniting dataflow network (3)
-Oct-09 10:47:49.806 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FASTQC
-Oct-09 10:47:49.807 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > TRIMMING
-Oct-09 10:47:49.808 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-  Script_3eb864bc9c26b929: /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/main.nf
+Oct-09 11:24:20.754 [main] DEBUG nextflow.Session - Work-dir: /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/work [null]
+Oct-09 11:24:20.767 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Oct-09 11:24:20.776 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Oct-09 11:24:20.793 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-09 11:24:20.818 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Oct-09 11:24:20.875 [main] DEBUG nextflow.Session - Session start
+Oct-09 11:24:21.073 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-09 11:24:21.340 [main] WARN  nextflow.script.ScriptBinding - Access to undefined parameter `samplesheet` -- Initialise it to a default value eg. `params.samplesheet = some_value`
+Oct-09 11:24:21.341 [main] WARN  nextflow.script.ScriptBinding - Access to undefined parameter `reference` -- Initialise it to a default value eg. `params.reference = some_value`
+Oct-09 11:24:21.541 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-09 11:24:21.541 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-09 11:24:21.549 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Oct-09 11:24:21.555 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=7.7 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+Oct-09 11:24:21.558 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Oct-09 11:24:21.635 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-09 11:24:21.635 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-09 11:24:21.646 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-09 11:24:21.646 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-09 11:24:21.649 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: FASTQC, TRIMMING, STAR
+Oct-09 11:24:21.650 [main] DEBUG nextflow.Session - Igniting dataflow network (4)
+Oct-09 11:24:21.654 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FASTQC
+Oct-09 11:24:21.656 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > TRIMMING
+Oct-09 11:24:21.657 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > STAR
+Oct-09 11:24:21.661 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_b9051d2c87c81f40: /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/./modules/trimgalore/main.nf
+  Script_432ce74d7400c89a: /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/./modules/STAR/main.nf
   Script_89549d4a22e255c3: /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/./modules/FASTQ/main.nf
-  Script_618e4de58509667e: /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/./modules/trimgalore/main.nf
-Oct-09 10:47:49.809 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Oct-09 10:47:49.810 [main] DEBUG nextflow.Session - Session await
-Oct-09 10:47:50.043 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Oct-09 10:47:50.046 [Task submitter] INFO  nextflow.Session - [5d/45f0be] Submitted process > FASTQC (1)
-Oct-09 10:47:50.056 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Oct-09 10:47:50.056 [Task submitter] INFO  nextflow.Session - [5b/4695ef] Submitted process > TRIMMING (1)
-Oct-09 10:47:57.796 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: TRIMMING (1); status: COMPLETED; exit: 0; error: -; workDir: /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/work/5b/4695efbd5de4ddd7314fa79a7025ab]
-Oct-09 10:47:57.830 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=TRIMMING (1); work-dir=/home/maikenaegele/Computational Workflow/comp_work_project/nf-core/work/5b/4695efbd5de4ddd7314fa79a7025ab
-  error [nextflow.exception.MissingFileException]: Missing output file(s) `*.html` expected by process `TRIMMING (1)`
-Oct-09 10:47:57.880 [Task monitor] ERROR nextflow.processor.TaskProcessor - Error executing process > 'TRIMMING (1)'
+  Script_9bd98563d0036fa5: /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/main.nf
+Oct-09 11:24:21.661 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Oct-09 11:24:21.662 [main] DEBUG nextflow.Session - Session await
+Oct-09 11:24:21.802 [Actor Thread 6] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=STAR (1); work-dir=null
+  error [nextflow.exception.ProcessUnrecoverableException]: Not a valid path value: './data/genome.fa'
+Oct-09 11:24:21.823 [Actor Thread 6] ERROR nextflow.processor.TaskProcessor - Error executing process > 'STAR (1)'
 
 Caused by:
-  Missing output file(s) `*.html` expected by process `TRIMMING (1)`
+  Not a valid path value: './data/genome.fa'
 
-Command executed:
-
-  trim_galore --paired SRR6357070_1.fastq.gz SRR6357070_2.fastq.gz
-
-Command exit status:
-  0
-
-Command output:
-  (empty)
-
-Command error:
-  34	31	0.0	1	31
-  35	32	0.0	1	32
-  36	26	0.0	1	25 1
-  37	13	0.0	1	13
-  38	17	0.0	1	17
-  39	19	0.0	1	18 1
-  40	13	0.0	1	12 1
-  41	18	0.0	1	18
-  42	16	0.0	1	16
-  43	7	0.0	1	7
-  44	8	0.0	1	8
-  45	9	0.0	1	9
-  46	10	0.0	1	10
-  47	3	0.0	1	3
-  48	11	0.0	1	11
-  49	9	0.0	1	9
-  50	12	0.0	1	10 2
-  51	4	0.0	1	4
-  52	4	0.0	1	3 1
-  53	5	0.0	1	5
-  54	2	0.0	1	2
-  56	2	0.0	1	2
-  57	3	0.0	1	3
-  58	1	0.0	1	1
-  59	2	0.0	1	1 1
-  61	1	0.0	1	1
-  62	2	0.0	1	2
-  63	2	0.0	1	2
-  
-  RUN STATISTICS FOR INPUT FILE: SRR6357070_2.fastq.gz
-  =============================================
-  50000 sequences processed in total
-  The length threshold of paired-end sequences gets evaluated later on (in the validation step)
-  
-  Validate paired-end files SRR6357070_1_trimmed.fq.gz and SRR6357070_2_trimmed.fq.gz
-  file_1: SRR6357070_1_trimmed.fq.gz, file_2: SRR6357070_2_trimmed.fq.gz
-  
-  
-  >>>>> Now validing the length of the 2 paired-end infiles: SRR6357070_1_trimmed.fq.gz and SRR6357070_2_trimmed.fq.gz <<<<<
-  Writing validated paired-end Read 1 reads to SRR6357070_1_val_1.fq.gz
-  Writing validated paired-end Read 2 reads to SRR6357070_2_val_2.fq.gz
-  
-  Total number of sequences analysed: 50000
-  
-  Number of sequence pairs removed because at least one read was shorter than the length cutoff (20 bp): 253 (0.51%)
-  
-  Deleting both intermediate output files SRR6357070_1_trimmed.fq.gz and SRR6357070_2_trimmed.fq.gz
-  
-  ====================================================================================================
-
-Work dir:
-  /home/maikenaegele/Computational Workflow/comp_work_project/nf-core/work/5b/4695efbd5de4ddd7314fa79a7025ab
 
 Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
-Oct-09 10:47:57.898 [Task monitor] DEBUG nextflow.Session - Session aborted -- Cause: Missing output file(s) `*.html` expected by process `TRIMMING (1)`
-Oct-09 10:47:57.959 [main] DEBUG nextflow.Session - Session await > all processes finished
-Oct-09 10:47:57.959 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Oct-09 10:47:57.970 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Oct-09 10:47:57.994 [main] WARN  n.processor.TaskPollingMonitor - Killing running tasks (1)
-Oct-09 10:47:58.141 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=1; succeedDuration=0ms; failedDuration=7.7s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
-Oct-09 10:47:58.280 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Oct-09 10:47:58.315 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+Oct-09 11:24:21.826 [Actor Thread 6] DEBUG nextflow.Session - Session aborted -- Cause: Not a valid path value: './data/genome.fa'
+Oct-09 11:24:21.848 [Actor Thread 6] DEBUG nextflow.Session - The following nodes are still active:
+[process] FASTQC
+  status=ACTIVE
+  port 0: (queue) closed; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] TRIMMING
+  status=ACTIVE
+  port 0: (queue) closed; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] STAR
+  status=ACTIVE
+  port 0: (queue) closed; channel: -
+  port 1: (value) bound ; channel: reference
+  port 2: (cntrl) -     ; channel: $
+
+Oct-09 11:24:21.850 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Oct-09 11:24:21.850 [main] DEBUG nextflow.Session - Session await > all processes finished
+Oct-09 11:24:21.852 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Oct-09 11:24:21.857 [Actor Thread 8] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=TRIMMING; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Oct-09 11:24:21.857 [Actor Thread 7] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=STAR; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Oct-09 11:24:21.858 [Actor Thread 5] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=FASTQC; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Oct-09 11:24:21.863 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Oct-09 11:24:22.031 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Oct-09 11:24:22.043 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

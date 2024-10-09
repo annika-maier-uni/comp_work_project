@@ -9,7 +9,8 @@
 //
 include { FASTQC } from './modules/FASTQ/'
 include {TRIMMING} from './modules/trimgalore/'
-
+include {STAR} from './modules/STAR/'
+include {HISAT2_BUILD, HISAT2_ALIGN} from './modules/nf-core/hisat2/align/'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -17,7 +18,7 @@ include {TRIMMING} from './modules/trimgalore/'
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 params.samplesheet = params.samplesheet ?: "./modules/trimgalore/samplesheet_new.csv"
-
+params.reference =  params.reference ?: "./data/genome.fa"
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -41,7 +42,16 @@ workflow {
 
     //2. Fastqc
     FASTQC(reads_channel)
+
+    //3. Trimming
     TRIMMING(reads_channel)
+
+    //4.Aligning
+    //STAR(reads_channel, params.reference)
+    HISAT2_BUILD(params.reference)
+    //HISAT2_ALIGN()
+
+
 
 
 
