@@ -2,11 +2,12 @@
 
 nextflow.enable.dsl=2
 
-//params.output_build = './results/hisat2_build'
-params.output_align = './results/hisat2_align'
+params.output_build = './results/hisat2/build'
+params.output_align = './results/hisat2/align'
 
 process HISAT2_BUILD{
     container "quay.io/biocontainers/hisat2:2.2.1--h87f3376_5"
+    publishDir "${params.output_build}", mode: 'copy'
 
     input:
     path(reference)
@@ -29,7 +30,7 @@ process HISAT2_BUILD{
 
 process HISAT2_ALIGN {
     container "quay.io/biocontainers/hisat2:2.2.1--h87f3376_5"
-
+    publishDir "${params.output_align}", mode: 'copy'
 
     input:
     path files
