@@ -32,6 +32,7 @@ process HISAT2_ALIGN {
 
 
     input:
+    path x
     tuple val(meta), path(fasta1), path(fasta2)
 
 

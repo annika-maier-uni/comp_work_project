@@ -72,8 +72,6 @@ workflow {
         .view()
 
 
-
-
     // 2. FastQC: Quality control for the FASTQ files
     FASTQC(reads_channel)
 
@@ -82,16 +80,13 @@ workflow {
 
     // 4. Aligning
     // Build the HISAT2 index for the reference genome
-    HISAT2_BUILD(reference_channel)
+    x = HISAT2_BUILD(reference_channel)
 
-    HISAT2_ALIGN(tuple_channel)
+    HISAT2_ALIGN(x,tuple_channel)
 
   // Access the first FASTQ files
 
 }
-
-
-
 
 
 /*
