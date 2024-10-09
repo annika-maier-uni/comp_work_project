@@ -90,3 +90,34 @@
 2024-10-09 12:49:23	-	exotic_jepsen	-	087ab2914c4a9936302bcc6b1e579ed0	8406b40b-77b8-47b0-9cff-26b2a8b85848	nextflow main.nf --reference ./genome.fa
 2024-10-09 12:49:31	1.8s	astonishing_becquerel	ERR	6720798a698865a06f1592a09a0871a3	b0c06399-25d3-4a39-a31e-8f11528af11d	nextflow main.nf --reference ./genome.fa
 2024-10-09 12:50:03	-	sharp_ritchie	-	4f0b1814a049cec0d3cb3fe4bd243b83	47feb05c-6a48-4e48-8e82-00254e71d9b3	nextflow main.nf --reference ./genome.fa
+2024-10-09 12:51:22	-	deadly_bernard	-	7e9d707443a155d34deee850651ea19f	a0edbf52-d8f9-44c7-b8c0-f57cb706deaa	nextflow main.nf --reference ./genome.fa
+2024-10-09 12:51:40	-	backstabbing_waddington	-	7e9d707443a155d34deee850651ea19f	69110a99-7933-4a42-bb14-e0e552acb45e	nextflow main.nf
+2024-10-09 12:52:48	-	shrivelled_sax	-	c7aca56b1e2cd65e1c9cbcd15764a0a8	6fcaa5d1-be18-4699-88c4-c706d1a477e4	nextflow main.nf
+2024-10-09 12:54:09	2s	magical_meitner	ERR	5563763f77177919c1c6df114bd3da0b	1ab21d88-ee64-42c5-91c8-a60ac7b82a5c	nextflow main.nf
+2024-10-09 12:55:15	1.8s	hungry_monod	ERR	4f3fb061db721d8e0be7f8657b340e87	64fda53c-e468-4c6b-b445-79a2b76ae4a2	nextflow main.nf
+2024-10-09 12:56:40	-	marvelous_volhard	-	ee148e44f485a8997349640a4eade938	576eca58-86cf-4d66-81f5-75e3c60f398f	nextflow main.nf
+2024-10-09 12:56:49	-	modest_murdock	-	387d623bbb9d4df52eac52cac5ea8ad5	9c63887a-90a0-46af-9fcb-32151b1103c8	nextflow main.nf
+2024-10-09 12:57:09	6m 29s	ridiculous_wozniak	ERR	d3de13510aafae27d6623b702d039250	9f16023e-17de-480c-816a-0ad16b044f86	nextflow main.nf
+2024-10-09 13:03:42	-	tender_bhaskara	-	fdd64e6692d040e86dc00ef3b2032031	76c0c661-9843-428f-b146-9017ddc5d55a	nextflow main.nf
+2024-10-09 13:04:17	-	maniac_elion	-	da81e8643cf9e9f825258b1d066786f6	e77a7465-531d-43f2-b244-7be2492fd588	nextflow main.nf
+2024-10-09 13:04:43	2.3s	loving_goldstine	ERR	f9257f850859a2f7ffa5ee76c8317122	6e943ed0-15a2-4fa2-bfa9-2b739529c5d9	nextflow main.nf
+2024-10-09 13:05:51	1.7s	pedantic_boltzmann	ERR	e30741bbeb8e6e9e27f2386f8f6c21f7	1b504e99-840c-46c5-bc07-b9d277905263	nextflow main.nf
+2024-10-09 13:06:53	2.2s	pedantic_caravaggio	ERR	e30741bbeb8e6e9e27f2386f8f6c21f7	32edab94-424a-4501-bf2f-bf10f15ec6d0	nextflow main.nf
+2024-10-09 13:07:38	3.2s	insane_waddington	ERR	2753f3b033d71d3243cb5654b06ba503	9bb5d294-b722-4a8a-97de-348af0d77bf8	nextflow main.nf
+2024-10-09 13:11:20	1.6s	magical_cori	ERR	5b115c1ce897fb3f7a7bc97c4475ab6f	61fc8b00-05b9-4708-b2bd-8df8e2ecb777	nextflow main.nf
+2024-10-09 13:11:42	1.4s	backstabbing_brattain	ERR	5b115c1ce897fb3f7a7bc97c4475ab6f	aa7f1da3-55ae-4767-a6b8-b922bdff4acc	nextflow main.nf
+2024-10-09 13:12:39	2s	nauseous_pike	ERR	4e6c0d5f68d4930ae73a2c80d16f7b0b	d090bdce-f156-4d40-943c-5c4ae2e857b6	nextflow main.nf
+2024-10-09 13:13:07	15.5s	awesome_gauss	OK	4e6c0d5f68d4930ae73a2c80d16f7b0b	e4052899-0527-42f0-8737-eb99cb011462	nextflow main.nf
+2024-10-09 13:15:38	-	serene_mccarthy	-	430ec5e03c108bd2cad4040a5d2b09c3	edc758d6-0975-4ff7-92d0-964d78d25882	nextflow main.nf
+2024-10-09 13:16:00	1.7s	sleepy_pare	ERR	430ec5e03c108bd2cad4040a5d2b09c3	4889a28c-1bac-4cd5-9d1d-428330dd359c	nextflow main.nf
+2024-10-09 13:17:18	-	fabulous_bhabha	-	5180fa98c3c72e506a2ada2013d2b489	15199e1b-0087-4f72-81bd-044174df78a7	nextflow main.nf
+2024-10-09 13:17:36	2.3s	agitated_khorana	ERR	430ec5e03c108bd2cad4040a5d2b09c3	1ee21e0c-db2e-4637-a99f-e8f2932733d9	nextflow main.nf
+2024-10-09 13:17:57	2s	extravagant_heyrovsky	ERR	430ec5e03c108bd2cad4040a5d2b09c3	c2fe8051-3fb7-4bc3-adee-67f50abffba0	nextflow main.nf
+2024-10-09 13:18:30	2.1s	elegant_volta	ERR	7006f1862c92792f2ceb20d216720d01	68fc3ba0-2e52-43fa-8fc4-e940feedea3d	nextflow main.nf
+2024-10-09 13:18:47	1.8s	mad_shirley	ERR	25d59f325b4887cce368f605156895c6	eef923dc-d074-42cd-8bd8-bed7cb8e9565	nextflow main.nf
+2024-10-09 13:19:04	2.3s	nice_sax	ERR	7006f1862c92792f2ceb20d216720d01	6081d2f8-ec43-4397-8cdc-3c1b7d51806f	nextflow main.nf
+2024-10-09 13:19:20	2.8s	amazing_meucci	ERR	7006f1862c92792f2ceb20d216720d01	cbc5c190-1682-4514-bac7-6b0bad5b2bea	nextflow main.nf
+2024-10-09 13:19:31	3.2s	adoring_joliot	ERR	25d59f325b4887cce368f605156895c6	50906a02-051b-4e82-9dd4-c124a7d27c6e	nextflow main.nf
+2024-10-09 13:19:49	2.3s	distracted_raman	ERR	7006f1862c92792f2ceb20d216720d01	ab8ff053-c269-40ea-9d70-9dcdb6c99987	nextflow main.nf
+2024-10-09 13:20:08	2.6s	soggy_austin	ERR	7006f1862c92792f2ceb20d216720d01	6f5a9134-df3f-49bb-85fb-f4516500e841	nextflow main.nf
+2024-10-09 13:20:42	3.9s	elegant_austin	ERR	7006f1862c92792f2ceb20d216720d01	c96f825c-3e44-4be7-ace2-186e9ee6213f	nextflow main.nf

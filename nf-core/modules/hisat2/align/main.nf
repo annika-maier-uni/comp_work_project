@@ -28,16 +28,16 @@ process HISAT2_BUILD{
 
 
 process HISAT2_ALIGN {
+    container "quay.io/biocontainers/hisat2:2.2.1--h87f3376_5"
 
     debug true
     input:
 
-    path all_fasta1
-    path all_fasta2
+    tuple val(meta), val(fasta1), val(fasta2)
 
 
     output:
-    path "output_hisat2_aligned_sam_file.sam"
+    //path "output_hisat2_aligned_sam_file.sam"
 
     script:
 
@@ -46,8 +46,9 @@ process HISAT2_ALIGN {
     echo "running hisat2"
 
     # We don't accept unpaired reads
-    # --fast for testing 
-    hisat2 --fast -x name -1 ${all_fasta1} -2 ${all_fasta2} -S output_hisat2_aligned_sam_file.sam
+    # --fast for testing
+
+    hisat2 --fast -x name -1 ${fasta1} -2 ${fasta2} -S output_hisat2_aligned_sam_file.sam
     """
 
 
