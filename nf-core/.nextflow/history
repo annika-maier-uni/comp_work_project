@@ -42,3 +42,4 @@
 2024-10-09 11:48:05	3.6s	hungry_saha	ERR	d47d6b3bd25b869f0f959fd095869520	af71142a-7f28-44e4-9d34-e5787095a74d	nextflow main.nf
 2024-10-09 11:48:29	3.3s	loving_liskov	ERR	d2d6422ce169d3a2934a3aa079e391aa	e43f4c22-8645-41db-b8c4-148456e6cc09	nextflow main.nf
 2024-10-09 11:49:32	3.6s	berserk_feynman	ERR	f0bbcbbefd48a13596a15af008eef0fd	d9b26116-1ab0-458f-b6c3-692038a45c6b	nextflow main.nf
+2024-10-09 11:51:47	3.3s	silly_kay	ERR	f0bbcbbefd48a13596a15af008eef0fd	6f7ebc5e-e088-4c3c-ae07-b6d15ea629cd	nextflow main.nf --reference genome.fa
