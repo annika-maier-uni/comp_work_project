@@ -144,3 +144,32 @@
 2024-10-09 13:53:01	-	confident_pauling	-	c93b7f9bb90b32244c3a70a9b5c8ba5b	c76dfce5-1860-4551-934f-64aa8cd48837	nextflow main.nf
 2024-10-09 13:53:37	4.3s	clever_marconi	ERR	69dc324d0413836728ad07c068fed891	2ccbf1c6-937c-4810-9f9a-78e7409b24fd	nextflow main.nf
 2024-10-09 13:58:27	19.8s	naughty_curie	OK	2b34f6280664d8b8f4aea9d029519a86	b6834205-0b06-47e6-a235-abc052e14876	nextflow main.nf
+2024-10-09 14:47:45	21.6s	zen_linnaeus	OK	42613ada3f2b3f8127da01af76b68e6f	3c987a23-66d1-4f1e-8939-cf4904a767d7	nextflow main.nf
+2024-10-09 14:56:06	1.9s	drunk_shockley	ERR	42613ada3f2b3f8127da01af76b68e6f	55590b3d-855d-419c-927c-23201fa7c739	nextflow main.nf
+2024-10-09 14:56:27	5.7s	nauseous_volhard	ERR	42613ada3f2b3f8127da01af76b68e6f	4748f6f8-5693-4753-926c-b1b693c9b7b7	nextflow main.nf
+2024-10-09 14:56:55	4.8s	hopeful_descartes	ERR	42613ada3f2b3f8127da01af76b68e6f	8526daac-05d4-4a74-8d47-2e21a58984cf	nextflow main.nf
+2024-10-09 14:57:07	5.2s	chaotic_northcutt	ERR	42613ada3f2b3f8127da01af76b68e6f	c898c7b0-0b3b-4b3f-b96b-75583becc2fb	nextflow main.nf
+2024-10-09 14:59:18	3.8s	naughty_gauss	ERR	42613ada3f2b3f8127da01af76b68e6f	b4bf33bf-c334-45bb-b406-57357501080e	nextflow main.nf -profile docker
+2024-10-09 14:59:58	9.6s	pensive_darwin	ERR	42613ada3f2b3f8127da01af76b68e6f	2de4fdd2-9b10-451f-b080-79f291b70a33	nextflow main.nf -profile docker
+2024-10-09 15:00:17	4.4s	tiny_jang	ERR	42613ada3f2b3f8127da01af76b68e6f	d5cf0bfc-20e5-429c-b579-243c558ab6e2	nextflow main.nf
+2024-10-09 15:03:07	4.1s	desperate_almeida	ERR	42613ada3f2b3f8127da01af76b68e6f	f42e1b15-d32b-46e5-b760-0340361f1158	nextflow main.nf
+2024-10-09 15:03:20	5.5s	dreamy_caravaggio	ERR	42613ada3f2b3f8127da01af76b68e6f	0e4138c1-3910-4d1c-82c7-494d394e70d6	nextflow main.nf
+2024-10-09 15:03:48	4.2s	agitated_morse	ERR	42613ada3f2b3f8127da01af76b68e6f	d4898681-2f7d-4132-b578-08225b99e1a4	nextflow main.nf -profile docker
+2024-10-09 15:08:33	-	distraught_torvalds	-	42613ada3f2b3f8127da01af76b68e6f	6790df28-cce0-44be-811c-3fcee3f738b2	nextflow main.nf
+2024-10-09 15:08:50	2.5s	adoring_hilbert	ERR	f8ebd786dd6d68a9f0f11c33e9bc01f5	eafc5c88-965e-46d8-809b-e192bfc2b35d	nextflow main.nf
+2024-10-09 15:09:20	1.4s	drunk_carlsson	ERR	aed5251e93bcba5541b1cb65ef6e8345	589a17a6-d101-4e8d-a5f5-e82ee7387150	nextflow main.nf
+2024-10-09 15:11:48	3.8s	sick_wing	ERR	6729bec019228962bf30902575c13bca	40c8c92e-da6c-4507-b14a-669f68c41a7d	nextflow main.nf
+2024-10-09 15:12:26	3.4s	amazing_kowalevski	ERR	6729bec019228962bf30902575c13bca	b9005dc8-19d3-48f8-b06f-2af7f28b873b	nextflow main.nf
+2024-10-09 15:12:44	21s	kickass_booth	OK	6729bec019228962bf30902575c13bca	3fe4c9b2-a64e-41e6-8b6f-55cf632bdb21	nextflow main.nf
+2024-10-09 15:17:47	13.9s	evil_goodall	ERR	6729bec019228962bf30902575c13bca	83c9d910-6237-4015-8cae-d024d8051bc4	nextflow main.nf
+2024-10-09 15:18:57	12.9s	goofy_solvay	ERR	6729bec019228962bf30902575c13bca	2646b021-0264-4b7b-98e1-e2611c675d51	nextflow main.nf
+2024-10-09 15:20:04	14.3s	sick_edison	ERR	6729bec019228962bf30902575c13bca	62681b5f-8680-4fc9-a2e7-fcfb4f0b29d0	nextflow main.nf
+2024-10-09 15:21:35	-	voluminous_bell	-	6729bec019228962bf30902575c13bca	5b08408f-0333-4b9b-b488-25a644b9959d	nextflow main.nf
+2024-10-09 15:21:55	14.6s	thirsty_ardinghelli	ERR	6729bec019228962bf30902575c13bca	b1e97a83-30fc-416d-aaae-89837ede445e	nextflow main.nf
+2024-10-09 15:24:21	20.8s	evil_carson	OK	6729bec019228962bf30902575c13bca	9ec8493a-2078-43d7-8334-efb74a3b1367	nextflow main.nf
+2024-10-09 15:25:26	4.4s	pensive_bardeen	ERR	6729bec019228962bf30902575c13bca	71549218-5d35-4bc2-8b37-aaf31805cf96	nextflow main.nf
+2024-10-09 15:26:57	3.6s	mighty_wozniak	ERR	6729bec019228962bf30902575c13bca	08703fe5-e156-4122-b9a0-f272c2b427fd	nextflow main.nf
+2024-10-09 15:28:39	3.7s	sharp_swirles	ERR	6729bec019228962bf30902575c13bca	45a4701a-bb24-4f7e-a04d-5039302653a3	nextflow main.nf
+2024-10-09 15:29:03	24.3s	tiny_meucci	OK	6729bec019228962bf30902575c13bca	794c22c4-f982-4320-890d-91bf03d616b1	nextflow main.nf
+2024-10-09 15:31:38	3.9s	special_nightingale	ERR	6729bec019228962bf30902575c13bca	e413cd8c-4060-4259-a68c-640f11df6351	nextflow main.nf
+2024-10-09 15:32:20	21.6s	exotic_torvalds	OK	6729bec019228962bf30902575c13bca	4c7c0f04-8459-4695-9b34-aa26bda4eada	nextflow main.nf

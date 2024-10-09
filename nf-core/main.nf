@@ -9,7 +9,6 @@
 //
 include { FASTQC } from './modules/FASTQ/'
 include {TRIMMING} from './modules/trimgalore/'
-include {STAR} from './modules/STAR/'
 include {HISAT2_BUILD} from './modules/hisat2/align/'
 include {HISAT2_ALIGN} from './modules/hisat2/align/'
 
@@ -18,8 +17,8 @@ include {HISAT2_ALIGN} from './modules/hisat2/align/'
     PARAMETERS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
-params.samplesheet = params.samplesheet ?: "./modules/trimgalore/samplesheet_new.csv"
-params.reference =  params.reference ?: "./modules/hisat2/align/genome.fa"
+params.samplesheet = params.samplesheet ?: "./data/samplesheet.csv"
+params.reference =  params.reference ?: "./data/genome.fa"
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
