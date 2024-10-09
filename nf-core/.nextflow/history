@@ -174,3 +174,23 @@
 2024-10-09 15:31:38	3.9s	special_nightingale	ERR	6729bec019228962bf30902575c13bca	e413cd8c-4060-4259-a68c-640f11df6351	nextflow main.nf
 2024-10-09 15:32:20	21.6s	exotic_torvalds	OK	6729bec019228962bf30902575c13bca	4c7c0f04-8459-4695-9b34-aa26bda4eada	nextflow main.nf
 2024-10-09 15:35:35	18.6s	nasty_lamarck	OK	6729bec019228962bf30902575c13bca	0d8949d5-0676-4b42-9f6f-b7fb7d65ba87	nextflow main.nf
+2024-10-09 15:38:31	23.7s	sick_lagrange	OK	4f80eb3b9ca90497f2c62fab1c4cc4a9	dcf377d2-ad59-4e29-a598-75a409bc45d4	nextflow main.nf
+2024-10-09 19:24:36	2.4s	golden_hamilton	ERR	4f80eb3b9ca90497f2c62fab1c4cc4a9	d808eacf-b2da-40f7-ad0c-22559c4047e1	nextflow main.nf
+2024-10-09 19:25:06	20.2s	grave_lalande	OK	4f80eb3b9ca90497f2c62fab1c4cc4a9	c1843c5a-b913-40a2-a90a-c90f7cc47af1	nextflow main.nf
+2024-10-09 19:28:15	-	suspicious_bose	-	4f80eb3b9ca90497f2c62fab1c4cc4a9	8295ee86-f37e-4e7b-bd90-90fbd1d26386	nextflow main.nf
+2024-10-09 19:29:40	-	furious_lorenz	-	4f80eb3b9ca90497f2c62fab1c4cc4a9	bb7b0a71-e4b8-42e1-8347-60a97a182d59	nextflow main.nf
+2024-10-09 19:30:27	20.3s	lonely_perlman	OK	4f80eb3b9ca90497f2c62fab1c4cc4a9	d3823812-b1bb-423e-b784-bbc0afda9690	nextflow main.nf
+2024-10-09 19:31:40	3s	tiny_meninsky	ERR	4f4255c96fadf3b0636febebf22b1790	e6c067cb-9122-4c37-a442-e3d2d058d5f0	nextflow main.nf
+2024-10-09 19:33:06	19.1s	crazy_stonebraker	OK	4f80eb3b9ca90497f2c62fab1c4cc4a9	ffaee9ad-dedd-4141-b6f5-9444b96094dc	nextflow main.nf
+2024-10-09 19:41:56	8s	lethal_fermat	OK	fae736736e394dbeb64f865bb9a54776	d8ddef78-733c-4b6e-8108-69dbb1cfe6d5	nextflow main.nf
+2024-10-09 19:42:14	7.8s	peaceful_leakey	OK	fae736736e394dbeb64f865bb9a54776	473eab07-6ddd-4d74-9c69-760de7f52dfd	nextflow main.nf -profile docker
+2024-10-09 19:42:43	10.5s	soggy_williams	OK	fae736736e394dbeb64f865bb9a54776	56638717-9442-4143-b9fa-b5926d9ada60	nextflow main.nf -profile docker
+2024-10-09 19:46:02	16.5s	extravagant_majorana	OK	b87a4af21eed200f1eb399c78fc9723d	69771f16-4922-437a-a0fd-230f9516b4c9	nextflow main.nf -profile docker
+2024-10-09 19:46:25	1m 27s	cheeky_kay	OK	b87a4af21eed200f1eb399c78fc9723d	256afced-3ecb-4d7c-b49f-09a6f4767c0f	nextflow main.nf -profile conda
+2024-10-09 19:49:27	55.9s	jolly_tesla	OK	20be2612fb21090e9211c6f0fb697ec6	032878ca-99f8-403d-bcda-41b8d9b14cb4	nextflow main.nf -profile docker
+2024-10-09 19:54:50	2.2s	naughty_poincare	ERR	20be2612fb21090e9211c6f0fb697ec6	2ccaa85a-eb1c-4afb-a8d0-15f496870ce4	nextflow main.nf -profile docker
+2024-10-09 19:55:44	26.9s	jolly_cuvier	OK	20be2612fb21090e9211c6f0fb697ec6	c3e1897d-0f8a-4109-9f80-e59d16d49540	nextflow main.nf -profile docker
+2024-10-09 20:19:14	9.9s	shrivelled_einstein	ERR	20be2612fb21090e9211c6f0fb697ec6	cc0b609b-40c6-43d4-9229-0317abfa26c4	nextflow main.nf -profile docker
+2024-10-09 20:21:06	22.3s	astonishing_pare	ERR	20be2612fb21090e9211c6f0fb697ec6	6ba86b43-01bb-412d-a069-5c1449bfb758	nextflow main.nf -profile docker
+2024-10-09 20:22:19	27.2s	intergalactic_lamarck	OK	20be2612fb21090e9211c6f0fb697ec6	ccebbd18-b114-40c1-9a68-1c2447f31320	nextflow main.nf -profile docker
+2024-10-09 20:26:59	26.2s	drunk_kirch	OK	20be2612fb21090e9211c6f0fb697ec6	964c997e-99cb-4714-a7d9-56e9ebfe840d	nextflow main.nf -profile docker

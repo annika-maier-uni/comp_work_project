@@ -4,21 +4,21 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-//
-// MODULES
-//
+// Load the required modules for FastQC, trimming, and HISAT2 alignment
 include { FASTQC } from './modules/FASTQ/'
-include {TRIMMING} from './modules/trimgalore/'
-include {HISAT2_BUILD} from './modules/hisat2/align/'
-include {HISAT2_ALIGN} from './modules/hisat2/align/'
+include { TRIMMING } from './modules/trimgalore/'
+include { HISAT2_BUILD } from './modules/hisat2/align/'
+include { HISAT2_ALIGN } from './modules/hisat2/align/'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     PARAMETERS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
+
+// Define default paths for samplesheet and reference genome if not provided by the user
 params.samplesheet = params.samplesheet ?: "./data/samplesheet.csv"
-params.reference =  params.reference ?: "./data/genome.fa"
+params.reference  = params.reference  ?: "./data/genome.fa"
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -26,67 +26,51 @@ params.reference =  params.reference ?: "./data/genome.fa"
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-
 workflow {
-    // 1. Reading in a samplesheet
-    // Create a channel to read the samplesheet
+    // 1. Reading the samplesheet and preparing data channels
+
+    // Create a channel from the samplesheet file
     reads_channel = Channel
-        // Load the sample sheet specified by the user as a parameter (params.samplesheet)
-        .fromPath(params.samplesheet)
-        // Split the CSV file into rows.
-        // The 'header: true' option tells Nextflow that the first row of the CSV contains column names.
-        .splitCsv(header: true)
-        // Map each row into a structured format:
-        // Each row contains the sample name, strandedness, and two FASTQ file paths
-        .map { row ->
+        .fromPath(params.samplesheet)   // Load samplesheet
+        .splitCsv(header: true)         // Split the CSV into rows, using the first row as header
+        .map { row ->                   // Map each row to structured format for further processing
             [
                 ["sample": row.sample, "strandedness": row.strandedness],
                 [file(row.fastq_1), file(row.fastq_2)]
             ]
         }
-        .view()
+        .view()  // Debug view for channel content
 
-        //.view()  // View the contents of the channel for debugging
-
-    // Channel for reference genome files
+    // Channel for the reference genome file
     reference_channel = Channel
-        .fromPath(params.reference)
+        .fromPath(params.reference)   // Load reference genome
 
-    // Tuple channel for FASTQ files
+    // Create a channel for FASTQ files
     tuple_channel = Channel
-        // Load the sample sheet specified by the user as a parameter (params.samplesheet)
-        .fromPath(params.samplesheet)
-        // Split the CSV file into rows.
-        // The 'header: true' option tells Nextflow that the first row of the CSV contains column names.
-        .splitCsv(header: true)
-        // Map each row into a structured format:
-        // Each row contains the sample name, strandedness, and two FASTQ file paths
-        .map { row ->
+        .fromPath(params.samplesheet)   // Load samplesheet
+        .splitCsv(header: true)         // Split the CSV into rows
+        .map { row ->                   // Map each row to structured format with FASTQ file paths
             [
                 ["sample": row.sample, "strandedness": row.strandedness],
-                [file(row.fastq_1)],
-                [file(row.fastq_2)]
+                [file(row.fastq_1)],     // Path to FASTQ 1
+                [file(row.fastq_2)]      // Path to FASTQ 2
             ]
         }
-        .view()
+        .view()  // Debug view for channel content
 
-
-    // 2. FastQC: Quality control for the FASTQ files
+    // 2. Perform quality control on the FASTQ files using FastQC
     FASTQC(reads_channel)
 
-    // 3. Trimming: Trimming the FASTQ files for quality
+    // 3. Trim the FASTQ files for quality using Trimgalore
     TRIMMING(reads_channel)
 
-    // 4. Aligning
-    // Build the HISAT2 index for the reference genome
+    // 4. Align reads using HISAT2
+    // First, build the HISAT2 index for the reference genome
     output = HISAT2_BUILD(reference_channel)
 
-    HISAT2_ALIGN(output,tuple_channel)
-
-  // Access the first FASTQ files
-
+    // Then, align the reads with the built index
+    HISAT2_ALIGN(output, tuple_channel)
 }
-
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

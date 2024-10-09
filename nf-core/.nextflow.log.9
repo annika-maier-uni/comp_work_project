@@ -1,121 +1,66 @@
-Oct-09 15:21:34.541 [main] DEBUG nextflow.cli.Launcher - $> nextflow main.nf
-Oct-09 15:21:34.742 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.10.0
-Oct-09 15:21:34.771 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/maikenaegele/.nextflow/plugins; core-plugins: nf-amazon@2.1.4,nf-azure@1.3.2,nf-cloudcache@0.3.0,nf-codecommit@0.1.5,nf-console@1.0.6,nf-ga4gh@1.1.0,nf-google@1.8.3,nf-tower@1.6.3,nf-wave@1.0.0
-Oct-09 15:21:34.788 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Oct-09 15:21:34.789 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Oct-09 15:21:34.795 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
-Oct-09 15:21:34.811 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Oct-09 15:21:34.849 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/nextflow.config
-Oct-09 15:21:34.851 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/nextflow.config
-Oct-09 15:21:34.883 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Oct-09 15:21:35.651 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
-Oct-09 15:21:35.677 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [voluminous_bell] DSL2 - revision: 6729bec019
-Oct-09 15:21:35.678 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Oct-09 15:21:35.678 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Oct-09 15:21:35.691 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/maikenaegele/.nextflow/secrets/store.json
-Oct-09 15:21:35.695 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@6abdec0e] - activable => nextflow.secret.LocalSecretsProvider@6abdec0e
-Oct-09 15:21:35.783 [main] DEBUG nextflow.Session - Session UUID: 5b08408f-0333-4b9b-b488-25a644b9959d
-Oct-09 15:21:35.783 [main] DEBUG nextflow.Session - Run name: voluminous_bell
-Oct-09 15:21:35.785 [main] DEBUG nextflow.Session - Executor pool size: 8
-Oct-09 15:21:35.794 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Oct-09 15:21:35.800 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
-Oct-09 15:21:35.833 [main] DEBUG nextflow.cli.CmdRun - 
+Oct-09 19:42:42.868 [main] DEBUG nextflow.cli.Launcher - $> nextflow main.nf -profile docker
+Oct-09 19:42:42.995 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.10.0
+Oct-09 19:42:43.014 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/maikenaegele/.nextflow/plugins; core-plugins: nf-amazon@2.1.4,nf-azure@1.3.2,nf-cloudcache@0.3.0,nf-codecommit@0.1.5,nf-console@1.0.6,nf-ga4gh@1.1.0,nf-google@1.8.3,nf-tower@1.6.3,nf-wave@1.0.0
+Oct-09 19:42:43.023 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-09 19:42:43.024 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-09 19:42:43.027 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Oct-09 19:42:43.035 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-09 19:42:43.049 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/nextflow.config
+Oct-09 19:42:43.050 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/nextflow.config
+Oct-09 19:42:43.069 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Oct-09 19:42:43.695 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [gitpod, debug, shifter, mamba, charliecloud, apptainer, conda, singularity, arm, wave, docker, podman]
+Oct-09 19:42:43.733 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Oct-09 19:42:43.749 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [soggy_williams] DSL2 - revision: fae736736e
+Oct-09 19:42:43.750 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-09 19:42:43.750 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-09 19:42:43.759 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/maikenaegele/.nextflow/secrets/store.json
+Oct-09 19:42:43.763 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@f5ce0bb] - activable => nextflow.secret.LocalSecretsProvider@f5ce0bb
+Oct-09 19:42:43.817 [main] DEBUG nextflow.Session - Session UUID: 56638717-9442-4143-b9fa-b5926d9ada60
+Oct-09 19:42:43.817 [main] DEBUG nextflow.Session - Run name: soggy_williams
+Oct-09 19:42:43.817 [main] DEBUG nextflow.Session - Executor pool size: 8
+Oct-09 19:42:43.824 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Oct-09 19:42:43.828 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Oct-09 19:42:43.849 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 23.10.0 build 5889
   Created: 15-10-2023 15:07 UTC (17:07 CEST)
   System: Linux 5.15.153.1-microsoft-standard-WSL2
   Runtime: Groovy 3.0.19 on OpenJDK 64-Bit Server VM 11.0.13+7-b1751.21
   Encoding: UTF-8 (UTF-8)
-  Process: 26341@MaikeLaptop [127.0.1.1]
-  CPUs: 8 - Mem: 7.7 GB (4.1 GB) - Swap: 2 GB (2 GB)
-Oct-09 15:21:35.857 [main] DEBUG nextflow.Session - Work-dir: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/work [ext2/ext3]
-Oct-09 15:21:35.877 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Oct-09 15:21:35.891 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Oct-09 15:21:35.915 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Oct-09 15:21:35.930 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
-Oct-09 15:21:36.020 [main] DEBUG nextflow.Session - Session start
-Oct-09 15:21:36.424 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Oct-09 15:21:36.812 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-  Script_89549d4a22e255c3: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/FASTQ/main.nf
-  Script_b9051d2c87c81f40: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/trimgalore/main.nf
-  Script_6bb852520867cdfb: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/main.nf
-Oct-09 15:21:36.844 [main] ERROR nextflow.cli.Launcher - Module compilation error
-- file : /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/hisat2/align/main.nf
-- cause: Unexpected character: '"' @ line 40, column 10.
-       path "./results/hisat2/output_hisat2_aligned_sam_file.sam
-            ^
-
-1 error
-
-nextflow.exception.ScriptCompilationException: Module compilation error
-- file : /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/hisat2/align/main.nf
-- cause: Unexpected character: '"' @ line 40, column 10.
-       path "./results/hisat2/output_hisat2_aligned_sam_file.sam
-            ^
-
-1 error
-
-	at nextflow.script.ScriptParser.parse0(ScriptParser.groovy:196)
-	at nextflow.script.ScriptParser.parse(ScriptParser.groovy:206)
-	at nextflow.script.ScriptParser.runScript(ScriptParser.groovy:221)
-	at nextflow.script.IncludeDef.memoizedMethodPriv$loadModule0PathMapSession(IncludeDef.groovy:151)
-	at nextflow.script.IncludeDef.access$0(IncludeDef.groovy)
-	at nextflow.script.IncludeDef$__clinit__closure2.doCall(IncludeDef.groovy)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
-	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
-	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:274)
-	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1030)
-	at groovy.lang.Closure.call(Closure.java:427)
-	at org.codehaus.groovy.runtime.memoize.Memoize$MemoizeFunction.lambda$call$0(Memoize.java:137)
-	at org.codehaus.groovy.runtime.memoize.ConcurrentCommonCache.getAndPut(ConcurrentCommonCache.java:137)
-	at org.codehaus.groovy.runtime.memoize.ConcurrentCommonCache.getAndPut(ConcurrentCommonCache.java:113)
-	at org.codehaus.groovy.runtime.memoize.Memoize$MemoizeFunction.call(Memoize.java:136)
-	at nextflow.script.IncludeDef.loadModule0(IncludeDef.groovy)
-	at nextflow.script.IncludeDef.load0(IncludeDef.groovy:123)
-	at nextflow.script.IncludeDef$load0$1.call(Unknown Source)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:139)
-	at Script_6bb852520867cdfb.runScript(Script_6bb852520867cdfb:12)
-	at nextflow.script.BaseScript.run0(BaseScript.groovy:144)
-	at nextflow.script.BaseScript.run(BaseScript.groovy:192)
-	at nextflow.script.ScriptParser.runScript(ScriptParser.groovy:236)
-	at nextflow.script.ScriptRunner.run(ScriptRunner.groovy:242)
-	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:137)
-	at nextflow.cli.CmdRun.run(CmdRun.groovy:372)
-	at nextflow.cli.Launcher.run(Launcher.groovy:499)
-	at nextflow.cli.Launcher.main(Launcher.groovy:670)
-Caused by: org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
-Script_4e9426f90518ca14: 40: Unexpected character: '"' @ line 40, column 10.
-       path "./results/hisat2/output_hisat2_aligned_sam_file.sam
-            ^
-
-1 error
-
-	at org.codehaus.groovy.control.ErrorCollector.failIfErrors(ErrorCollector.java:292)
-	at org.codehaus.groovy.control.ErrorCollector.addFatalError(ErrorCollector.java:148)
-	at org.apache.groovy.parser.antlr4.AstBuilder.collectSyntaxError(AstBuilder.java:4321)
-	at org.apache.groovy.parser.antlr4.AstBuilder.createParsingFailedException(AstBuilder.java:4304)
-	at org.apache.groovy.parser.antlr4.AstBuilder.convertException(AstBuilder.java:261)
-	at org.apache.groovy.parser.antlr4.AstBuilder.buildCST(AstBuilder.java:235)
-	at org.apache.groovy.parser.antlr4.AstBuilder.buildAST(AstBuilder.java:269)
-	at org.apache.groovy.parser.antlr4.Antlr4ParserPlugin.buildAST(Antlr4ParserPlugin.java:58)
-	at org.codehaus.groovy.control.SourceUnit.buildAST(SourceUnit.java:256)
-	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
-	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
-	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658)
-	at org.codehaus.groovy.control.CompilationUnit.buildASTs(CompilationUnit.java:667)
-	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:633)
-	at groovy.lang.GroovyClassLoader.doParseClass(GroovyClassLoader.java:389)
-	at groovy.lang.GroovyClassLoader.lambda$parseClass$3(GroovyClassLoader.java:332)
-	at org.codehaus.groovy.runtime.memoize.StampedCommonCache.compute(StampedCommonCache.java:163)
-	at org.codehaus.groovy.runtime.memoize.StampedCommonCache.getAndPut(StampedCommonCache.java:154)
-	at groovy.lang.GroovyClassLoader.parseClass(GroovyClassLoader.java:330)
-	at groovy.lang.GroovyShell.parseClass(GroovyShell.java:526)
-	at groovy.lang.GroovyShell.parse(GroovyShell.java:538)
-	at groovy.lang.GroovyShell.parse(GroovyShell.java:570)
-	at nextflow.script.ScriptParser.parse0(ScriptParser.groovy:175)
-	... 33 common frames omitted
+  Process: 12968@MaikeLaptop [127.0.1.1]
+  CPUs: 8 - Mem: 7.7 GB (4.4 GB) - Swap: 2 GB (2 GB)
+Oct-09 19:42:43.866 [main] DEBUG nextflow.Session - Work-dir: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/work [ext2/ext3]
+Oct-09 19:42:43.879 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Oct-09 19:42:43.888 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Oct-09 19:42:43.902 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-09 19:42:43.911 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Oct-09 19:42:43.973 [main] DEBUG nextflow.Session - Session start
+Oct-09 19:42:44.177 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-09 19:42:44.537 [main] WARN  nextflow.script.ScriptBinding - Access to undefined parameter `samplesheet` -- Initialise it to a default value eg. `params.samplesheet = some_value`
+Oct-09 19:42:44.537 [main] WARN  nextflow.script.ScriptBinding - Access to undefined parameter `reference` -- Initialise it to a default value eg. `params.reference = some_value`
+Oct-09 19:42:44.706 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-09 19:42:44.706 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-09 19:42:44.711 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Oct-09 19:42:44.715 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=7.7 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+Oct-09 19:42:44.717 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Oct-09 19:42:44.775 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: FASTQC, HISAT2_BUILD, TRIMMING, HISAT2_ALIGN
+Oct-09 19:42:44.776 [main] DEBUG nextflow.Session - Igniting dataflow network (4)
+Oct-09 19:42:44.782 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FASTQC
+Oct-09 19:42:44.784 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_2415dfc18704b570: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/trimgalore/main.nf
+  Script_1e96d66987b7b494: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/main.nf
+  Script_f485a9d624553d3e: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/FASTQ/main.nf
+  Script_97458581b03ca397: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/hisat2/align/main.nf
+Oct-09 19:42:44.785 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Oct-09 19:42:44.785 [main] DEBUG nextflow.Session - Session await
+Oct-09 19:42:44.999 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-09 19:42:45.003 [Task submitter] INFO  nextflow.Session - [28/990ac0] Submitted process > FASTQC (1)
+Oct-09 19:42:53.228 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: FASTQC (1); status: COMPLETED; exit: 0; error: -; workDir: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/work/28/990ac0c1784442bf239adffc2941af]
+Oct-09 19:42:53.280 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Oct-09 19:42:53.293 [main] DEBUG nextflow.Session - Session await > all processes finished
+Oct-09 19:42:53.295 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Oct-09 19:42:53.295 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Oct-09 19:42:53.302 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Oct-09 19:42:53.315 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=8.2s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=1; peakMemory=0; ]
+Oct-09 19:42:53.478 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Oct-09 19:42:53.512 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Oct-09 19:42:53.513 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
