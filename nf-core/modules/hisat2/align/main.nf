@@ -92,21 +92,43 @@ process HISAT2_ALIGN {
 
     input:
     path files  // HISAT2 index files
-    tuple path(fasta1), path(fasta2)  // Input FASTA/FASTQ files for alignment
+    tuple val(meta), path(fastas) // Input FASTA/FASTQ files for alignment 
 
     output:
-    path "output_hisat2_aligned_sam_file.sam"  // Aligned SAM file
+    path "output_hisat2_aligned_sam_file.sam", emit: sam_file  // Aligned SAM file
+    // TODO - probably have to change it to 
+    // path "${meta.sample}_aligned.sam"
+
     path "versions.yml", emit: versions  // Output versions
 
     script:
     full_name = files[0].getName()  // Get the index file name
     name = full_name.split("\\.")[0]  // Extract base name
 
-    """
-    echo "Running HISAT2 alignment"
+    // Split the `fastas` list into _1 and _2 files
+    def fastq1_list = fastas.findAll { it.name.endsWith('_1.fastq.gz') || it.name.endsWith('_1.fq.gz') }.sort()
+    def fastq2_list = fastas.findAll { it.name.endsWith('_2.fastq.gz') || it.name.endsWith('_2.fq.gz') }.sort()
 
+    // Combine paired lists into a single string for HISAT2
+    def fasta1 = fastq1_list.join(',')
+    def fasta2 = fastq2_list.join(',')
+
+
+     // Extract read group information from the `meta` object
+    def RGID = meta.sample  
+    def RGSM = meta.sample 
+    def RGLB = "${meta.sample}_lib"
+    def RGPL = "unknown" // our data does not have the platform information
+    def RGPU = "${meta.sample}_unit" 
+
+    """
     # Align paired-end reads with HISAT2
-    hisat2 --fast -x ${name} -1 ${fasta1} -2 ${fasta2} -S output_hisat2_aligned_sam_file.sam
+    hisat2 --fast -x ${name} -1 ${fasta1} -2 ${fasta2} -S output_hisat2_aligned_sam_file.sam \
+        --rg-id ${RGID} \
+        --rg "SM:${RGSM}" \
+        --rg "LB:${RGLB}" \
+        --rg "PL:${RGPL}" \
+        --rg "PU:${RGPU}"
 
     # Save HISAT2 and Samtools versions
     cat <<-END_VERSIONS > versions.yml

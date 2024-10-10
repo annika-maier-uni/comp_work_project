@@ -9,6 +9,8 @@ include { FASTQC } from './modules/FASTQ/'
 include { TRIMMING } from './modules/trimgalore/'
 include { HISAT2_BUILD } from './modules/hisat2/align/'
 include { HISAT2_ALIGN } from './modules/hisat2/align/'
+include { PICARD_MARKDUPLICATES } from './modules/picard_mark_duplicates/'
+include { SAMTOOLS_SORT_AND_INDEX } from './modules/samtools/'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -65,19 +67,26 @@ workflow {
     TRIMMING(reads_channel)
     reads = TRIMMING.out.reads
 
-    reads
-        .map { meta, fastq -> fastq }
-        .map {fastq1,fastq2 -> tuple([fastq1],[fastq2])}
-        .view()
-        .set{trimmed_reads}
-
+    // reads
+    //     .map { meta, fastq -> fastq }
+    //     .map {fastq1,fastq2 -> tuple([fastq1],[fastq2])}
+    //     .view()
+    //     .set{trimmed_reads}
 
     // 4. Align reads using HISAT2
     // First, build the HISAT2 index for the reference genome
-    output = HISAT2_BUILD(reference_channel)
+    hiasat2_build_index = HISAT2_BUILD(reference_channel)
 
     // Then, align the reads with the built index
-    HISAT2_ALIGN(output,trimmed_reads)
+    HISAT2_ALIGN(hiasat2_build_index, reads)
+    aligned_sam = HISAT2_ALIGN.out.sam_file
+
+    // Use samtools to sort and index
+    SAMTOOLS_SORT_AND_INDEX(aligned_sam)
+    sorted_sam = SAMTOOLS_SORT_AND_INDEX.out.sorted
+
+    // Mark duplicates
+    PICARD_MARKDUPLICATES(sorted_sam)
 }
 
 /*
