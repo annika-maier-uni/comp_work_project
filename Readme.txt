@@ -44,15 +44,15 @@ The strandedness refers to the library preparation and will be automatically inf
 ### Now, you can run the pipeline using:
 
 ```bash
-nextflow run main.nf 
+nextflow run main.nf -profile <docker/singularity/.../institute>
 ```
 
 ```bash
-nextflow run main.nf --samplesheet <SAMPLESHEET>  
+nextflow run main.nf --samplesheet <SAMPLESHEET> -profile <docker/singularity/.../institute> 
 ```
 
 ```bash
-nextflow run main.nf --samplesheet <SAMPLESHEET> --reference <REFERENCE>
+nextflow run main.nf --samplesheet <SAMPLESHEET> --reference <REFERENCE> -profile <docker/singularity/.../institute>
 ```
 
 ## Notes
