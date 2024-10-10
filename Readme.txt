@@ -40,6 +40,7 @@ The strandedness refers to the library preparation and will be automatically inf
 -- samplesheet: The path to the samplesheet CSV file containing sample information. The default value is ./modules/trimgalore/samplesheet_new.csv.
 -- reference:   The path to the reference genome file (FASTA format). The default value is ./modules/hisat2/align/genome.fa. You can use the genome 
                 data from here: https://github.com/nf-core/test-datasets/tree/rnaseq/reference
+-profile:       Use docker/singularity/.../institute
 
 ### Now, you can run the pipeline using:
 
