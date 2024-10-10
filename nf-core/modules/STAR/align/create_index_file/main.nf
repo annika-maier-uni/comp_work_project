@@ -3,9 +3,6 @@
 // Enable DSL2 syntax
 nextflow.enable.dsl=2
 
-// Output directory for FASTQC
-params.output = './results/STAR/index'
-
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -24,7 +21,7 @@ process INDEX_FILE {
         'https://depot.galaxyproject.org/singularity/mulled-v2-1fa26d1ce03c295fe2fdcf85831a92fbcbd7e8c2:ded3841da0194af2701c780e9b3d653a85d27489-0' :
         'biocontainers/mulled-v2-1fa26d1ce03c295fe2fdcf85831a92fbcbd7e8c2:ded3841da0194af2701c780e9b3d653a85d27489-0' }"
 
-    publishDir "${params.output}", mode: 'copy'
+    publishDir "${params.outdir}/STAR/INDEX", mode: 'copy'
 
     input:
     path genome

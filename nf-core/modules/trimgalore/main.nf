@@ -3,8 +3,6 @@
 // Enable DSL2
 nextflow.enable.dsl=2
 
-// Output directory for Trim Galore
-params.output = './results/trimgalore'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,7 +51,7 @@ process TRIMMING {
         'biocontainers/trim-galore:0.6.7--hdfd78af_0' }"
 
     // Copy results to output directory
-    publishDir "${params.output}", mode: 'copy'
+    publishDir "${params.outdir}/trimgalore", mode: 'copy'
 
     input:
     tuple val(meta), path(reads)  // Input: meta info and reads (paired-end FASTQ files)

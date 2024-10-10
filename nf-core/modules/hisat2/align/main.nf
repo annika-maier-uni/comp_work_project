@@ -3,11 +3,6 @@
 // Enable DSL2 syntax
 nextflow.enable.dsl=2
 
-// Output directory for HISAT2 build
-params.output_build = './results/hisat2/build'
-// Output directory for HISAT2 alignment
-params.output_align = './results/hisat2/align'
-
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,7 +53,7 @@ process HISAT2_BUILD {
         'biocontainers/mulled-v2-a97e90b3b802d1da3d6958e0867610c718cb5eb1:2cdf6bf1e92acbeb9b2834b1c58754167173a410-0' }"
 
     // Copy results to output directory
-    publishDir "${params.output_build}", mode: 'copy'
+    publishDir "${params.outdir}/build", mode: 'copy'
 
     input:
     path(reference)  // Input reference genome
@@ -88,7 +83,7 @@ process HISAT2_ALIGN {
 
 
     // Copy results to output directory
-    publishDir "${params.output_align}", mode: 'copy'
+    publishDir "${params.outputdir}/align", mode: 'copy'
 
     input:
     path files  // HISAT2 index files
@@ -128,6 +123,7 @@ process HISAT2_ALIGN {
         --rg "SM:${RGSM}" \
         --rg "LB:${RGLB}" \
         --rg "PL:${RGPL}" \
+        --threads ${params.max_cpus} \
         --rg "PU:${RGPU}"
 
     # Save HISAT2 and Samtools versions

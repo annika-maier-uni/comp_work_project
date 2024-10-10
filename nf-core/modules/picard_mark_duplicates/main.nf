@@ -1,11 +1,9 @@
 nextflow.enable.dsl = 2
 
-params.output = './results/picard'
-
 
 process PICARD_MARKDUPLICATES {
 
-    publishDir "${params.output}", mode: 'copy'
+    publishDir "${params.outdir}/picard", mode: 'copy'
 
     //conda "${moduleDir}/environment.yml"
 

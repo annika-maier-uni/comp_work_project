@@ -15,17 +15,17 @@ include { INDEX_FILE } from './modules/STAR/align/create_index_file/'
 include { STAR_ALIGN} from './modules/STAR/align/'
 include {SAMPLESHEET_VALIDATION} from './modules/samplesheet_validation'
 
+
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     PARAMETERS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
-
-// Define default paths for samplesheet and reference genome if not provided by the user
 params.samplesheet = params.samplesheet ?: './data/samplesheet.csv'
 params.fasta  = params.fasta  ?: "./data/genome.fa"
 params.gtf  = params.gtf  ?: "./data/genes.gtf"
 params.python_file = './bin/validation_samplesheet.py'
+params.outdir      = params.outdir ?: "./results"
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -3,8 +3,7 @@
 // Enable DSL2 syntax
 nextflow.enable.dsl=2
 
-// Output directory for FASTQC
-params.output = './results/fastqc'
+
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -44,7 +43,7 @@ process FASTQC {
         'biocontainers/fastqc:0.12.1--hdfd78af_0' }"
 
     // Copy results to output directory
-    publishDir "${params.output}", mode: 'copy'
+    publishDir "${params.outdir}/fastqc", mode: 'copy'
 
     input:
     tuple val(meta), path(reads)  // Input: meta info and reads (paired-end FASTQ files)
@@ -58,7 +57,7 @@ process FASTQC {
     script:
     """
     # Run FastQC
-    fastqc ${reads}
+    fastqc ${reads} --threads $params.max_cpus --memory $params.max_memory
 
     # Save HISAT2 and Samtools versions
     cat <<-END_VERSIONS > versions.yml

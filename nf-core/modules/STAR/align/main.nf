@@ -1,4 +1,4 @@
-params.output = './results/STAR/alignment'
+
 
 process STAR_ALIGN {
 
@@ -7,7 +7,7 @@ process STAR_ALIGN {
         'https://depot.galaxyproject.org/singularity/mulled-v2-1fa26d1ce03c295fe2fdcf85831a92fbcbd7e8c2:ded3841da0194af2701c780e9b3d653a85d27489-0' :
         'biocontainers/mulled-v2-1fa26d1ce03c295fe2fdcf85831a92fbcbd7e8c2:ded3841da0194af2701c780e9b3d653a85d27489-0' }"
 
-    publishDir "${params.output}", mode: 'copy'
+    publishDir "${params.outdir}/STAR/ALIGN", mode: 'copy'
 
     input:
     // (trim_fq, IDX.out, gtf)
@@ -24,7 +24,7 @@ process STAR_ALIGN {
     """
 
     STAR \\
-        --runThreadN 4 \\
+        --runThreadN ${params.max_cpus} \\
         --readFilesIn ${fasta1} ${fasta2} \\
         --readFilesCommand zcat \
         --sjdbGTFfile ${gtf} \\

@@ -4,8 +4,6 @@
 nextflow.enable.dsl=2
 
 
-
-
 process SAMPLESHEET_VALIDATION {
 
 
