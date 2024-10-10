@@ -21,6 +21,12 @@ def validate_samplesheet(samplesheet_file):
             fastq_2 = row["fastq_2"]
             strandedness = row["strandedness"]
 
+            # Check for missing values in the row
+            if not all([sample, fastq_1, fastq_2, strandedness]):
+                print(f"ERROR: Missing values in the row for sample '{sample}'. All columns must be filled.")
+                valid = False
+                continue  # Skip further checks for this row
+
             # Construct the correct file paths (assuming the script is run from 'nf-core/bin')
             fastq_1_path = os.path.join("..", "data", os.path.basename(fastq_1))
             fastq_2_path = os.path.join("..", "data", os.path.basename(fastq_2))
