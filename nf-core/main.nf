@@ -39,7 +39,7 @@ workflow {
                 [file(row.fastq_1), file(row.fastq_2)]
             ]
         }
-        .view()  // Debug view for channel content
+        //.view()  // Debug view for channel content
 
     // Channel for the reference genome file
     reference_channel = Channel
@@ -56,20 +56,28 @@ workflow {
                 [file(row.fastq_2)]      // Path to FASTQ 2
             ]
         }
-        .view()  // Debug view for channel content
+        //.view()  // Debug view for channel content
 
     // 2. Perform quality control on the FASTQ files using FastQC
     FASTQC(reads_channel)
 
     // 3. Trim the FASTQ files for quality using Trimgalore
     TRIMMING(reads_channel)
+    reads = TRIMMING.out.reads
+
+    reads
+        .map { meta, fastq -> fastq }
+        .map {fastq1,fastq2 -> tuple([fastq1],[fastq2])}
+        .view()
+        .set{trimmed_reads}
+
 
     // 4. Align reads using HISAT2
     // First, build the HISAT2 index for the reference genome
     output = HISAT2_BUILD(reference_channel)
 
     // Then, align the reads with the built index
-    HISAT2_ALIGN(output, tuple_channel)
+    HISAT2_ALIGN(output,trimmed_reads)
 }
 
 /*

@@ -92,7 +92,7 @@ process HISAT2_ALIGN {
 
     input:
     path files  // HISAT2 index files
-    tuple val(meta), path(fasta1), path(fasta2)  // Input FASTA/FASTQ files for alignment
+    tuple path(fasta1), path(fasta2)  // Input FASTA/FASTQ files for alignment
 
     output:
     path "output_hisat2_aligned_sam_file.sam"  // Aligned SAM file
