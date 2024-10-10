@@ -23,11 +23,14 @@ process STAR_ALIGN {
 
     """
 
-    STAR  \\
+    STAR \\
+        --runThreadN 4 \\
         --readFilesIn ${fasta1} ${fasta2} \\
-        --outSAMtype BAM SortedByCoordinate \\
+        --readFilesCommand zcat \
         --sjdbGTFfile ${gtf} \\
-        --genomeDir ${indexDir} \\
+        --outSAMtype BAM SortedByCoordinate \\
+        --genomeDir ${indexDir}
+
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
