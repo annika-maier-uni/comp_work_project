@@ -11,7 +11,7 @@ process STAR_ALIGN {
 
     input:
     // (trim_fq, IDX.out, gtf)
-    tuple val(sample), path(reads)
+    tuple path(fasta1), path(fasta2)
     path indexDir
     path gtf
 
@@ -21,14 +21,15 @@ process STAR_ALIGN {
 
     script:
 
-    def reads1 = [], reads2 = []
-    reads.eachWithIndex{ v, ix -> ( ix & 1 ? reads2 : reads1) << v }
     """
+
     STAR  \\
-        --readFilesIn ${reads1.join(",")} ${reads2.join(",")} \\
+        --readFilesIn ${fasta1} ${fasta2} \\
         --outSAMtype BAM SortedByCoordinate \\
         --sjdbGTFfile ${gtf} \\
-        --genomeDir ${indexDir}
+        --genomeDir ${indexDir} \\
+        --runThreadN 16 \\
+        --outFileNamePrefix 557.
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

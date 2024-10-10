@@ -99,7 +99,7 @@ workflow {
     //STAR_MAPPING(reference_channel, STAR_INDEX_FILE.out,TRIMMING.out.reads)
 
     INDEX_FILE(fasta_channel,gtf_channel)
-    STAR_ALIGN(reads,INDEX_FILE.out.index, gtf_channel)
+    STAR_ALIGN(trimmed_reads,INDEX_FILE.out.index, gtf_channel)
 
 
 
