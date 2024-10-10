@@ -9,7 +9,7 @@ include { FASTQC } from './modules/FASTQ/'
 include { TRIMMING } from './modules/trimgalore/'
 include { HISAT2_BUILD } from './modules/hisat2/align/'
 include { HISAT2_ALIGN } from './modules/hisat2/align/'
-include { INDEX_FILE } from './modules/STAR/quantification/create_index_file/'
+include { INDEX_FILE } from './modules/STAR/align/create_index_file/'
 include { STAR_ALIGN} from './modules/STAR/align/'
 
 /*
