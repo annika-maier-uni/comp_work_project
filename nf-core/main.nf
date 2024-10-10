@@ -11,6 +11,8 @@ include { HISAT2_BUILD } from './modules/hisat2/align/'
 include { HISAT2_ALIGN } from './modules/hisat2/align/'
 include { PICARD_MARKDUPLICATES } from './modules/picard_mark_duplicates/'
 include { SAMTOOLS_SORT_AND_INDEX } from './modules/samtools/'
+include { INDEX_FILE } from './modules/STAR/align/create_index_file/'
+include { STAR_ALIGN} from './modules/STAR/align/'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -20,7 +22,8 @@ include { SAMTOOLS_SORT_AND_INDEX } from './modules/samtools/'
 
 // Define default paths for samplesheet and reference genome if not provided by the user
 params.samplesheet = params.samplesheet ?: "./data/samplesheet.csv"
-params.reference  = params.reference  ?: "./data/genome.fa"
+params.fasta  = params.fasta  ?: "./data/genome.fa"
+params.gtf  = params.gtf  ?: "./data/genes.gtf"
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -41,11 +44,18 @@ workflow {
                 [file(row.fastq_1), file(row.fastq_2)]
             ]
         }
+
         //.view()  // Debug view for channel content
 
     // Channel for the reference genome file
-    reference_channel = Channel
-        .fromPath(params.reference)   // Load reference genome
+    fasta_channel = Channel
+        .fromPath(params.fasta)   // Load reference genome
+        .view()
+
+
+    gtf_channel = Channel
+        .fromPath(params.gtf)
+        .view()
 
     // Create a channel for FASTQ files
     tuple_channel = Channel
@@ -61,11 +71,12 @@ workflow {
         //.view()  // Debug view for channel content
 
     // 2. Perform quality control on the FASTQ files using FastQC
-    FASTQC(reads_channel)
+    //FASTQC(reads_channel)
 
     // 3. Trim the FASTQ files for quality using Trimgalore
     TRIMMING(reads_channel)
     reads = TRIMMING.out.reads
+    reads.view()
 
     // reads
     //     .map { meta, fastq -> fastq }
@@ -75,6 +86,7 @@ workflow {
 
     // 4. Align reads using HISAT2
     // First, build the HISAT2 index for the reference genome
+
     hiasat2_build_index = HISAT2_BUILD(reference_channel)
 
     // Then, align the reads with the built index
@@ -87,6 +99,19 @@ workflow {
 
     // Mark duplicates
     PICARD_MARKDUPLICATES(sorted_sam)
+  
+    //INDEX_FILE(reference_channel)
+
+    //GENOME_DICTIONARY(reference_channel)
+
+    //STAR_INDEX_FILE(reference_channel)
+
+    //STAR_MAPPING(reference_channel, STAR_INDEX_FILE.out,TRIMMING.out.reads)
+
+    INDEX_FILE(fasta_channel,gtf_channel)
+    STAR_ALIGN(reads,INDEX_FILE.out.index, gtf_channel)
+
+
 }
 
 /*
