@@ -28,8 +28,8 @@ def validate_samplesheet(samplesheet_file):
                 continue  # Skip further checks for this row
 
             # Construct the correct file paths (assuming the script is run from 'nf-core/bin')
-            fastq_1_path = os.path.join("..", "data", os.path.basename(fastq_1))
-            fastq_2_path = os.path.join("..", "data", os.path.basename(fastq_2))
+            fastq_1_path = os.path.join("../..", "data", os.path.basename(fastq_1))
+            fastq_2_path = os.path.join("../..", "data", os.path.basename(fastq_2))
 
             # Check if both fastq_1 and fastq_2 files exist (paired-end check)
             if not fastq_1 or not fastq_2:
@@ -60,5 +60,5 @@ def validate_samplesheet(samplesheet_file):
 
 # Run the validation
 if __name__ == "__main__":
-    samplesheet_path = os.path.join("..", "data", "samplesheet.csv")  # Adjusted path for samplesheet
+    samplesheet_path = os.path.join("../..", "data", "samplesheet.csv")  # Adjusted path for samplesheet
     validate_samplesheet(samplesheet_path)

@@ -87,7 +87,7 @@ workflow {
     // 4. Align reads using HISAT2
     // First, build the HISAT2 index for the reference genome
 
-    hiasat2_build_index = HISAT2_BUILD(reference_channel)
+    hiasat2_build_index = HISAT2_BUILD(fasta_channel)
 
     // Then, align the reads with the built index
     HISAT2_ALIGN(hiasat2_build_index, reads)
@@ -109,7 +109,7 @@ workflow {
     //STAR_MAPPING(reference_channel, STAR_INDEX_FILE.out,TRIMMING.out.reads)
 
     INDEX_FILE(fasta_channel,gtf_channel)
-    STAR_ALIGN(trimmed_reads,INDEX_FILE.out.index, gtf_channel)
+    //STAR_ALIGN(trimmed_reads,INDEX_FILE.out.index, gtf_channel)
 
 
 }
