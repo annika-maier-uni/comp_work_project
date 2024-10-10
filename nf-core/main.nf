@@ -13,6 +13,7 @@ include { PICARD_MARKDUPLICATES } from './modules/picard_mark_duplicates/'
 include { SAMTOOLS_SORT_AND_INDEX } from './modules/samtools/'
 include { INDEX_FILE } from './modules/STAR/align/create_index_file/'
 include { STAR_ALIGN} from './modules/STAR/align/'
+include {SAMPLESHEET_VALIDATION} from './modules/samplesheet_validation'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -21,9 +22,10 @@ include { STAR_ALIGN} from './modules/STAR/align/'
 */
 
 // Define default paths for samplesheet and reference genome if not provided by the user
-params.samplesheet = params.samplesheet ?: "./data/samplesheet.csv"
+params.samplesheet = params.samplesheet ?: './data/samplesheet.csv'
 params.fasta  = params.fasta  ?: "./data/genome.fa"
 params.gtf  = params.gtf  ?: "./data/genes.gtf"
+params.python_file = './bin/validation_samplesheet.py'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -33,6 +35,13 @@ params.gtf  = params.gtf  ?: "./data/genes.gtf"
 
 workflow {
     // 1. Reading the samplesheet and preparing data channels
+    samplesheet_channel = Channel
+        .fromPath(params.samplesheet)
+
+    python_channel = Channel
+        .fromPath(params.python_file)
+
+    SAMPLESHEET_VALIDATION(python_channel,samplesheet_channel)
 
     // Create a channel from the samplesheet file
     reads_channel = Channel
@@ -71,18 +80,18 @@ workflow {
         //.view()  // Debug view for channel content
 
     // 2. Perform quality control on the FASTQ files using FastQC
-    //FASTQC(reads_channel)
+    FASTQC(reads_channel)
 
     // 3. Trim the FASTQ files for quality using Trimgalore
     TRIMMING(reads_channel)
     reads = TRIMMING.out.reads
     reads.view()
 
-    // reads
-    //     .map { meta, fastq -> fastq }
-    //     .map {fastq1,fastq2 -> tuple([fastq1],[fastq2])}
-    //     .view()
-    //     .set{trimmed_reads}
+    reads
+        .map { meta, fastq -> fastq }
+        .map {fastq1,fastq2 -> tuple([fastq1],[fastq2])}
+        .view()
+        .set{trimmed_reads}
 
     // 4. Align reads using HISAT2
     // First, build the HISAT2 index for the reference genome
@@ -99,17 +108,10 @@ workflow {
 
     // Mark duplicates
     PICARD_MARKDUPLICATES(sorted_sam)
-  
-    //INDEX_FILE(reference_channel)
 
-    //GENOME_DICTIONARY(reference_channel)
-
-    //STAR_INDEX_FILE(reference_channel)
-
-    //STAR_MAPPING(reference_channel, STAR_INDEX_FILE.out,TRIMMING.out.reads)
 
     INDEX_FILE(fasta_channel,gtf_channel)
-    //STAR_ALIGN(trimmed_reads,INDEX_FILE.out.index, gtf_channel)
+    STAR_ALIGN(trimmed_reads,INDEX_FILE.out.index, gtf_channel)
 
 
 }
@@ -119,3 +121,10 @@ workflow {
     THE END
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
+
+
+
+
+
+
+

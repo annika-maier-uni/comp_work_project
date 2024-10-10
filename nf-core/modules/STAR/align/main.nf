@@ -28,8 +28,6 @@ process STAR_ALIGN {
         --outSAMtype BAM SortedByCoordinate \\
         --sjdbGTFfile ${gtf} \\
         --genomeDir ${indexDir} \\
-        --runThreadN 16 \\
-        --outFileNamePrefix 557.
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
