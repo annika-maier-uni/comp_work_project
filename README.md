@@ -8,18 +8,18 @@ control, trimming, alignment, sorting of aligned files and marking of duplicates
 ## Workflow Overview
 The pipeline performs the following steps:
 
-1. Read and Validate Samplesheet: The input samplesheet (CSV) contains information about the samples, such as the sample name, 
+1. **Read and Validate Samplesheet**: The input samplesheet (CSV) contains information about the samples, such as the sample name, 
 strandedness, and the paths to paired-end FASTQ files.
 
-2. FASTQ Quality Control (FastQC): Performs quality control checks on raw FASTQ files using FastQC.
+2. **FASTQ Quality Control (FastQC)**: Performs quality control checks on raw FASTQ files using FastQC.
 
-3. Trimming (TrimGalore): Trims adapters and low-quality regions from the FASTQ files.
+3. **Trimming (TrimGalore)**: Trims adapters and low-quality regions from the FASTQ files.
 
-4. Alignment (HISAT2 or STAR): Aligns the trimmed FASTQ files to the reference genome.
+4. **Alignment (HISAT2 or STAR)**: Aligns the trimmed FASTQ files to the reference genome.
 
-5. Sorting (SAMtools): Sorts the aligned SAM files.
+5. **Sorting (SAMtools)**: Sorts the aligned SAM files.
 
-6. Mark duplicates (picard): Identifies and marks duplicate reads in the sorted files.
+6. **Mark duplicates (picard)**: Identifies and marks duplicate reads in the sorted files.
 
 
 ## Channels
@@ -74,6 +74,8 @@ You can use the genome data from here: https://github.com/nf-core/test-datasets/
 
 --align: Specifies whether to use HISAT2 or STAR as alignment tools. Use <HISAT2/ STAR>. 
 The default is 'HISAT2'.
+
+--outDir: Specifies the output directory of the results.
 ```
 
 ### Now, you can run the pipeline using:
