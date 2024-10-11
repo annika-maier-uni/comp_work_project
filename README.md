@@ -1,4 +1,6 @@
 # Simple RNA-Seq Pipeline using Nextflow
+![journal-cms_labs_experiment_2021-10_nextflow2014_no-bg png](https://github.com/user-attachments/assets/805c40fb-5830-4472-8ded-fa088acea4a9)
+
 
 ![Alt-Text](Pipeline.jpg)
 
