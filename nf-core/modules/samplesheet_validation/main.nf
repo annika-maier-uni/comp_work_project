@@ -38,8 +38,6 @@ nextflow.enable.dsl = 2
 
 process SAMPLESHEET_VALIDATION {
 
-    publishDir "${params.outdir}/samplesheet_validation/validation.txt", mode: 'copy'
-
     input:
     path python
     path samplesheet
@@ -49,7 +47,7 @@ process SAMPLESHEET_VALIDATION {
 
     script:
     """
-    python $python $samplesheet > "validation.txt"
+    python $python $samplesheet
 
     """
 }
@@ -71,4 +69,3 @@ process VALIDATION_SUCCESS {
     fi
     """
 }
-

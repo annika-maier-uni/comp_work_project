@@ -25,7 +25,7 @@ def validate_samplesheet(samplesheet_file):
             if not all([sample, fastq_1, fastq_2, strandedness]):
                 print(f"ERROR: Missing values in the row for sample '{sample}'. All columns must be filled.")
                 valid = False
-                continue  # Skip further checks for this row
+                break # Skip further checks for this row
 
             # Construct the correct file paths (assuming the script is run from 'nf-core/bin')
             fastq_1_path = os.path.join("..", "data", os.path.basename(fastq_1))
@@ -52,9 +52,14 @@ def validate_samplesheet(samplesheet_file):
                     print(f"ERROR: File '{fastq_2}' for sample '{sample}' does not exist at '{fastq_2_path}'.")
                     valid = False
 
+    file_name = "validation.txt"
     # Final output after validation
     if valid:
-        print("Samplesheet validation passed!")
+        with open(file_name, 'w') as file:
+            # Write "hello" to the file
+            file.write("Samplesheet validation passed!")
     else:
-        print("Samplesheet validation failed!")
+        with open(file_name, 'w') as file:
+            # Write "hello" to the file
+            file.write("Samplesheet validation failed!")
 
