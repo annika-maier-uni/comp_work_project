@@ -114,7 +114,7 @@ To see the results of the different tools refer to the output folder (specified 
 This example shows a simplified version. Once the file is pushed to GitHub, the README will be automatically displayed when someone 
 visits the repository.
 
-## Contributers
+## Contributors
 Weronika Jaśkowiak \
 Maike Nägele \
 Tabea Attig \
