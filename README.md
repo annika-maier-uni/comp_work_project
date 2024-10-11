@@ -95,6 +95,14 @@ nextflow run main.nf \
    --outdir <OUTDIR>
 ```
 
+
+### Example:
+```bash
+nextflow run main.nf \
+   -profile docker --samplesheet './data/samplesheet.csv' --align HISAT2 --outdir results 
+```
+
+
 > [!NOTE]
 > Make sure the input files (samplesheet and reference genome) are correctly formatted and accessible before running the workflow.
 
@@ -105,12 +113,6 @@ To see the results of the different tools refer to the output folder (specified 
 ## License
 This example shows a simplified version. Once the file is pushed to GitHub, the README will be automatically displayed when someone 
 visits the repository.
-
-## Contributers
-Weronika Jaśkowiak \
-Maike Nägele \
-Tabea Attig \
-Annika Maier
 
 ## Contributers
 Weronika Jaśkowiak \
