@@ -98,8 +98,7 @@ nextflow run main.nf \
 
 ### Example:
 ```bash
-nextflow run main.nf \
-   -profile docker --samplesheet './data/samplesheet.csv' --align HISAT2 --outdir results 
+nextflow run main.nf -profile docker --samplesheet './data/samplesheet.csv' --align HISAT2 --outdir results 
 ```
 
 
