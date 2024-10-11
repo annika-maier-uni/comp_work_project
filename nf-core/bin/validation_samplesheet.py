@@ -65,6 +65,8 @@ def validate_samplesheet(samplesheet_file):
             file.write("Samplesheet validation failed!")
 
 
+
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-file")
 args = parser.parser_args()
