@@ -95,7 +95,7 @@ This example shows a simplified version. Once the file is pushed to GitHub, the 
 visits the repository.
 
 ## Contributers
-Weronika Jaśkowiak
-Maike Nägele
-Tabea Attig
+Weronika Jaśkowiak \
+Maike Nägele \
+Tabea Attig \
 Annika Maier
