@@ -18,11 +18,12 @@ are present and that the specified FASTQ files exist and are correctly named.
 It generates quality control reports using FastQC.
 
 5. **Alignment (HISAT2)**: # The process generates a HISAT2 index from a reference genome, and aligns paired-end FASTA/FASTQ reads to the generated index.
+   
    **Alignment (STAR)**: # The process generates a STAR index from a reference genome and GTF file, and aligns paired-end FASTA/FASTQ reads to the generated index.
 
-6. **Sorting (SAMtools)**: Sorts the aligned SAM files.
+7. **Sorting (SAMtools)**: Sorts the aligned SAM files.
 
-7. **Mark duplicates (picard)**: The process identifies and marks duplicate reads in a BAM file generated from an alignment step.
+8. **Mark duplicates (picard)**: The process identifies and marks duplicate reads in a BAM file generated from an alignment step.
 
 ## Usage
 
