@@ -36,17 +36,37 @@ nextflow.enable.dsl = 2
 
 process SAMPLESHEET_VALIDATION {
 
+    publishDir "${params.outdir}/samplesheet_validation/validation.txt", mode: 'copy'
+
     input:
     path python
     path samplesheet
 
     output:
-    path validation
+    path "validation.txt", emit: validation
 
     script:
     """
-    python $python $samplesheet > "${params.outdir}/samplesheet_validation/validation.txt"
+    python $python $samplesheet > "validation.txt"
 
+    """
+}
+
+process VALIDATION_SUCCESS {
+
+    input:
+    path validation_file
+
+    output:
+    stdout
+
+    script:
+    """
+    if grep -q "Samplesheet validation passed!" ${validation_file}; then
+        echo "true"
+    else:
+        echo "false"
+    fi
     """
 }
 

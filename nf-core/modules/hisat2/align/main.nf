@@ -1,6 +1,10 @@
-#!/usr/bin/env nextflow
-
-// Enable DSL2 syntax
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ Simple RNA Sequencing Pipeline
+# Author: Weronika Jaśkowiak, Maike Nägele, Tabea Attig, Annika Maier
+# Date: 11.10.2024
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
 nextflow.enable.dsl=2
 
 
@@ -24,20 +28,17 @@ nextflow.enable.dsl=2
 # HISAT2_ALIGN:
 # Input:
 # - path files: HISAT2 index files created from the HISAT2_BUILD process.
-
+#
 # - tuple val(meta), path(fasta1), path(fasta2):
 #   Paired-end FASTA/FASTQ files for alignment.
 #
 # Output:
 # - path "output_hisat2_aligned_sam_file.sam": Aligned SAM
 #   file resulting from the alignment of paired-end reads.
-
+#
 # - path "versions.yml"
 #   recording the versions of HISAT2 and Samtools used in
 #   the alignment process.
-#
-# Author: Annika, Maike, Tabea, Weronika
-# Date: 09.10.2024
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
