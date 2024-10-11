@@ -36,7 +36,7 @@ params.fasta  = params.fasta  ?: "./data/genome.fa"                    // Path t
 params.gtf  = params.gtf  ?: "./data/genes.gtf"                        // Path to gene annotation file (GTF)
 params.python_file = './bin/validation_samplesheet.py'                 // Path to the samplesheet validation script
 params.align = params.align ?: 'HISAT2'                                // Default alignment tool: HISAT2
-
+params.outdir = params.outdir  ?: 'results'
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     RUN MAIN WORKFLOW

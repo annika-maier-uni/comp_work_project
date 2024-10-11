@@ -44,15 +44,6 @@ import argparse  # Module for parsing command-line arguments
 
 
 def validate_samplesheet(samplesheet_file):
-    """
-    Validate the samplesheet CSV file.
-
-    Args:
-        samplesheet_file (str): Path to the samplesheet CSV file to validate.
-
-    Returns:
-        None
-    """
     valid = True  # Variable to track overall validation status
 
     # Open the samplesheet CSV file

@@ -45,9 +45,6 @@ process SAMPLESHEET_VALIDATION {
     """
     python $python -file $samplesheet
 
-    echo "content of validation file"
-    echo cat "validation.txt"
-
     if grep -q "failed" "validation.txt"; then
         echo "Samplesheet validation failed!"
         exit 1
