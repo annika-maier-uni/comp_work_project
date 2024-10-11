@@ -1,5 +1,6 @@
 import os
 import csv
+import argparse
 
 def validate_samplesheet(samplesheet_file):
     valid = True
@@ -63,3 +64,8 @@ def validate_samplesheet(samplesheet_file):
             # Write "hello" to the file
             file.write("Samplesheet validation failed!")
 
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-file")
+args = parser.parser_args()
+validate_samplesheet(args.file)

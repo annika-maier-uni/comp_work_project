@@ -47,7 +47,7 @@ process SAMPLESHEET_VALIDATION {
 
     script:
     """
-    python $python $samplesheet
+    python $python -file $samplesheet
 
     """
 }
