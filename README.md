@@ -50,7 +50,9 @@ The strandedness refers to the library preparation and will be automatically inf
 ### Parameters
 ```bash
 -profile: Use <docker/singularity/.../institute>
-
+```
+### Optional Parameters
+```bash
 --samplesheet: The path to the samplesheet CSV file containing sample information. 
 The default value is './data/samplesheet.csv'.
 
