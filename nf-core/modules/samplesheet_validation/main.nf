@@ -58,14 +58,10 @@ process VALIDATION_SUCCESS {
     path validation_file
 
     output:
-    stdout
+    val output
 
     script:
     """
-    if grep -q "Samplesheet validation passed!" ${validation_file}; then
-        echo "true"
-    else:
-        echo "false"
-    fi
+    cat $validation_file
     """
 }

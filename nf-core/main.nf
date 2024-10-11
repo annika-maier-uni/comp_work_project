@@ -100,7 +100,7 @@ workflow {
     result = VALIDATION_SUCCESS(file_path)
 
     // 3. Conditional workflow execution based on validation result
-    if (result == "false") {
+    if (result == "Samplesheet validation failed!") {
         error "Validation failed! Please check the samplesheet format."
     } else {
         println "Samplesheet validation passed!"
