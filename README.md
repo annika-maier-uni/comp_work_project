@@ -97,6 +97,7 @@ nextflow run main.nf \
 
 
 ### Example:
+From the nf-core folder run:
 ```bash
 nextflow run main.nf -profile docker --samplesheet './data/samplesheet.csv' --align HISAT2 --outdir results 
 ```
