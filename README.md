@@ -21,23 +21,6 @@ strandedness, and the paths to paired-end FASTQ files.
 
 6. **Mark duplicates (picard)**: Identifies and marks duplicate reads in the sorted files.
 
-
-## Channels
-
-The pipeline defines several channels to manage input files and processed data:
-
-- Samplesheet Channel: This channel reads the input samplesheet file, which contains metadata about the samples.
-
-- Python Validation Channel: This channel loads the Python script used for validating the samplesheet.
-
-- Reads Channel: This channel processes the samplesheet, splitting it into structured data for each sample, including information about strandedness and the corresponding paired-end FASTQ files.
-
-- Reference Genome Channel: This channel provides access to the reference genome in FASTA format.
-
-- GTF Channel: This channel is for the Gene Transfer Format (GTF) file, which contains gene annotations.
-
-- Tuple Channel: This channel further structures the input data, focusing on individual sample attributes and their associated FASTQ file paths.
-
 ## Usage
 
 > [!NOTE]
@@ -54,6 +37,9 @@ SRR6357070,'./data/SRR6357070_1.fastq.gz','./data/SRR6357070_2.fastq.gz',auto
 
 Each row represents a pair of fastq files (paired end). This tool does not allow single end data.
 The strandedness refers to the library preparation and will be automatically inferred if set to `auto`.
+
+> [!NOTE]
+> A samplesheet validation is used to check, whether the samplesheet was correctly constructed. If the samplesheet is correct, the message "Samplesheet validation passed!" occurs and the pipeline automatically continues running. Else an error occurs right at the beginning which stops the pipeline from running.
 
 ## Executing the Pipeline
 
@@ -91,7 +77,7 @@ Add more parameters if needed from the list above.
 
 ## Pipeline output
 
-To see the results of the different tools refer to the results folder. For more details about the output files and reports, please refer to the documentation of the used tools.
+To see the results of the different tools refer to the results folder or to the specified output folder. In this folder, each tool has its own folder containing the results from this run. For more details about the output files and reports, please refer to the documentation of the used tools.
 
 ## License
 This example shows a simplified version. Once the file is pushed to GitHub, the README will be automatically displayed when someone 
