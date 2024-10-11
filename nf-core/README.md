@@ -65,6 +65,12 @@ nextflow run main.nf -profile <docker/singularity/.../institute>
 
 Add more parameters if needed from the list above.
 
+## Pipeline output
+
+To see the results refer to the results tab on the nf-core website pipeline page. For more details about the output files and reports, please refer to the output documentation.
+
+This pipeline quantifies RNA-sequenced reads relative to genes/transcripts in the genome and normalizes the resulting data. It does not compare the samples statistically in order to assign significance in the form of FDR or P-values. For downstream analyses, the output files from this pipeline can be analysed directly in statistical environments like R, Julia or via the nf-core/differentialabundance pipeline.
+
 ## Notes
 Make sure the input files (samplesheet and reference genome) are correctly formatted and accessible before running the workflow.
 
