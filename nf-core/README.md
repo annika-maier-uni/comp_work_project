@@ -1,7 +1,7 @@
 # Simple RNA-Seq Pipeline using Nextflow
 
 This pipeline is a RNA-Seq analysis workflow implemented using Nextflow. The workflow includes quality 
-control, trimming, and alignment steps using popular tools like FastQC, TrimGalore, HISAT2, and STAR. 
+control, trimming, alignment, sorting of aligned files and marking of duplicates using popular tools like FastQC, TrimGalore, HISAT2, STAR, SAMtools, and picard. 
 
 ## Workflow Overview
 The pipeline performs the following steps:
@@ -17,7 +17,7 @@ strandedness, and the paths to paired-end FASTQ files.
 
 5. Sorting (SAMtools): Sorts the aligned SAM files.
 
-6. Mark duplicates (PICARD): Identifies and marks duplicate reads in the sorted files.
+6. Mark duplicates (picard): Identifies and marks duplicate reads in the sorted files.
 
 ## Usage
 
