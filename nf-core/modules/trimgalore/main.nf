@@ -1,7 +1,4 @@
-#!/usr/bin/env nextflow
-
-// Enable DSL2
-nextflow.enable.dsl=2
+ nextflow.enable.dsl=2
 
 
 /*

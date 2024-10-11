@@ -13,7 +13,7 @@ process SAMTOOLS_SORT_AND_INDEX {
     path input_sam
 
     output:
-    path "sorted.sam" , emit: sorted
+    path "sorted.sam"             , emit: sam
     path  "versions.yml"          , emit: versions
 
 

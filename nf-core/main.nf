@@ -25,7 +25,8 @@ params.samplesheet = params.samplesheet ?: './data/samplesheet.csv'
 params.fasta  = params.fasta  ?: "./data/genome.fa"
 params.gtf  = params.gtf  ?: "./data/genes.gtf"
 params.python_file = './bin/validation_samplesheet.py'
-params.outdir      = params.outdir ?: "./results"
+params.align = params.align ?: 'HISAT2'
+
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -34,16 +35,19 @@ params.outdir      = params.outdir ?: "./results"
 */
 
 workflow {
-    // 1. Reading the samplesheet and preparing data channels
+
+    //CHANNELS
+    // 1. Channel for samplesheet
     samplesheet_channel = Channel
         .fromPath(params.samplesheet)
 
+
+    // 2. Channel for samplesheet validation file
     python_channel = Channel
         .fromPath(params.python_file)
 
-    SAMPLESHEET_VALIDATION(python_channel,samplesheet_channel)
 
-    // Create a channel from the samplesheet file
+    // 3. Channel for reading data from the samplesheet file
     reads_channel = Channel
         .fromPath(params.samplesheet)   // Load samplesheet
         .splitCsv(header: true)         // Split the CSV into rows, using the first row as header
@@ -54,19 +58,17 @@ workflow {
             ]
         }
 
-        //.view()  // Debug view for channel content
 
-    // Channel for the reference genome file
+    // 4. Channel for the reference genome file
     fasta_channel = Channel
-        .fromPath(params.fasta)   // Load reference genome
-        .view()
+        .fromPath(params.fasta)
 
-
+    // 5. Channel for GTF (Gene Transfer Format) file
     gtf_channel = Channel
         .fromPath(params.gtf)
-        .view()
 
-    // Create a channel for FASTQ files
+
+    // 6. Channel for reading the FASTQ files
     tuple_channel = Channel
         .fromPath(params.samplesheet)   // Load samplesheet
         .splitCsv(header: true)         // Split the CSV into rows
@@ -77,7 +79,10 @@ workflow {
                 [file(row.fastq_2)]      // Path to FASTQ 2
             ]
         }
-        //.view()  // Debug view for channel content
+
+    //EXECUTION
+    // 1. Samplesheet validation
+    SAMPLESHEET_VALIDATION(python_channel,samplesheet_channel)
 
     // 2. Perform quality control on the FASTQ files using FastQC
     FASTQC(reads_channel)
@@ -85,35 +90,39 @@ workflow {
     // 3. Trim the FASTQ files for quality using Trimgalore
     TRIMMING(reads_channel)
     reads = TRIMMING.out.reads
-    reads.view()
 
-    reads
-        .map { meta, fastq -> fastq }
-        .map {fastq1,fastq2 -> tuple([fastq1],[fastq2])}
-        .view()
-        .set{trimmed_reads}
-
-    // 4. Align reads using HISAT2
+    // 4.a Align reads using HISAT2
     // First, build the HISAT2 index for the reference genome
 
-    hiasat2_build_index = HISAT2_BUILD(fasta_channel)
+    if (params.align == 'HISAT2') {
+        hiasat2_build_index = HISAT2_BUILD(fasta_channel)
 
-    // Then, align the reads with the built index
-    HISAT2_ALIGN(hiasat2_build_index, reads)
-    aligned_sam = HISAT2_ALIGN.out.sam_file
+        // Then, align the reads with the built index
+        HISAT2_ALIGN(hiasat2_build_index, reads)
+        aligned_sam = HISAT2_ALIGN.out.sam_file
 
-    // Use samtools to sort and index
-    SAMTOOLS_SORT_AND_INDEX(aligned_sam)
-    sorted_sam = SAMTOOLS_SORT_AND_INDEX.out.sorted
+        // Use samtools to sort and index
+        SAMTOOLS_SORT_AND_INDEX(aligned_sam)
+        sorted_sam = SAMTOOLS_SORT_AND_INDEX.out.sam
+    }
 
-    // Mark duplicates
+    // 4.b Align reads using STAR
+    else {
+
+        // prepare reads
+        reads
+        .map { meta, fastq -> fastq }
+        .map {fastq1,fastq2 -> tuple([fastq1],[fastq2])}
+        .set{trimmed_reads}
+
+        INDEX_FILE(fasta_channel,gtf_channel)
+        STAR_ALIGN(trimmed_reads,INDEX_FILE.out.index, gtf_channel)
+        sorted_sam = STAR_ALIGN.out.sam
+    }
+
+
+    // 5. Mark duplicates
     PICARD_MARKDUPLICATES(sorted_sam)
-
-
-    INDEX_FILE(fasta_channel,gtf_channel)
-    STAR_ALIGN(trimmed_reads,INDEX_FILE.out.index, gtf_channel)
-
-
 }
 
 /*

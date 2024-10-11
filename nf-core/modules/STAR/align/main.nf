@@ -16,7 +16,7 @@ process STAR_ALIGN {
     path gtf
 
     output:
-    path("*.bam"), emit: align_bam
+    path("*.sam")                                               , emit: sam
     path  "versions.yml"                                        , emit: versions  // Output: version file
 
     script:
@@ -28,7 +28,7 @@ process STAR_ALIGN {
         --readFilesIn ${fasta1} ${fasta2} \\
         --readFilesCommand zcat \
         --sjdbGTFfile ${gtf} \\
-        --outSAMtype BAM SortedByCoordinate \\
+        --outSAMtype SAM SortedByCoordinate \\
         --genomeDir ${indexDir}
 
 
