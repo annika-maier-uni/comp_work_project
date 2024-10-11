@@ -77,7 +77,7 @@ Add more parameters if needed from the list above.
 
 ## Pipeline output
 
-To see the results of the different tools refer to the results folder or to the specified output folder. In this folder, each iof the tool has its own folder contained the results from this run. For more details about the output files and reports, please refer to the documentation of the used tools.
+To see the results of the different tools refer to the results folder or to the specified output folder. In this folder, each tool has its own folder containing the results from this run. For more details about the output files and reports, please refer to the documentation of the used tools.
 
 ## License
 This example shows a simplified version. Once the file is pushed to GitHub, the README will be automatically displayed when someone 
