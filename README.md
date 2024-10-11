@@ -73,7 +73,13 @@ The default is 'HISAT2'.
 ### Now, you can run the pipeline using:
 
 ```bash
-nextflow run main.nf -profile <docker/singularity/.../institute>
+nextflow run main.nf \
+   -profile <docker/singularity/.../institute> \
+   --samplesheet <SAMPLESHEET> \
+   --fasta <GENOME FASTA> \
+   --gtf <GTF> \
+   --align <HISAT2/STAR>
+   --outdir <OUTDIR>
 ```
 
 Add more parameters if needed from the list above.
