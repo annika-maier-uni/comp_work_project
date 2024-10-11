@@ -15,10 +15,9 @@ strandedness, and the paths to paired-end FASTQ files.
 
 4. Alignment (HISAT2 or STAR): Aligns the trimmed FASTQ files to the reference genome.
 
-5. Sorting (SAMtools): 
+5. Sorting (SAMtools): Sorts the aligned SAM files.
 
-6. Mark duplicates (PICARD): 
-
+6. Mark duplicates (PICARD): Identifies and marks duplicate reads in the sorted files.
 
 ## Usage
 
@@ -41,15 +40,21 @@ The strandedness refers to the library preparation and will be automatically inf
 
 ### Parameters
 ```bash
---samplesheet: The path to the samplesheet CSV file containing sample information. The default value is ./modules/trimgalore/samplesheet_new.csv.
+-profile: Use <docker/singularity/.../institute>
 
---fasta: The path to the reference genome file (FASTA format). The default value is ./modules/hisat2/align/genome.fa.   You can use the genome data from here: https://github.com/nf-core/test-datasets/tree/rnaseq/reference
+--samplesheet: The path to the samplesheet CSV file containing sample information. 
+The default value is './data/samplesheet.csv'.
 
---gtf: The path to the gene annotation file (GTF format). The default value is ./modules/hisat2/align/genes.gtf.   You can use the genome data from here: https://github.com/nf-core/test-datasets/tree/rnaseq/reference
+--fasta: The path to the reference genome file (FASTA format). 
+The default value is "./data/genome.fa" .   
+You can use the genome data from here: https://github.com/nf-core/test-datasets/tree/rnaseq/reference
 
--profile:       Use <docker/singularity/.../institute>
+--gtf: The path to the gene annotation file (GTF format). 
+The default value is "./data/genes.gtf". 
+You can use the genome data from here: https://github.com/nf-core/test-datasets/tree/rnaseq/reference
 
--align: Specifies whether to use HISAT2 or STAR as alignment tools. Use <HISAT2/ STAR>
+-align: Specifies whether to use HISAT2 or STAR as alignment tools. Use <HISAT2/ STAR>. 
+The default is 'HISAT2'.
 ```
 
 ### Now, you can run the pipeline using:
