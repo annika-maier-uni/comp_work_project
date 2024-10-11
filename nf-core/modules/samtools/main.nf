@@ -1,4 +1,34 @@
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Simple RNA Sequencing Pipeline
+# Author: Weronika Jaśkowiak, Maike Nägele, Tabea Attig, Annika Maier
+# Date: 11.10.2024
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+nextflow.enable.dsl = 2
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Nextflow Process: SAMTOOLS_SORT_AND_INDEX
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Description:
+# The SAMTOOLS_SORT_AND_INDEX process sorts a SAM file generated from
+# an alignment step and then creates an index for the sorted file using
+# Samtools. This is a crucial step in preparing the data for downstream
+# analysis, such as variant calling or visualization.
+#
+# Input:
+# - path(input_sam): Path to the input SAM file that needs to be sorted
+#   and indexed.
+#
+# Output:
+# - path "sorted.sam": The sorted SAM file produced by Samtools after sorting
+#   the input SAM file.
+#
+# - path "versions.yml": YAML file containing the version information of
+#   Samtools used in the sorting and indexing process.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
 
 process SAMTOOLS_SORT_AND_INDEX {
 

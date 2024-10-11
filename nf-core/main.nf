@@ -1,6 +1,6 @@
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- Simple RNA Sequencing Pipeline
+# Simple RNA Sequencing Pipeline
 # Author: Weronika Jaśkowiak, Maike Nägele, Tabea Attig, Annika Maier
 # Date: 11.10.2024
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -19,8 +19,8 @@ include { HISAT2_BUILD } from './modules/hisat2/align/'
 include { HISAT2_ALIGN } from './modules/hisat2/align/'
 include { PICARD_MARKDUPLICATES } from './modules/picard_mark_duplicates/'
 include { SAMTOOLS_SORT_AND_INDEX } from './modules/samtools/'
-include { INDEX_FILE } from './modules/STAR/align/create_index_file/'
-include { STAR_ALIGN } from './modules/STAR/align/'
+include { INDEX_FILE } from './modules/STAR/'
+include { STAR_ALIGN } from './modules/STAR/'
 include { SAMPLESHEET_VALIDATION } from './modules/samplesheet_validation'
 include { VALIDATION_SUCCESS } from './modules/samplesheet_validation'
 

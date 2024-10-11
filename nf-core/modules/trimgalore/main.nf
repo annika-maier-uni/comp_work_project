@@ -1,5 +1,11 @@
- nextflow.enable.dsl=2
-
+ /*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Simple RNA Sequencing Pipeline
+# Author: Weronika Jaśkowiak, Maike Nägele, Tabea Attig, Annika Maier
+# Date: 11.10.2024
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+nextflow.enable.dsl = 2
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -30,10 +36,7 @@
 #   - Compressed file of the output, if applicable.
 
 # - Path: versions.yml
-#   - YAML file containing the versions of Trim Galore and Cutadapt used in the process.
-#
-# Author: Annika, Maike, Tabea, Weronika
-# Date: 09.10.2024
+#   - YAML file containing the versions of Trim Galore and Cutadapt used in the process.4
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 

@@ -84,7 +84,7 @@ process HISAT2_ALIGN {
 
 
     // Copy results to output directory
-    publishDir "${params.outputdir}/align", mode: 'copy'
+    publishDir "${params.outdir}/align", mode: 'copy'
 
     input:
     path files  // HISAT2 index files

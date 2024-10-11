@@ -1,9 +1,11 @@
-#!/usr/bin/env nextflow
-
-// Enable DSL2 syntax
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Simple RNA Sequencing Pipeline
+# Author: Weronika Jaśkowiak, Maike Nägele, Tabea Attig, Annika Maier
+# Date: 11.10.2024
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
 nextflow.enable.dsl=2
-
-
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -26,9 +28,6 @@ nextflow.enable.dsl=2
 
 # - path "versions.yml"
 #   recording the version of FastQC used during the analysis.
-#
-# Author: Annika, Maike, Tabea, Weronika
-# Date: 09.10.2024
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
