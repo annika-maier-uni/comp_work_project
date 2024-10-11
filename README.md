@@ -68,6 +68,7 @@ You can use the genome data from here: https://github.com/nf-core/test-datasets/
 The default is 'HISAT2'.
 
 --outdir: Specifies the output directory of the results.
+The default value is "results".
 ```
 
 ### Now, you can run the pipeline using:
@@ -82,15 +83,19 @@ nextflow run main.nf \
    --outdir <OUTDIR>
 ```
 
-Add more parameters if needed from the list above.
-
 > [!NOTE]
 > Make sure the input files (samplesheet and reference genome) are correctly formatted and accessible before running the workflow.
 
 ## Pipeline output
 
-To see the results of the different tools refer to the results folder or to the specified output folder. In this folder, each tool has its own folder containing the results from this run. For more details about the output files and reports, please refer to the documentation of the used tools.
+To see the results of the different tools refer to the output folder (specified in --outdir). In this folder, each tool has its own folder containing the results from this run. For more details about the output files and reports, please refer to the documentation of the used tools.
 
 ## License
 This example shows a simplified version. Once the file is pushed to GitHub, the README will be automatically displayed when someone 
 visits the repository.
+
+## Contributers
+Weronika Jaśkowiak
+Maike Nägele
+Tabea Attig
+Annika Maier
