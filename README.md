@@ -82,13 +82,12 @@ nextflow run main.nf -profile <docker/singularity/.../institute>
 
 Add more parameters if needed from the list above.
 
+> [!NOTE]
+> Make sure the input files (samplesheet and reference genome) are correctly formatted and accessible before running the workflow.
+
 ## Pipeline output
 
 To see the results of the different tools refer to the results folder. For more details about the output files and reports, please refer to the documentation of the used tools.
-
-## Notes
-> [!NOTE]
-> Make sure the input files (samplesheet and reference genome) are correctly formatted and accessible before running the workflow.
 
 ## License
 This example shows a simplified version. Once the file is pushed to GitHub, the README will be automatically displayed when someone 
