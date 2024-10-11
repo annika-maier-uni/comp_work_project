@@ -22,7 +22,7 @@ include { SAMTOOLS_SORT_AND_INDEX } from './modules/samtools/'
 include { INDEX_FILE } from './modules/STAR/'
 include { STAR_ALIGN } from './modules/STAR/'
 include { SAMPLESHEET_VALIDATION } from './modules/samplesheet_validation'
-include { VALIDATION_SUCCESS } from './modules/samplesheet_validation'
+// include { VALIDATION_SUCCESS } from './modules/samplesheet_validation'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -94,58 +94,58 @@ workflow {
 
     // 1. Samplesheet validation using the provided Python script
     SAMPLESHEET_VALIDATION(python_channel, samplesheet_channel)
-    file_path = SAMPLESHEET_VALIDATION.out.validation  // Capture the output validation file path
+    exit_code = SAMPLESHEET_VALIDATION.out.validation  // Capture the output validation file path
 
     // 2. Check if validation was successful
-    result = VALIDATION_SUCCESS(file_path)
+    //VALIDATION_SUCCESS(file_path)
 
     // 3. Conditional workflow execution based on validation result
-    if (result == "Samplesheet validation failed!") {
-        error "Validation failed! Please check the samplesheet format."
-    } else {
-        println "Samplesheet validation passed!"
+    // if (exit_code == 1) {
+    //     error "Validation failed! Please check the samplesheet format."
+    // } else {
+    println "Samplesheet validation passed!"
 
-        // 4. Perform quality control using FastQC
-        FASTQC(reads_channel)
+    // 4. Perform quality control using FastQC
+    FASTQC(reads_channel)
 
-        // 5. Trim the FASTQ files for quality using Trim Galore
-        TRIMMING(reads_channel)
-        reads = TRIMMING.out.reads  // Capture trimmed reads for alignment
+    // 5. Trim the FASTQ files for quality using Trim Galore
+    TRIMMING(reads_channel)
+    reads = TRIMMING.out.reads  // Capture trimmed reads for alignment
 
-        // 6. Align reads using HISAT2 if chosen
-        if (params.align == 'HISAT2') {
-            // 6a. Build HISAT2 index from the reference genome
-            hisat2_build_index = HISAT2_BUILD(fasta_channel)
+    // 6. Align reads using HISAT2 if chosen
+    if (params.align == 'HISAT2') {
+        // 6a. Build HISAT2 index from the reference genome
+        hisat2_build_index = HISAT2_BUILD(fasta_channel)
 
-            // 6b. Align the reads using HISAT2
-            HISAT2_ALIGN(hisat2_build_index, reads)
-            aligned_sam = HISAT2_ALIGN.out.sam
+        // 6b. Align the reads using HISAT2
+        HISAT2_ALIGN(hisat2_build_index, reads)
+        aligned_sam = HISAT2_ALIGN.out.sam
 
-            // 6c. Sort and index the aligned reads using Samtools
-            SAMTOOLS_SORT_AND_INDEX(aligned_sam)
-            sorted_sam = SAMTOOLS_SORT_AND_INDEX.out.sam
+        // 6c. Sort and index the aligned reads using Samtools
+        SAMTOOLS_SORT_AND_INDEX(aligned_sam)
+        sorted_sam = SAMTOOLS_SORT_AND_INDEX.out.sam
 
-            // 7. Mark duplicates using Picard
-            PICARD_MARKDUPLICATES(sorted_sam)
-        }
+        // 7. Mark duplicates using Picard
+        PICARD_MARKDUPLICATES(sorted_sam)
+    }
 
-        // 8. Alternatively, align reads using STAR
-        else {
-            // Prepare reads channel for STAR
-            reads
-                .map { meta, fastq -> fastq }
-                .map { fastq1, fastq2 -> tuple([fastq1], [fastq2]) }
-                .set { trimmed_reads }
+    // 8. Alternatively, align reads using STAR
+    else {
+        // Prepare reads channel for STAR
+        reads
+            .map { meta, fastq -> fastq }
+            .map { fastq1, fastq2 -> tuple([fastq1], [fastq2]) }
+            .set { trimmed_reads }
 
-            // 8a. Build STAR index
-            INDEX_FILE(fasta_channel, gtf_channel)
+        // 8a. Build STAR index
+        INDEX_FILE(fasta_channel, gtf_channel)
 
-            // 8b. Align reads using STAR with the generated index
-            STAR_ALIGN(trimmed_reads, INDEX_FILE.out.index, gtf_channel)
-            sorted_bam = STAR_ALIGN.out.bam
-        }
+        // 8b. Align reads using STAR with the generated index
+        STAR_ALIGN(trimmed_reads, INDEX_FILE.out.index, gtf_channel)
+        sorted_bam = STAR_ALIGN.out.bam
     }
 }
+
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

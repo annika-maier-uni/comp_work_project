@@ -43,25 +43,42 @@ process SAMPLESHEET_VALIDATION {
     path samplesheet
 
     output:
-    path "validation.txt", emit: validation
-
+    //path "validation.txt", emit: validation
+    val text, emit: validation
     script:
     """
     python $python -file $samplesheet
 
+    echo "content of validation file"
+    echo cat "validation.txt"
+
+    if grep -q "failed" "validation.txt"; then
+        echo "failed"
+        exit 1
+    else
+        echo "success"    
+    fi    
+
+    #filecontent=\$(cat "validation.txt")
+    #echo "file content"
+    #echo "\${filecontent}""
     """
 }
 
-process VALIDATION_SUCCESS {
+// process VALIDATION_SUCCESS {
 
-    input:
-    path validation_file
+//     debug true 
 
-    output:
-    val output
+//     input:
+//     path validation_file
 
-    script:
-    """
-    cat $validation_file
-    """
-}
+//     output:
+//     val output, emit: output
+
+//     script:
+//     """
+//     filecontent=\$(cat {$validation_file})
+//     echo "file content"
+//     echo "\${filecontent}"
+//     """
+// }

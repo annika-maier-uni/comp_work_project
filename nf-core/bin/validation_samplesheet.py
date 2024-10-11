@@ -26,7 +26,8 @@ def validate_samplesheet(samplesheet_file):
             if not all([sample, fastq_1, fastq_2, strandedness]):
                 print(f"ERROR: Missing values in the row for sample '{sample}'. All columns must be filled.")
                 valid = False
-                break # Skip further checks for this row
+                #break # Skip further checks for this row
+                continue
 
             # Construct the correct file paths (assuming the script is run from 'nf-core/bin')
             fastq_1_path = os.path.join("..", "data", os.path.basename(fastq_1))
@@ -69,5 +70,5 @@ def validate_samplesheet(samplesheet_file):
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-file")
-args = parser.parser_args()
+args = parser.parse_args()
 validate_samplesheet(args.file)
