@@ -3,23 +3,27 @@
 ![Alt-Text](Pipeline.jpg)
 
 This pipeline is a RNA-Seq analysis workflow implemented using Nextflow. The workflow includes quality 
-control, trimming, alignment, sorting of aligned files and marking of duplicates using popular tools like FastQC, TrimGalore, HISAT2, STAR, SAMtools, and picard. 
+control (FastQC), trimming (TrimGalore), alignment (HISAT2 or STAR), sorting of aligned files (SAMtools) and marking of duplicates (picard). 
 
 ## Workflow Overview
 The pipeline performs the following steps:
 
 1. **Read and Validate Samplesheet**: The input samplesheet (CSV) contains information about the samples, such as the sample name, 
-strandedness, and the paths to paired-end FASTQ files.
+strandedness, and the paths to paired-end FASTQ files. It checks for the correct format of the samplesheet, ensuring that all required fields
+are present and that the specified FASTQ files exist and are correctly named.
 
-2. **FASTQ Quality Control (FastQC)**: Performs quality control checks on raw FASTQ files using FastQC.
+3. **FASTQ Quality Control (FastQC)**: Performs quality control checks on raw FASTQ files using FastQC.
 
-3. **Trimming (TrimGalore)**: Trims adapters and low-quality regions from the FASTQ files.
+4. **Trimming (TrimGalore)**:  This process utilizes Trim Galore to perform quality trimming on paired-end FASTQ files.
+It generates quality control reports using FastQC.
 
-4. **Alignment (HISAT2 or STAR)**: Aligns the trimmed FASTQ files to the reference genome.
+5. **Alignment (HISAT2)**: The process generates a HISAT2 index from a reference genome, and aligns paired-end FASTA/FASTQ reads to the generated index.
+   
+   **Alignment (STAR)**: The process generates a STAR index from a reference genome and GTF file, and aligns paired-end FASTA/FASTQ reads to the generated index.
 
-5. **Sorting (SAMtools)**: Sorts the aligned SAM files.
+7. **Sorting (SAMtools)**: Sorts the aligned SAM files.
 
-6. **Mark duplicates (picard)**: Identifies and marks duplicate reads in the sorted files.
+8. **Mark duplicates (picard)**: The process identifies and marks duplicate reads in a BAM file generated from an alignment step.
 
 ## Usage
 
@@ -46,7 +50,9 @@ The strandedness refers to the library preparation and will be automatically inf
 ### Parameters
 ```bash
 -profile: Use <docker/singularity/.../institute>
-
+```
+### Optional Parameters
+```bash
 --samplesheet: The path to the samplesheet CSV file containing sample information. 
 The default value is './data/samplesheet.csv'.
 
@@ -61,7 +67,7 @@ You can use the genome data from here: https://github.com/nf-core/test-datasets/
 --align: Specifies whether to use HISAT2 or STAR as alignment tools. Use <HISAT2/ STAR>. 
 The default is 'HISAT2'.
 
---outDir: Specifies the output directory of the results.
+--outdir: Specifies the output directory of the results.
 ```
 
 ### Now, you can run the pipeline using:
