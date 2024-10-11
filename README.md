@@ -19,6 +19,23 @@ strandedness, and the paths to paired-end FASTQ files.
 
 6. Mark duplicates (picard): Identifies and marks duplicate reads in the sorted files.
 
+
+## Channels
+
+The pipeline defines several channels to manage input files and processed data:
+
+- Samplesheet Channel: This channel reads the input samplesheet file, which contains metadata about the samples.
+
+- Python Validation Channel: This channel loads the Python script used for validating the samplesheet.
+
+- Reads Channel: This channel processes the samplesheet, splitting it into structured data for each sample, including information about strandedness and the corresponding paired-end FASTQ files.
+
+- Reference Genome Channel: This channel provides access to the reference genome in FASTA format.
+
+- GTF Channel: This channel is for the Gene Transfer Format (GTF) file, which contains gene annotations.
+
+- Tuple Channel: This channel further structures the input data, focusing on individual sample attributes and their associated FASTQ file paths.
+
 ## Usage
 
 > [!NOTE]
