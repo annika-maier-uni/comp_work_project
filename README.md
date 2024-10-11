@@ -1,5 +1,7 @@
 # Simple RNA-Seq Pipeline using Nextflow
 
+![Alt-Text](Pipeline.jpg)
+
 This pipeline is a RNA-Seq analysis workflow implemented using Nextflow. The workflow includes quality 
 control, trimming, alignment, sorting of aligned files and marking of duplicates using popular tools like FastQC, TrimGalore, HISAT2, STAR, SAMtools, and picard. 
 
