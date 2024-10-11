@@ -1,20 +1,21 @@
 # Simple RNA-Seq Pipeline using Nextflow
 
 This pipeline is a RNA-Seq analysis workflow implemented using Nextflow. The workflow includes quality 
-control, trimming, and alignment steps using popular tools like FastQC, TrimGalore, and HISAT2. 
+control, trimming, and alignment steps using popular tools like FastQC, TrimGalore, HISAT2, and STAR. 
 
 ## Workflow Overview
 The pipeline performs the following steps:
 
-1. Read Samplesheet: The input samplesheet (CSV) contains information about the samples, such as the sample name, 
-strandedness, and the paths to paired-end FASTQ files. FASTQ Quality Control (FastQC): Performs quality control 
-checks on raw FASTQ files using FastQC.
+1. Read and Validate Samplesheet: The input samplesheet (CSV) contains information about the samples, such as the sample name, 
+strandedness, and the paths to paired-end FASTQ files.
 
-2. Trimming (TrimGalore): Trims adapters and low-quality regions from the FASTQ files.
+2. FASTQ Quality Control (FastQC): Performs quality control checks on raw FASTQ files using FastQC.
 
-3. Reference Genome Indexing (HISAT2): Builds the reference genome index required for alignment using HISAT2.
+3. Trimming (TrimGalore): Trims adapters and low-quality regions from the FASTQ files.
 
-4. Alignment (HISAT2): Aligns the trimmed FASTQ files to the reference genome.
+4. Reference Genome Indexing (HISAT2): Builds the reference genome index required for alignment using HISAT2.
+
+5. Alignment (HISAT2 and STAR): Aligns the trimmed FASTQ files to the reference genome.
 
 
 ## Usage
@@ -40,6 +41,7 @@ The strandedness refers to the library preparation and will be automatically inf
 -- samplesheet: The path to the samplesheet CSV file containing sample information. The default value is ./modules/trimgalore/samplesheet_new.csv.
 -- reference:   The path to the reference genome file (FASTA format). The default value is ./modules/hisat2/align/genome.fa. You can use the genome 
                 data from here: https://github.com/nf-core/test-datasets/tree/rnaseq/reference
+
 -profile:       Use docker/singularity/.../institute
 
 ### Now, you can run the pipeline using:
@@ -48,16 +50,9 @@ The strandedness refers to the library preparation and will be automatically inf
 nextflow run main.nf -profile <docker/singularity/.../institute>
 ```
 
-```bash
-nextflow run main.nf --samplesheet <SAMPLESHEET> -profile <docker/singularity/.../institute> 
-```
-
-```bash
-nextflow run main.nf --samplesheet <SAMPLESHEET> --reference <REFERENCE> -profile <docker/singularity/.../institute>
-```
+Add more parameters if needed from the list above.
 
 ## Notes
-This pipeline uses Nextflow's view() function to print intermediate channel contents, which is helpful for debugging.
 Make sure the input files (samplesheet and reference genome) are correctly formatted and accessible before running the workflow.
 
 
