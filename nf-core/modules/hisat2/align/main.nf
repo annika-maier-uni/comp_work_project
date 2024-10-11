@@ -126,7 +126,7 @@ process HISAT2_ALIGN {
         --threads ${params.max_cpus} \
         --rg "PU:${RGPU}"
 
-    # Save the versions of HISAT2 and Samtools used in this process to a YAML file
+    # Capture the versions of the tools used in the process for reproducibility
     cat <<-END_VERSIONS > versions.yml
         "${task.process}":
             hisat2: \$(hisat2 --version | grep -o 'version [^ ]*' | cut -d ' ' -f 2)

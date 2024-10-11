@@ -37,12 +37,8 @@ process PICARD_MARKDUPLICATES {
 
     publishDir "${params.outdir}/picard", mode: 'copy'
 
-    //conda "${moduleDir}/environment.yml"
-
+    // using offical docker container from broadinstitute - RNAseq container not accessible for the Python version we use
     container 'docker.io/broadinstitute/picard'
-    // container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-    //      'https://depot.galaxyproject.org/singularity/picard:3.2.0--hdfd78af_0' :
-    //      'biocontainers/picard:3.1.1--hdfd78af_0' }"
 
     input:
     path input_sam
@@ -54,11 +50,13 @@ process PICARD_MARKDUPLICATES {
 
     script:
     """
+    # Run Picard MarkDuplicates to mark duplicate reads in the input SAM file
     java -Xmx12g -jar /usr/picard/picard.jar MarkDuplicates \
         -I ${input_sam} \
         -O marked_duplicates.bam \
         -M metrics.txt
 
+    # Capture the versions of the tools used in the process for reproducibility
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         picard: \$(echo \$(java -Xmx12g -jar /usr/picard/picard.jar MarkDuplicates --version 2>&1) | grep -o 'Version:.*' | cut -f2- -d:)

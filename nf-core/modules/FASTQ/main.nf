@@ -58,7 +58,7 @@ process FASTQC {
     # Run FastQC
     fastqc ${reads} --threads $params.max_cpus --memory $params.max_memory
 
-    # Save HISAT2 and Samtools versions
+    # Capture the versions of the tools used in the process for reproducibility
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         fastqc: \$( fastqc --version | sed '/FastQC v/!d; s/.*v//' )

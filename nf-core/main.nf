@@ -55,36 +55,7 @@ workflow {
     python_channel = Channel
         .fromPath(params.python_file)
 
-    // 3. Channel for reading data from the samplesheet file
-    reads_channel = Channel
-        .fromPath(params.samplesheet)
-        .splitCsv(header: true)      // Split CSV file using header for column names
-        .map { row ->                // Map each row to structured format
-            [
-                ["sample": row.sample, "strandedness": row.strandedness],
-                [file(row.fastq_1), file(row.fastq_2)] // Paired FASTQ file paths
-            ]
-        }
 
-    // 4. Channel for the reference genome (FASTA) file
-    fasta_channel = Channel
-        .fromPath(params.fasta)
-
-    // 5. Channel for the GTF (Gene Transfer Format) file
-    gtf_channel = Channel
-        .fromPath(params.gtf)
-
-    // 6. Channel for reading the FASTQ files from the samplesheet
-    tuple_channel = Channel
-        .fromPath(params.samplesheet)
-        .splitCsv(header: true)
-        .map { row ->
-            [
-                ["sample": row.sample, "strandedness": row.strandedness],
-                [file(row.fastq_1)],  // FASTQ 1 path
-                [file(row.fastq_2)]   // FASTQ 2 path
-            ]
-        }
 
     /*
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -95,15 +66,36 @@ workflow {
     // 1. Samplesheet validation using the provided Python script
     SAMPLESHEET_VALIDATION(python_channel, samplesheet_channel)
 
-    // 2. Check if validation was successful
-    //VALIDATION_SUCCESS(file_path)
+    // 3. Channel for reading data from the samplesheet file
+        reads_channel = Channel
+            .fromPath(params.samplesheet)
+            .splitCsv(header: true)      // Split CSV file using header for column names
+            .map { row ->                // Map each row to structured format
+                [
+                    ["sample": row.sample, "strandedness": row.strandedness],
+                    [file(row.fastq_1), file(row.fastq_2)] // Paired FASTQ file paths
+                ]
+            }
 
-    // 3. Conditional workflow execution based on validation result
-    // if (exit_code == 1) {
-    //     error "Validation failed! Please check the samplesheet format."
-    // } else {
-    println "Samplesheet validation passed!"
+        // 4. Channel for the reference genome (FASTA) file
+        fasta_channel = Channel
+            .fromPath(params.fasta)
 
+        // 5. Channel for the GTF (Gene Transfer Format) file
+        gtf_channel = Channel
+            .fromPath(params.gtf)
+
+        // 6. Channel for reading the FASTQ files from the samplesheet
+        tuple_channel = Channel
+            .fromPath(params.samplesheet)
+            .splitCsv(header: true)
+            .map { row ->
+                [
+                    ["sample": row.sample, "strandedness": row.strandedness],
+                    [file(row.fastq_1)],  // FASTQ 1 path
+                    [file(row.fastq_2)]   // FASTQ 2 path
+                ]
+            }
     // 4. Perform quality control using FastQC
     FASTQC(reads_channel)
 

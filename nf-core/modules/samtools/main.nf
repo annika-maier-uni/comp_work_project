@@ -14,7 +14,7 @@ nextflow.enable.dsl = 2
 # Description:
 # The SAMTOOLS_SORT_AND_INDEX process sorts a SAM file generated from
 # an alignment step and then creates an index for the sorted file using
-# Samtools. This is a crucial step in preparing the data for downstream
+# Samtools. This step is crucial for preparing the data for downstream
 # analysis, such as variant calling or visualization.
 #
 # Input:
@@ -32,7 +32,7 @@ nextflow.enable.dsl = 2
 
 process SAMTOOLS_SORT_AND_INDEX {
 
-    publishDir "${params.outdir}/ssmtools", mode: 'copy'
+    publishDir "${params.outdir}/samtools", mode: 'copy'
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
@@ -50,8 +50,10 @@ process SAMTOOLS_SORT_AND_INDEX {
     script:
 
     """
+    # Sort the SAM file using Samtools and save the output as 'sorted.sam'
     samtools sort ${input_sam} -o sorted.sam \\
 
+    # Capture the versions of the tools used in the process for reproducibility
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
