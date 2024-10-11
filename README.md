@@ -72,7 +72,7 @@ You can use the genome data from here: https://github.com/nf-core/test-datasets/
 The default value is "./data/genes.gtf". 
 You can use the genome data from here: https://github.com/nf-core/test-datasets/tree/rnaseq/reference
 
--align: Specifies whether to use HISAT2 or STAR as alignment tools. Use <HISAT2/ STAR>. 
+--align: Specifies whether to use HISAT2 or STAR as alignment tools. Use <HISAT2/ STAR>. 
 The default is 'HISAT2'.
 ```
 
