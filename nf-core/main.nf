@@ -82,7 +82,10 @@ workflow {
 
     //EXECUTION
     // 1. Samplesheet validation
-    SAMPLESHEET_VALIDATION(python_channel,samplesheet_channel)
+    //SAMPLESHEET_VALIDATION(python_channel,samplesheet_channel)
+
+
+
 
     // 2. Perform quality control on the FASTQ files using FastQC
     FASTQC(reads_channel)
@@ -99,11 +102,14 @@ workflow {
 
         // Then, align the reads with the built index
         HISAT2_ALIGN(hiasat2_build_index, reads)
-        aligned_sam = HISAT2_ALIGN.out.sam_file
+        aligned_sam = HISAT2_ALIGN.out.sam
 
         // Use samtools to sort and index
         SAMTOOLS_SORT_AND_INDEX(aligned_sam)
         sorted_sam = SAMTOOLS_SORT_AND_INDEX.out.sam
+
+        // 5. Mark duplicates
+        PICARD_MARKDUPLICATES(sorted_sam)
     }
 
     // 4.b Align reads using STAR
@@ -117,12 +123,12 @@ workflow {
 
         INDEX_FILE(fasta_channel,gtf_channel)
         STAR_ALIGN(trimmed_reads,INDEX_FILE.out.index, gtf_channel)
-        sorted_sam = STAR_ALIGN.out.sam
+        sorted_bam = STAR_ALIGN.out.bam
     }
 
 
-    // 5. Mark duplicates
-    PICARD_MARKDUPLICATES(sorted_sam)
+
+
 }
 
 /*

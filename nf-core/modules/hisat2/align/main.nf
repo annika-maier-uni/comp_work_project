@@ -90,7 +90,7 @@ process HISAT2_ALIGN {
     tuple val(meta), path(fastas) // Input FASTA/FASTQ files for alignment 
 
     output:
-    path "output_hisat2_aligned_sam_file.sam", emit: sam_file  // Aligned SAM file
+    path "output_hisat2_aligned_sam_file.sam", emit: sam  // Aligned SAM file
     // TODO - probably have to change it to 
     // path "${meta.sample}_aligned.sam"
 

@@ -41,10 +41,12 @@ process SAMPLESHEET_VALIDATION {
     path samplesheet
 
     output:
-    stdout
+    path validation
 
     script:
     """
-    python $python $samplesheet
+    python $python $samplesheet > "${params.outdir}/samplesheet_validation/validation.txt"
+
     """
 }
+
