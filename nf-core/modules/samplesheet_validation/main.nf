@@ -38,13 +38,15 @@ nextflow.enable.dsl = 2
 
 process SAMPLESHEET_VALIDATION {
 
+    debug true
+
     input:
     path python
     path samplesheet
 
     output:
     //path "validation.txt", emit: validation
-    val text, emit: validation
+    // val text, emit: validation
     script:
     """
     python $python -file $samplesheet

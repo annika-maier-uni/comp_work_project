@@ -94,7 +94,6 @@ workflow {
 
     // 1. Samplesheet validation using the provided Python script
     SAMPLESHEET_VALIDATION(python_channel, samplesheet_channel)
-    exit_code = SAMPLESHEET_VALIDATION.out.validation  // Capture the output validation file path
 
     // 2. Check if validation was successful
     //VALIDATION_SUCCESS(file_path)
