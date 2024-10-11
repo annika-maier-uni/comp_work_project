@@ -67,7 +67,7 @@ You can use the genome data from here: https://github.com/nf-core/test-datasets/
 --align: Specifies whether to use HISAT2 or STAR as alignment tools. Use <HISAT2/ STAR>. 
 The default is 'HISAT2'.
 
---outDir: Specifies the output directory of the results.
+--outdir: Specifies the output directory of the results.
 ```
 
 ### Now, you can run the pipeline using:
