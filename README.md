@@ -26,8 +26,8 @@ are present and that the specified FASTQ files exist and are correctly named.
 
 3. **FASTQ Quality Control (FastQC)**: Performs quality control checks on raw FASTQ files using FastQC.
 
-4. **Trimming (TrimGalore)**:  This process utilizes Trim Galore to perform quality trimming on paired-end FASTQ files.
-It generates quality control reports using FastQC.
+4. **Trimming (TrimGalore)**:  This process utilizes Trim Galore to perform quality trimming on paired-end FASTQ files. You can either use the default parameters or specify a custom adapter sequence and the length of trimmed reads such that reads that become shorter than this threshold during the trimming process will be discarded.
+It generates quality control reports using FastQC. 
 
 5. **Alignment (HISAT2)**: The process generates a HISAT2 index from a reference genome, and aligns paired-end FASTA/FASTQ reads to the generated index.
    
@@ -55,7 +55,7 @@ Each row represents a pair of fastq files (paired end). This tool does not allow
 The strandedness refers to the library preparation and will be automatically inferred if set to `auto`.
 
 > [!NOTE]
-> A samplesheet validation is used to check, whether the samplesheet was correctly constructed. If the samplesheet is correct, the message "Samplesheet validation passed!" occurs and the pipeline automatically continues running. Else an error occurs right at the beginning which stops the pipeline from running.
+> A samplesheet validation is used to check, whether the samplesheet was correctly constructed. If the samplesheet is correct, the message "Samplesheet validation passed!" occurs and the pipeline automatically continues running. Else the process terminates with an error, telling what is wrong in the samplesheet.
 
 ## Executing the Pipeline
 
@@ -67,6 +67,10 @@ The strandedness refers to the library preparation and will be automatically inf
 ```bash
 --samplesheet: The path to the samplesheet CSV file containing sample information. 
 The default value is './data/samplesheet.csv'.
+
+--adapter: A custom adapter sequence that Trim Galore will use for trimming instead of the default Illumina adapter.
+
+--length: The length of the trimmed reads. Reads that become shorter than this threshold during the trimming process will be discarded.
 
 --fasta: The path to the reference genome file (FASTA format). 
 The default value is "./data/genome.fa" .   
