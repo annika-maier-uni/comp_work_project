@@ -66,7 +66,7 @@ The strandedness refers to the library preparation and will be automatically inf
 ### Optional Parameters
 ```bash
 --samplesheet: The path to the samplesheet CSV file containing sample information. 
-The default value is './data/samplesheet.csv'.
+The default value is './data/samplesheets/samplesheet.csv'.
 
 --adapter: A custom adapter sequence that Trim Galore will use for trimming instead of the default Illumina adapter.
 
