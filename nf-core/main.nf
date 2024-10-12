@@ -31,7 +31,7 @@ include { SAMPLESHEET_VALIDATION } from './modules/samplesheet_validation'
 */
 
 // Set default parameters for input files and tools
-params.samplesheet = params.samplesheet ?: './data/samplesheet.csv'   // Path to samplesheet file (CSV format) containing sample metadata
+params.samplesheet = params.samplesheet ?: './data/samplesheets/samplesheet.csv'   // Path to samplesheet file (CSV format) containing sample metadata
 params.fasta  = params.fasta  ?: "./data/genome.fa"                   // Path to reference genome file in FASTA format
 params.gtf  = params.gtf  ?: "./data/genes.gtf"                       // Path to gene annotation file in GTF format
 params.python_file = './bin/validation_samplesheet.py'                // Path to the Python script for validating the samplesheet
