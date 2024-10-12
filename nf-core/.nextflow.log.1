@@ -1,0 +1,110 @@
+Oct-12 15:25:13.529 [main] DEBUG nextflow.cli.Launcher - $> nextflow main.nf -profile docker --outdir results_8_samples --samplesheet ./data/samplesheet_8_samples.csv
+Oct-12 15:25:13.637 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.04.4
+Oct-12 15:25:13.662 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/maikenaegele/.nextflow/plugins; core-plugins: nf-amazon@2.5.3,nf-azure@1.6.1,nf-cloudcache@0.4.1,nf-codecommit@0.2.1,nf-console@1.1.3,nf-ga4gh@1.3.0,nf-google@1.13.2-patch1,nf-tower@1.9.1,nf-wave@1.4.2-patch1
+Oct-12 15:25:13.678 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-12 15:25:13.679 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-12 15:25:13.685 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-12 15:25:13.700 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-12 15:25:13.727 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/nextflow.config
+Oct-12 15:25:13.730 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/nextflow.config
+Oct-12 15:25:13.762 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/maikenaegele/.nextflow/secrets/store.json
+Oct-12 15:25:13.766 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@3068b369] - activable => nextflow.secret.LocalSecretsProvider@3068b369
+Oct-12 15:25:13.780 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Oct-12 15:25:14.643 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [gitpod, debug, shifter, mamba, charliecloud, apptainer, conda, singularity, arm, wave, docker, podman]
+Oct-12 15:25:14.689 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Oct-12 15:25:14.716 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [hopeful_hodgkin] DSL2 - revision: 4ee7661ea9
+Oct-12 15:25:14.718 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-12 15:25:14.718 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-12 15:25:14.815 [main] DEBUG nextflow.Session - Session UUID: b3f84c88-8323-4e6a-8e60-9ac3726acb2b
+Oct-12 15:25:14.816 [main] DEBUG nextflow.Session - Run name: hopeful_hodgkin
+Oct-12 15:25:14.816 [main] DEBUG nextflow.Session - Executor pool size: 8
+Oct-12 15:25:14.829 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Oct-12 15:25:14.839 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Oct-12 15:25:14.872 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 24.04.4 build 5917
+  Created: 01-08-2024 07:05 UTC (09:05 CEST)
+  System: Linux 5.15.153.1-microsoft-standard-WSL2
+  Runtime: Groovy 4.0.21 on OpenJDK 64-Bit Server VM 11.0.24+8-post-Ubuntu-1ubuntu322.04
+  Encoding: UTF-8 (UTF-8)
+  Process: 50669@MaikeLaptop [127.0.1.1]
+  CPUs: 8 - Mem: 7.7 GB (5.9 GB) - Swap: 2 GB (2 GB)
+Oct-12 15:25:14.901 [main] DEBUG nextflow.Session - Work-dir: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/work [ext2/ext3]
+Oct-12 15:25:14.924 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Oct-12 15:25:14.939 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Oct-12 15:25:14.995 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-12 15:25:15.014 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Oct-12 15:25:15.102 [main] DEBUG nextflow.Session - Session start
+Oct-12 15:25:15.480 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-12 15:25:16.353 [main] WARN  nextflow.script.ScriptBinding - Access to undefined parameter `fasta` -- Initialise it to a default value eg. `params.fasta = some_value`
+Oct-12 15:25:16.354 [main] WARN  nextflow.script.ScriptBinding - Access to undefined parameter `gtf` -- Initialise it to a default value eg. `params.gtf = some_value`
+Oct-12 15:25:16.355 [main] WARN  nextflow.script.ScriptBinding - Access to undefined parameter `align` -- Initialise it to a default value eg. `params.align = some_value`
+Oct-12 15:25:16.357 [main] WARN  nextflow.script.ScriptBinding - Access to undefined parameter `adapter` -- Initialise it to a default value eg. `params.adapter = some_value`
+Oct-12 15:25:16.358 [main] WARN  nextflow.script.ScriptBinding - Access to undefined parameter `length` -- Initialise it to a default value eg. `params.length = some_value`
+Oct-12 15:25:16.511 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-12 15:25:16.512 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-12 15:25:16.520 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Oct-12 15:25:16.529 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=7.7 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+Oct-12 15:25:16.533 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Oct-12 15:25:16.760 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-12 15:25:16.761 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-12 15:25:16.799 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-12 15:25:16.799 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-12 15:25:16.816 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-12 15:25:16.817 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-12 15:25:16.830 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-12 15:25:16.830 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-12 15:25:16.840 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-12 15:25:16.840 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-12 15:25:16.849 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-12 15:25:16.849 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-12 15:25:16.856 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: FASTQC, HISAT2_BUILD, TRIMMING, PICARD_MARKDUPLICATES, INDEX_FILE, HISAT2_ALIGN, SAMTOOLS_SORT_AND_INDEX, STAR_ALIGN, SAMPLESHEET_VALIDATION
+Oct-12 15:25:16.856 [main] DEBUG nextflow.Session - Igniting dataflow network (11)
+Oct-12 15:25:16.867 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SAMPLESHEET_VALIDATION
+Oct-12 15:25:16.871 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FASTQC
+Oct-12 15:25:16.874 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > TRIMMING
+Oct-12 15:25:16.880 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > HISAT2_BUILD
+Oct-12 15:25:16.884 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > HISAT2_ALIGN
+Oct-12 15:25:16.887 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SAMTOOLS_SORT_AND_INDEX
+Oct-12 15:25:16.888 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PICARD_MARKDUPLICATES
+Oct-12 15:25:16.893 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_56a694bf8a790d4b: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/main.nf
+  Script_b57f9cbd83fccec6: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/picard_mark_duplicates/main.nf
+  Script_06825595e9434d80: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/hisat2/align/main.nf
+  Script_8f0e6d66a100b6dc: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/trimgalore/main.nf
+  Script_7de53721bd58bf96: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/STAR/main.nf
+  Script_baa357fc42371d76: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/FASTQ/main.nf
+  Script_d14ae9ff3e32caa9: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/samtools/main.nf
+  Script_ea6588a3e3c610a1: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/./modules/samplesheet_validation/main.nf
+Oct-12 15:25:16.894 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Oct-12 15:25:16.895 [main] DEBUG nextflow.Session - Session await
+Oct-12 15:25:17.033 [Actor Thread 7] INFO  nextflow.script.BaseScript - Running HISAT2_BUILD
+Oct-12 15:25:17.194 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-12 15:25:17.197 [Task submitter] INFO  nextflow.Session - [49/c7f404] Submitted process > HISAT2_BUILD (1)
+Oct-12 15:25:17.217 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-12 15:25:17.219 [Task submitter] INFO  nextflow.Session - [1e/c12ea5] Submitted process > SAMPLESHEET_VALIDATION (1)
+Oct-12 15:25:17.317 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: SAMPLESHEET_VALIDATION (1); status: COMPLETED; exit: 0; error: -; workDir: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/work/1e/c12ea568eb9afdf0b27e8b0be62abd]
+Oct-12 15:25:17.320 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Oct-12 15:25:17.578 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-12 15:25:17.579 [Task submitter] INFO  nextflow.Session - [8e/14255c] Submitted process > TRIMMING (6)
+Oct-12 15:25:17.611 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-12 15:25:17.612 [Task submitter] INFO  nextflow.Session - [91/57250f] Submitted process > TRIMMING (3)
+Oct-12 15:25:17.640 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-12 15:25:17.642 [Task submitter] INFO  nextflow.Session - [49/cbfe38] Submitted process > FASTQC (6)
+Oct-12 15:25:17.662 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-12 15:25:17.664 [Task submitter] INFO  nextflow.Session - [df/65871e] Submitted process > TRIMMING (5)
+Oct-12 15:25:17.683 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-12 15:25:17.686 [Task submitter] INFO  nextflow.Session - [b8/5d6e72] Submitted process > TRIMMING (4)
+Oct-12 15:25:17.797 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-12 15:25:17.806 [Task submitter] INFO  nextflow.Session - [ed/66994b] Submitted process > TRIMMING (1)
+Oct-12 15:25:17.854 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-12 15:25:17.856 [Task submitter] INFO  nextflow.Session - [79/3670ae] Submitted process > TRIMMING (8)
+Oct-12 15:25:19.780 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: HISAT2_BUILD (1); status: COMPLETED; exit: 0; error: -; workDir: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/work/49/c7f404d002401c6cad3cb4eef159a2]
+Oct-12 15:25:19.799 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-12 15:25:19.807 [Task submitter] INFO  nextflow.Session - [34/5803d7] Submitted process > FASTQC (7)
+Oct-12 15:25:19.959 [TaskFinalizer-2] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Oct-12 15:25:51.287 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: FASTQC (6); status: COMPLETED; exit: 0; error: -; workDir: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/work/49/cbfe3820c03988e1ffdadc431c0e80]
+Oct-12 15:25:51.303 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-12 15:25:51.303 [Task submitter] INFO  nextflow.Session - [33/ed5238] Submitted process > FASTQC (8)
+Oct-12 15:25:52.519 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 17; name: FASTQC (7); status: COMPLETED; exit: 0; error: -; workDir: /home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/work/34/5803d7e4bdaadfc88e5546967e00c3]
+Oct-12 15:25:52.589 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-12 15:25:52.602 [Task submitter] INFO  nextflow.Session - [04/436e78] Submitted process > FASTQC (5)

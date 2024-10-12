@@ -1,0 +1,9 @@
+sample,fastq_1,fastq_2,strandedness
+SRR6357070,data/SRR6357070_1.fastq.gz,data/SRR6357070_2.fastq.gz,reverse
+SRR6357071,data/SRR6357071_1.fastq.gz,data/SRR6357071_2.fastq.gz,reverse
+SRR6357072,data/SRR6357072_1.fastq.gz,data/SRR6357072_2.fastq.gz,reverse
+SRR6357073,data/SRR6357073_1.fastq.gz,data/SRR6357073_2.fastq.gz,reverse
+SRR6357074,data/SRR6357074_1.fastq.gz,data/SRR6357074_2.fastq.gz,reverse
+SRR6357075,data/SRR6357075_1.fastq.gz,data/SRR6357075_2.fastq.gz,reverse
+SRR6357076,data/SRR6357076_1.fastq.gz,data/SRR6357076_2.fastq.gz,reverse
+SRR6357077,data/SRR6357077_1.fastq.gz,data/SRR6357077_2.fastq.gz,reverse
