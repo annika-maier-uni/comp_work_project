@@ -55,7 +55,7 @@ Each row represents a pair of fastq files (paired end). This tool does not allow
 The strandedness refers to the library preparation and will be automatically inferred if set to `auto`.
 
 > [!NOTE]
-> A samplesheet validation is used to check, whether the samplesheet was correctly constructed. If the samplesheet is correct, the message "Samplesheet validation passed!" occurs and the pipeline automatically continues running. Else an error occurs right at the beginning which stops the pipeline from running.
+> A samplesheet validation is used to check, whether the samplesheet was correctly constructed. If the samplesheet is correct, the message "Samplesheet validation passed!" occurs and the pipeline automatically continues running. Else the process terminates with an error, telling what is wrong in the samplesheet.
 
 ## Executing the Pipeline
 
