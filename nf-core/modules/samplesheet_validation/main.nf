@@ -41,6 +41,9 @@ process SAMPLESHEET_VALIDATION {
     path python
     path samplesheet
 
+    output:
+    path samplesheet
+
     script:
     """
     python $python -file $samplesheet

@@ -31,12 +31,14 @@ include { SAMPLESHEET_VALIDATION } from './modules/samplesheet_validation'
 */
 
 // Set default parameters for input files and tools
-params.samplesheet = params.samplesheet ?: './data/samplesheet.csv'   // Path to samplesheet file
-params.fasta  = params.fasta  ?: "./data/genome.fa"                    // Path to reference genome file (FASTA)
-params.gtf  = params.gtf  ?: "./data/genes.gtf"                        // Path to gene annotation file (GTF)
-params.python_file = './bin/validation_samplesheet.py'                 // Path to the samplesheet validation script
-params.align = params.align ?: 'HISAT2'                                // Default alignment tool: HISAT2
-params.outdir = params.outdir  ?: 'results'
+params.samplesheet = params.samplesheet ?: './data/samplesheet.csv'   // Path to samplesheet file (CSV format) containing sample metadata
+params.fasta  = params.fasta  ?: "./data/genome.fa"                   // Path to reference genome file in FASTA format
+params.gtf  = params.gtf  ?: "./data/genes.gtf"                       // Path to gene annotation file in GTF format
+params.python_file = './bin/validation_samplesheet.py'                // Path to the Python script for validating the samplesheet
+params.align = params.align ?: 'HISAT2'                               // Default alignment tool: HISAT2 (can be overridden)
+params.outdir = params.outdir  ?: 'results'                           // Default output directory where results will be stored
+params.adapter = params.adapter ?: ''                                 // Default adapter sequence for trimming (empty if not provided)
+params.length = params.length ?: ''                                   // Default minimum read length for trimming (empty if not provided)
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     RUN MAIN WORKFLOW
@@ -64,38 +66,27 @@ workflow {
     */
 
     // 1. Samplesheet validation using the provided Python script
-    SAMPLESHEET_VALIDATION(python_channel, samplesheet_channel)
+    samplesheet_channel = SAMPLESHEET_VALIDATION(python_channel, samplesheet_channel)
 
     // 3. Channel for reading data from the samplesheet file
-        reads_channel = Channel
-            .fromPath(params.samplesheet)
-            .splitCsv(header: true)      // Split CSV file using header for column names
-            .map { row ->                // Map each row to structured format
-                [
-                    ["sample": row.sample, "strandedness": row.strandedness],
-                    [file(row.fastq_1), file(row.fastq_2)] // Paired FASTQ file paths
-                ]
-            }
+    samplesheet_channel
+        .splitCsv(header: true)      // Split CSV file using header for column names
+        .map { row ->                // Map each row to structured format
+            [
+                ["sample": row.sample, "strandedness": row.strandedness],
+                [file(row.fastq_1), file(row.fastq_2)] // Paired FASTQ file paths
+            ]
+        }
+        .set {reads_channel}
 
-        // 4. Channel for the reference genome (FASTA) file
-        fasta_channel = Channel
-            .fromPath(params.fasta)
+    // 4. Channel for the reference genome (FASTA) file
+    fasta_channel = Channel
+        .fromPath(params.fasta)
 
-        // 5. Channel for the GTF (Gene Transfer Format) file
-        gtf_channel = Channel
-            .fromPath(params.gtf)
+    // 5. Channel for the GTF (Gene Transfer Format) file
+    gtf_channel = Channel
+        .fromPath(params.gtf)
 
-        // 6. Channel for reading the FASTQ files from the samplesheet
-        tuple_channel = Channel
-            .fromPath(params.samplesheet)
-            .splitCsv(header: true)
-            .map { row ->
-                [
-                    ["sample": row.sample, "strandedness": row.strandedness],
-                    [file(row.fastq_1)],  // FASTQ 1 path
-                    [file(row.fastq_2)]   // FASTQ 2 path
-                ]
-            }
     // 4. Perform quality control using FastQC
     FASTQC(reads_channel)
 

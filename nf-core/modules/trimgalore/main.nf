@@ -64,12 +64,27 @@ process TRIMMING {
     path  "versions.yml"                                        , emit: versions  // Output: version file
 
     script:
-    def prefix = "${meta.sample}"  // Prefix for input files
-    """
-    # Run Trim Galore on paired reads with FastQC
-    trim_galore --paired ${prefix}_1.fastq.gz ${prefix}_2.fastq.gz --fastqc
+    // Use the sample name from meta info as a prefix for input files
+    def prefix = "${meta.sample}"
 
-    # Capture version information for Trim Galore and Cutadapt
+    // Initialize empty variables to store adapter and length trimming parameters
+    def adapter_trimming = ''
+    def length_trimmedreads = ''
+
+    // If adapter trimming is specified in parameters, append the adapter option
+    if (params.adapter == adapter_trimming) {
+        adapter_trimming = adapter_trimming ?: '--adapter ${params.adapter}'
+    }
+    // If minimum read length trimming is specified in parameters, append the length option
+    if (params.length == length_trimmedreads) {
+        length_trimmedreads = length_trimmedreads ?: '--length ${params.length}'
+    }
+
+    // Run Trim Galore on paired reads with FastQC, and apply adapter trimming and length trimming if specified
+    """
+    trim_galore --paired ${prefix}_1.fastq.gz ${prefix}_2.fastq.gz --fastqc ${adapter_trimming} ${length_trimmedreads}
+
+    # Capture version information for Trim Galore and Cutadapt, and write them to versions.yml
     cat <<-END_VERSIONS > versions.yml
         "${task.process}":
             trimgalore: \$(echo \$(trim_galore --version 2>&1) | sed 's/^.*version //; s/Last.*\$//')
