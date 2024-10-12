@@ -68,6 +68,10 @@ The strandedness refers to the library preparation and will be automatically inf
 --samplesheet: The path to the samplesheet CSV file containing sample information. 
 The default value is './data/samplesheet.csv'.
 
+--adapter: A custom adapter sequence that Trim Galore will use for trimming instead of the default Illumina adapter.
+
+--length: The length of the trimmed reads. Reads that become shorter than this threshold during the trimming process will be discarded.
+
 --fasta: The path to the reference genome file (FASTA format). 
 The default value is "./data/genome.fa" .   
 You can use the genome data from here: https://github.com/nf-core/test-datasets/tree/rnaseq/reference
