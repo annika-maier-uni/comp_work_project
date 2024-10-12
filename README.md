@@ -1,4 +1,4 @@
-# Simple RNA-Seq Pipeline using Nextflow
+# Simple RNA-Seq Pipeline using Nextflow TO BE CHANGED
 <h1>
    <picture>    
       <img src="nextflow_logo.png" alt="Nextflow Logo" width="400">
