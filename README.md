@@ -26,8 +26,8 @@ are present and that the specified FASTQ files exist and are correctly named.
 
 3. **FASTQ Quality Control (FastQC)**: Performs quality control checks on raw FASTQ files using FastQC.
 
-4. **Trimming (TrimGalore)**:  This process utilizes Trim Galore to perform quality trimming on paired-end FASTQ files.
-It generates quality control reports using FastQC.
+4. **Trimming (TrimGalore)**:  This process utilizes Trim Galore to perform quality trimming on paired-end FASTQ files. You can either use the default parameters or specify a custom adapter sequence and the length of trimmed reads such that reads that become shorter than this threshold during the trimming process will be discarded.
+It generates quality control reports using FastQC. 
 
 5. **Alignment (HISAT2)**: The process generates a HISAT2 index from a reference genome, and aligns paired-end FASTA/FASTQ reads to the generated index.
    
