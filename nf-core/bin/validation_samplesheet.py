@@ -11,29 +11,40 @@
 # Python Script: validate_samplesheet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Description:
-# This script validates a samplesheet CSV file used for processing paired-end FASTQ files.
-# It checks for the correct format of the samplesheet, ensuring that all required fields 
-# are present and that the specified FASTQ files exist and are correctly named.
+# This script validates a samplesheet CSV file used for processing paired-end FASTQ files
+# in bioinformatics pipelines. The validation ensures that the samplesheet adheres to the
+# expected structure and checks the existence and format of the referenced FASTQ files.
 #
 # Input:
 # - str samplesheet_file
-#   - Path to the samplesheet CSV file to be validated.
+#   - Path to the samplesheet CSV file that needs to be validated.
 #
 # Output:
 # - validation.txt
-#   - A text file indicating the result of the validation process. It contains either
-#     "Samplesheet validation passed!" or "Samplesheet validation failed!" based on the 
-#     checks performed on the input samplesheet.
+#   - A text file indicating the result of the validation process. It contains either:
+#       - "Samplesheet validation passed!" if all checks pass.
+#       - "Samplesheet validation failed!" along with detailed error messages if issues 
+#         are found during validation.
 #
 # Validation Checks Performed:
-# - Ensure the samplesheet header matches the expected format: ["sample", "fastq_1", "fastq_2", "strandedness"].
-# - Verify that no values are missing in any row of the samplesheet.
-# - Check that both FASTQ files exist and are named correctly, with extensions '.fastq.gz'.
-# - Confirm that the paths to the FASTQ files are correctly constructed based on the script's execution context.
+# 1. Ensure that the samplesheet header matches the expected format:
+#    ["sample", "fastq_1", "fastq_2", "strandedness"].
+#
+# 2. Verify that no missing values are present in any row. All fields (sample, fastq_1, 
+#    fastq_2, strandedness) must be filled.
+#
+# 3. Confirm that both FASTQ files (fastq_1 and fastq_2) are provided for each sample 
+#    (paired-end data), and ensure that the file names end with ".fastq.gz". The check 
+#    is case-insensitive.
+#
+# 4. Check that the FASTQ file paths are valid by constructing them based on the script's
+#    execution context and verifying the existence of the files at the specified locations.
 #
 # Error Messages:
-# - Prints error messages to the console for any validation failures encountered during the 
-#   validation process, detailing the specific issues found for each sample.
+# - If validation fails, detailed error messages are logged to the console and also 
+#   written to the validation.txt file. These errors indicate the exact issue(s) found 
+#   for each sample, such as missing values, incorrectly named files, or non-existent 
+#   files.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
