@@ -1,4 +1,4 @@
-#Simple RNA Sequencing Pipeline: A Nextflow Implementation
+# Simple RNA Sequencing Pipeline: A Nextflow Implementation
 <h1>
    <picture>    
       <img src="nextflow_logo.png" alt="Nextflow Logo" width="400">
