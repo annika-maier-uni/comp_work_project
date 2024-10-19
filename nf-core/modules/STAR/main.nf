@@ -15,22 +15,28 @@ nextflow.enable.dsl = 2
 # The INDEX_FILE process generates a STAR index from a reference genome and GTF file,
 # which is required for alignment in the STAR_ALIGN process.
 #
+#
 # INDEX_FILE:
 # Input:
 # - path(genome): Path to the reference genome FASTA file.
+#
 # - path(gtf): Path to the GTF file containing gene annotations.
 #
 # Output:
 # - path "index_dir/": Directory containing the STAR index files.
 #
+#
 # STAR_ALIGN:
 # Input:
 # - tuple path(fasta1), path(fasta2): Paired-end FASTQ files for alignment.
+#
 # - path(indexDir): Path to the directory containing the STAR index files (output from INDEX_FILE).
+#
 # - path(gtf): Path to the GTF file containing gene annotations.
 #
 # Output:
 # - path "*.bam": BAM file with aligned reads, sorted by coordinate.
+#
 # - path "versions.yml": YAML file recording the versions of STAR, Samtools, and GAWK used in the process.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
