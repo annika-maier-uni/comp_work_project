@@ -17,14 +17,15 @@ nextflow.enable.dsl = 2
 # format and checks the existence of the specified FASTQ files. If the validation
 # fails, the pipeline will stop, and an error message will be returned.
 #
+#
 # Input:
 # - path(python): Path to the Python validation script.
 # - path(samplesheet): Path to the samplesheet file that needs to be validated.
 #
 # Output:
 # - path "validation.txt": A text file that contains the results of the validation.
-#   If the validation passes, it contains "Samplesheet validation passed!". If it
-#   fails, it contains "Samplesheet validation failed!".
+#                          If the validation passes, it contains "Samplesheet validation passed!".
+#                          If it fails, it contains "Samplesheet validation failed!".
 #
 # Execution:
 # - The process runs the Python script, captures the output in "validation.txt", and
