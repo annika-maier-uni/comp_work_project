@@ -18,9 +18,7 @@ nextflow.enable.dsl = 2
 #
 #
 # Input:
-# - Tuple: val(meta), path(reads)
-#   - val(meta): Metadata info about the sample, including the sample name.
-#   - path(reads): Paired-end FASTQ files (*_1.fastq.gz and *_2.fastq.gz) to be trimmed.
+# - Tuple: val(meta), path(reads): Metadata and paired-end FASTQ files to be trimmed.
 #
 # Output:
 # - Tuple: val(meta), path("*{3prime,5prime,trimmed,val}*.fq.gz"): Trimmed FASTQ files with various
