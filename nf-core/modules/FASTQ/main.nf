@@ -16,18 +16,18 @@ nextflow.enable.dsl=2
 # to assess the quality of sequencing data.
 #
 # Input:
-# - tuple val(meta), path(reads): Metadata and paired-end
-#   FASTQ files for quality assessment.
+# - tuple val(meta), path(reads): Metadata and paired-end 
+#                                 FASTQ files for quality assessment.
 #
 # Output:
 # - path("*_fastqc.html"): FastQC HTML report files
-#   generated for each FASTQ file.
-
+#                          generated for each FASTQ file.
+#
 # - path("*_fastqc.zip"): FastQC zip files containing
-#   detailed results.
-
-# - path "versions.yml"
-#   recording the version of FastQC used during the analysis.
+#                         detailed results.
+#
+# - path "versions.yml": recording the version of FastQC 
+#                        used during the analysis.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
