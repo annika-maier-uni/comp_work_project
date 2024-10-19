@@ -17,6 +17,7 @@ nextflow.enable.dsl=2
 # a reference genome., and the HISAT2_ALIGN process aligns
 # paired-end FASTA/FASTQ reads to the generated index.
 #
+#
 # HISAT2_BUILD:
 # Input:
 # - path(reference): Reference genome file to build the index.
@@ -24,6 +25,7 @@ nextflow.enable.dsl=2
 # Output:
 # - path "${name}.*.ht2": HISAT2 index files generated from
 #   the reference genome (name.1.ht2 to name.8.ht2).
+#
 #
 # HISAT2_ALIGN:
 # Input:
@@ -33,12 +35,11 @@ nextflow.enable.dsl=2
 #   Paired-end FASTA/FASTQ files for alignment.
 #
 # Output:
-# - path "output_hisat2_aligned_sam_file.sam": Aligned SAM
-#   file resulting from the alignment of paired-end reads.
+# - path "output_hisat2_aligned_sam_file.sam": Aligned SAM file resulting 
+#                                              from the alignment of paired-end reads.
 #
-# - path "versions.yml"
-#   recording the versions of HISAT2 and Samtools used in
-#   the alignment process.
+# - path "versions.yml": recording the versions of HISAT2 and Samtools used in
+#                        the alignment process.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
