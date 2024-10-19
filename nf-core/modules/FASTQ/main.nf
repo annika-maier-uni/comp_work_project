@@ -15,6 +15,7 @@ nextflow.enable.dsl=2
 # The FASTQC process runs FastQC on paired-end FASTQ files
 # to assess the quality of sequencing data.
 #
+#
 # Input:
 # - tuple val(meta), path(reads): Metadata and paired-end 
 #                                 FASTQ files for quality assessment.
