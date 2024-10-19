@@ -12,19 +12,18 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Description:
 # This script validates a samplesheet CSV file used for processing paired-end FASTQ files
-# in bioinformatics pipelines. The validation ensures that the samplesheet adheres to the
+# in the pipeline. The validation ensures that the samplesheet adheres to the
 # expected structure and checks the existence and format of the referenced FASTQ files.
 #
 # Input:
-# - str samplesheet_file
-#   - Path to the samplesheet CSV file that needs to be validated.
+# - str samplesheet_file: Path to the samplesheet CSV file that needs to be validated.
 #
 # Output:
-# - validation.txt
-#   - A text file indicating the result of the validation process. It contains either:
-#       - "Samplesheet validation passed!" if all checks pass.
-#       - "Samplesheet validation failed!" along with detailed error messages if issues 
-#         are found during validation.
+# - validation.txt: A text file indicating the result of the validation process. 
+#                   It contains either:
+#                   - "Samplesheet validation passed!" if all checks pass.
+#                   - "Samplesheet validation failed!" along with detailed error messages if issues 
+#                      are found during validation.
 #
 # Validation Checks Performed:
 # 1. Ensure that the samplesheet header matches the expected format:
@@ -34,8 +33,7 @@
 #    fastq_2, strandedness) must be filled.
 #
 # 3. Confirm that both FASTQ files (fastq_1 and fastq_2) are provided for each sample 
-#    (paired-end data), and ensure that the file names end with ".fastq.gz". The check 
-#    is case-insensitive.
+#    (paired-end data), and ensure that the file names end with ".fastq.gz".
 #
 # 4. Check that the FASTQ file paths are valid by constructing them based on the script's
 #    execution context and verifying the existence of the files at the specified locations.
@@ -49,17 +47,19 @@
 """
 
 
-import os  # Module to interact with the operating system
-import csv  # Module for reading and writing CSV files
-import argparse  # Module for parsing command-line arguments
+import os  
+import csv  
+import argparse  
 
 
 def validate_samplesheet(samplesheet_file):
-    valid = True  # Variable to track overall validation status
-
+    # Variable to track overall validation status
+    valid = True  
+    
     # Open the samplesheet CSV file
     with open(samplesheet_file, 'r') as file:
-        reader = csv.DictReader(file)  # Create a CSV reader that maps the data into dictionaries
+        # Create a CSV reader that maps the data into dictionaries
+        reader = csv.DictReader(file)  
 
         # Define the expected header columns for the samplesheet
         expected_columns = ["sample", "fastq_1", "fastq_2", "strandedness"]
@@ -124,8 +124,9 @@ def validate_samplesheet(samplesheet_file):
 
 # Set up command-line argument parsing
 parser = argparse.ArgumentParser(description="Validate samplesheet CSV file.")
-parser.add_argument("-file", required=True,
-                    help="Path to the samplesheet CSV file")  # Add argument for the samplesheet file
+
+# Add argument for the samplesheet file
+parser.add_argument("-file", required=True, help="Path to the samplesheet CSV file")  
 args = parser.parse_args()  # Parse the command-line arguments
 
 # Call the validation function with the provided samplesheet file path
