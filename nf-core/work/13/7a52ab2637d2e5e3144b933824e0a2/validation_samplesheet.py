@@ -1,1 +1,0 @@
-/home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/bin/validation_samplesheet.py

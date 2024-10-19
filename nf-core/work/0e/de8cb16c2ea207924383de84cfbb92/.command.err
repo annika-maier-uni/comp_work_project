@@ -1,7 +1,0 @@
-Traceback (most recent call last):
-  File "/home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/work/0e/de8cb16c2ea207924383de84cfbb92/validation_samplesheet.py", line 121, in <module>
-    validate_samplesheet(args.file)
-  File "/home/maikenaegele/ComputationalWorkflow/comp_work_project/nf-core/work/0e/de8cb16c2ea207924383de84cfbb92/validation_samplesheet.py", line 63, in validate_samplesheet
-    sample = row["sample"]  # Sample name
-             ~~~^^^^^^^^^^
-KeyError: 'sample'
