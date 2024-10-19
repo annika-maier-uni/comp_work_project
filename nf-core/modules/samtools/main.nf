@@ -14,19 +14,18 @@ nextflow.enable.dsl = 2
 # Description:
 # The SAMTOOLS_SORT_AND_INDEX process sorts a SAM file generated from
 # an alignment step and then creates an index for the sorted file using
-# Samtools. This step is crucial for preparing the data for downstream
-# analysis, such as variant calling or visualization.
+# Samtools. 
+#
 #
 # Input:
-# - path(input_sam): Path to the input SAM file that needs to be sorted
-#   and indexed.
+# - path(input_sam): Path to the input SAM file that needs to be sorted and indexed.
 #
 # Output:
-# - path "sorted.sam": The sorted SAM file produced by Samtools after sorting
-#   the input SAM file.
+# - path "sorted.sam": The sorted SAM file produced by Samtools after 
+#                      sorting the input SAM file.
 #
-# - path "versions.yml": YAML file containing the version information of
-#   Samtools used in the sorting and indexing process.
+# - path "versions.yml": YAML file containing the version information of Samtools
+#                        used in the sorting and indexing process.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
