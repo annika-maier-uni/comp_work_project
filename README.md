@@ -15,7 +15,7 @@
 ![Alt-Text](Pipeline.png)
 
 This pipeline is a RNA-Seq analysis workflow implemented using Nextflow. The workflow includes quality 
-control (FastQC), trimming (TrimGalore), alignment (HISAT2 or STAR), sorting of aligned files (SAMtools) and marking of duplicates (picard). 
+control (FastQC), trimming (TrimGalore!), alignment (HISAT2 or STAR), sorting of aligned files (SAMtools) and marking of duplicates (picard). 
 
 ## Workflow Overview
 The pipeline performs the following steps:
@@ -26,7 +26,7 @@ are present and that the specified FASTQ files exist and are correctly named.
 
 3. **FASTQ Quality Control (FastQC)**: Performs quality control checks on raw FASTQ files using FastQC.
 
-4. **Trimming (TrimGalore)**:  This process utilizes Trim Galore to perform quality trimming on paired-end FASTQ files. You can either use the default parameters or specify a custom adapter sequence and the length of trimmed reads such that reads that become shorter than this threshold during the trimming process will be discarded.
+4. **Trimming (TrimGalore!)**:  This process utilizes Trim Galore! to perform quality trimming on paired-end FASTQ files. You can either use the default parameters or specify a custom adapter sequence and the length of trimmed reads such that reads that become shorter than this threshold during the trimming process will be discarded.
 It generates quality control reports using FastQC. 
 
 5. **Alignment (HISAT2)**: The process generates a HISAT2 index from a reference genome, and aligns paired-end FASTA/FASTQ reads to the generated index.
@@ -68,7 +68,7 @@ The strandedness refers to the library preparation and will be automatically inf
 --samplesheet: The path to the samplesheet CSV file containing sample information. 
 The default value is './data/samplesheets/samplesheet.csv'.
 
---adapter: A custom adapter sequence that Trim Galore will use for trimming instead of the default Illumina adapter.
+--adapter: A custom adapter sequence that Trim Galore! will use for trimming instead of the default Illumina adapter.
 
 --length: The length of the trimmed reads. Reads that become shorter than this threshold during the trimming process will be discarded.
 
